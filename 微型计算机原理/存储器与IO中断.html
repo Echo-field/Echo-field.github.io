@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <title>存储器与IO中断</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #content-info{
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #author-info{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #title{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-top: 10px;
+            margin-bottom: 2px;
+            font-size: 34px;
+            color: #505050;
+        }
+        .text{
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            font-size: 20px;
+            color: #8c8c8c;
+        }
+        #navBar{
+            width: auto;
+            height: auto;
+            position: fixed;
+            right:0;
+            bottom: 0;
+            background-color: #f0f3f4;
+            overflow-y: auto;
+            text-align: center;
+        }
+        #svg-container{
+            width: 100%;
+            overflow-x: scroll;
+            min-width: 0px;
+            margin: 0 10px;
+        }
+        #nav-thumbs{
+            overflow-y: scroll;
+            padding: 0 5px;
+        }
+        .nav-thumb{
+            position: relative;
+            margin: 10px auto;
+        }
+        .nav-thumb >p{
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+        }
+        .nav-thumb >div{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #c6cfd5;
+        }
+        .nav-thumb img{
+            display: block;
+        }
+        #main-content{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d0cfd8;
+            display: flex;
+            height: auto;
+            flex-flow: row wrap;
+            text-align:center;
+        }
+        #svg-container >svg{
+            display: block;
+            margin:10px auto;
+            margin-bottom: 0;
+        }
+        #copyright{
+            bottom: 0;
+            left: 50%;
+            margin: 5px auto;
+            font-size: 16px;
+            color: #515151;
+        }
+        #copyright >a{
+            text-decoration: none;
+            color: #77C;
+        }
+        .number{
+            position: absolute;
+            top:0;
+            left:0;
+            border-top:22px solid #08a1ef;
+            border-right: 22px solid transparent;
+        }
+        .pagenum{
+            font-size: 12px;
+            color: #fff;
+            position: absolute;
+            top: -23px;
+            left: 2px;
+        }
+            #navBar::-webkit-scrollbar{
+            width: 8px;
+            background-color: #f5f5f5;
+        }
+            #navBar::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+            #navBar::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            background-color: #6b6b70;
+        }
+        #navBar::-webkit-scrollbar-thumb:hover{
+            background-color: #4a4a4f;
+        }
+</style>
+  </head>
+  <body>
+    <div id="main-area">
+      <div id="content-info">
+        <div id="content-info">
+          <div id="title">存储器与IO中断</div>
+        </div>
+        <div id="author-info">
+          <div class="text" id="author-name">Dell</div>
+          <div class="text" id="share-time">2020-11-21</div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="svg-container"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2227" viewBox="0 0 2227 1441" id="page1" height="1441" ed:name="Page-1" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" xmlns:ev="http://www.w3.org/2001/xml-events" ed:hSpacing="30" ed:vSpacing="30" preserveAspectRadio="xMinYMin meet">
+    <style type="text/css"><![CDATA[
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st13 {fill:#303030;font-family:微软雅黑;font-size:12pt}
+.st11 {fill:#454545;font-family:微软雅黑;font-size:10pt}
+.st15 {fill:#454545}
+.st14 {fill:#ff0000;font-family:微软雅黑;font-size:10pt}
+.st12 {fill:#ffffff;font-family:微软雅黑;font-size:14pt}
+]]></style>
+    <defs>
+        <linearGradient y2="100%" y1="0%" x2="0%" id="lg3" x1="0%">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.25" stop-color="#f0f5f0"/>
+            <stop offset="0.75" stop-color="#e1ebe1"/>
+            <stop offset="1" stop-color="#c8d7c8"/>
+        </linearGradient>
+    </defs>
+    <rect y="0" fill="#ffffff" width="2227" height="1441" x="0"/>
+    <path stroke="#dcdcdc" stroke-opacity="0.5" fill="#dcdcdc" d="M462.8,1249.6C465.6,1244.3,468.6,1240,471.8,1236.8C482.4,1226.2,494.9,1221.6,509.3,1222.9C523.7,1224.3,537.2,1231.2,549.8,1243.8C574.1,1268.1,583.7,1296.4,578.5,1328.8C576.7,1340.1,572.2,1349.3,565.1,1356.4L552.1,1369.3C543.1,1378.4,532.2,1382.8,519.3,1382.7C522,1393,519.2,1402.3,511,1410.5C507.1,1414.4,502.5,1416.4,497.2,1416.6C491.9,1416.8,487.5,1415.1,483.8,1411.4C481.1,1408.7,478.7,1404.8,476.6,1399.8L474.4,1394.6L390.5,1196.2L388.2,1190.9C382.3,1176.4,383.8,1164.7,392.7,1155.8C396.8,1151.7,401.5,1149.5,406.8,1149.2C412,1149,416.5,1150.6,420.1,1154.3C423,1157.1,425.4,1161,427.4,1165.9L429.7,1171.2L462.8,1249.6M502.5,1343.8C512.9,1345.1,521.2,1342.6,527.3,1336.5C531.6,1332.2,534.1,1327.3,534.6,1321.8C535.5,1314.2,534.1,1305.6,530.6,1295.8C527.1,1286,522.7,1278.4,517.4,1273.1C513.3,1269,508.8,1266.9,503.8,1266.7C498.9,1266.4,494.5,1268.2,490.6,1272.1C482,1280.7,481.5,1294.1,489.1,1312.1L502.5,1343.8M705.6,1227.1L721.4,1211.3C733,1199.7,742.8,1198,750.9,1206.1C756.5,1211.6,758.8,1218,757.8,1225.1C756.9,1232.3,752.8,1239.5,745.5,1246.8L723.3,1268.9C728.5,1279.4,734.1,1294.6,740.1,1314.4C750.9,1349.2,744.8,1378.1,721.8,1401C707.9,1415,691.8,1422.3,673.6,1423C655.4,1423.8,639.8,1417.7,626.9,1404.7C617.9,1395.7,612,1384.7,609.4,1371.8C606.7,1358.9,607.6,1346.2,612.1,1333.9C617.3,1319.8,629.3,1303.3,648.2,1284.5L670.5,1262.2L664.6,1248.4C660.7,1258,655.9,1265.6,650.2,1271.2C640.5,1281,630.1,1286.4,619.1,1287.5C608.1,1288.6,598.6,1285.2,590.7,1277.2C585.8,1272.4,580.6,1263.2,574.8,1249.6L553,1198L550.6,1192.7C544.7,1178,546.3,1166.1,555.5,1156.9C559.6,1152.9,564.2,1150.8,569.4,1150.7C574.7,1150.5,579.2,1152.4,583.1,1156.3C585.8,1159,588.9,1164.4,592.4,1172.7L611.7,1218.8C614.9,1226.1,617.2,1230.7,618.7,1232.3C622.9,1237,627.9,1236.4,633.8,1230.5C638,1226.3,641.1,1220.8,643,1214C644.9,1207.2,644.9,1201.6,643,1197.3L616.6,1134.3L614.2,1129.1C608.1,1114.6,609.8,1102.6,619.1,1093.3C623.1,1089.3,627.7,1087.3,633,1087.2C638.3,1087.1,642.9,1089,646.7,1092.8C649.3,1095.4,651.7,1099.2,653.8,1104L655.8,1109.3L705.6,1227.1M690.7,1301.6L671.5,1320.7C650.6,1341.6,646.7,1358.7,659.8,1371.8C664.4,1376.4,669.6,1378.7,675.3,1378.7C681,1378.6,686.3,1376.2,691.1,1371.4C697.7,1364.7,701,1356.2,701,1345.9C700.9,1335.6,697.5,1320.8,690.7,1301.6M782.3,930.1L801.2,911.3C812.7,899.7,822.6,898,830.7,906.1C836.2,911.6,838.5,918,837.6,925.1C836.6,932.3,832.5,939.5,825.2,946.8L800.1,971.9L890,1184.5C897.4,1202.1,896.5,1215.4,887.4,1224.6C883.4,1228.6,878.8,1230.7,873.6,1231C868.4,1231.2,864,1229.6,860.3,1225.9C857.7,1223.3,854.5,1217.8,850.9,1209.4L765.4,1006.6L756.1,1015.9C744.5,1027.5,734.8,1029.3,726.8,1021.4C721.2,1015.7,718.8,1009.3,719.7,1002.1C720.6,994.9,724.7,987.7,732,980.4L747.6,964.8L722.2,904.7C713.8,884.7,710.7,867.6,712.9,853.5C715.1,839.3,723,825.5,736.7,811.8L752.2,796.2C763.9,784.6,773.7,782.7,781.8,790.8C787.5,796.5,789.9,803,789,810.3C788.1,817.6,784,824.9,776.7,832.2L772.6,836.2C765,843.9,760.5,851.5,759.1,859C757.8,866.5,759.4,875.5,763.7,885.8L782.3,930.1M912.9,949L928.3,933.6C939.8,922.1,949.6,920.4,957.7,928.5C963.3,934.1,965.6,940.4,964.6,947.6C963.6,954.7,959.5,961.9,952.2,969.2L930.5,991C922.5,999,914.5,1003.6,906.7,1005C898.8,1006.3,892,1004.1,886.4,998.5C883.4,995.5,880.5,990.7,877.8,984.1L844.8,906.1L842.5,900.8C836.4,886.3,838,874.4,847.3,865.1C851.1,861.3,855.7,859.3,861,859C866.4,858.8,870.8,860.5,874.4,864C877.3,866.9,880.5,872.6,884.1,881.1L912.9,949M812.6,812.7C817.9,807.4,824.2,804.7,831.6,804.7C839,804.7,845.3,807.4,850.6,812.7C855.9,817.9,858.5,824.3,858.5,831.6C858.5,839,855.9,845.4,850.6,850.6C845.3,855.9,839,858.6,831.6,858.6C824.2,858.6,817.9,855.9,812.6,850.6C807.3,845.4,804.7,839,804.7,831.6C804.7,824.3,807.3,817.9,812.6,812.7M973.2,868.2C980.1,875,988.6,873.3,998.9,863L1039.5,822.4C1051,810.9,1060.8,809.2,1068.9,817.3C1074.4,822.9,1076.7,829.3,1075.8,836.4C1074.8,843.6,1070.7,850.8,1063.4,858.1L1024.7,896.7C1010.3,911.1,995.8,918.5,981.2,918.9C966.6,919.3,952.5,912.7,938.8,899.1C921.2,881.5,912,860.4,911.1,835.7C910.3,811.1,918,790.6,934.4,774.2C946.4,762.2,959.1,755.8,972.5,754.8C986,753.8,997.9,758.4,1008.1,768.6C1020.4,780.9,1024.5,795,1020.4,810.9C1018.2,819.9,1011.6,829.8,1000.6,840.8L973.2,868.2M954.9,836.8L969.9,821.7C979.7,812,982.3,805.1,977.7,801.1C972.6,796.5,967.1,797.3,961.1,803.3C952.7,811.7,950.6,822.8,954.9,836.8M1098.1,763.8L1112.4,749.5C1124,737.9,1133.8,736.2,1141.9,744.3C1147.5,749.9,1149.8,756.2,1148.8,763.4C1147.9,770.5,1143.7,777.7,1136.5,785L1111.9,809.6C1105.1,816.3,1098.2,820.1,1091.1,820.8C1084,821.5,1077.7,819.2,1072.4,813.8C1069.6,811,1066.2,805,1062.3,795.8L981.7,604.8L979.5,599.6C973.5,585.2,975,573.4,984.2,564.2C988.1,560.4,992.6,558.4,997.8,558.3C1003.1,558.1,1007.5,559.8,1011,563.4C1013.8,566.1,1016.2,569.9,1018.3,574.7L1020.5,579.9L1098.1,763.8M1231.1,630.8L1246.7,615.2C1258.2,603.7,1268.1,601.9,1276.2,610C1281.7,615.6,1284,622,1283,629.2C1282,636.4,1277.9,643.6,1270.7,650.8L1252.3,669.2C1245.2,676.3,1237.1,678.6,1228,676C1228,687.7,1224.6,696.8,1218,703.5L1200.6,720.8C1190.5,731,1179,735.6,1166,734.7C1153,733.8,1140.8,727.7,1129.3,716.2C1111.7,698.6,1101.9,676.8,1099.9,650.8C1097.8,624.8,1104.3,604.3,1119.2,589.4C1130.2,578.4,1143,573.6,1157.4,574.9L1113.2,469.7C1105.6,451.8,1106.5,438.2,1115.8,428.9C1119.7,424.9,1124.3,422.9,1129.5,422.6C1134.7,422.4,1139.2,424.1,1142.8,427.8C1145.7,430.6,1148.2,434.5,1150.3,439.4L1152.4,444.7L1231.1,630.8M1181.8,681.5L1187,676.3C1193.2,670,1194.9,663.4,1191.9,656.4L1176.9,620.8C1175,616.5,1173.3,613.5,1171.7,611.8C1168.9,609.1,1165.4,607.9,1161.2,608.3C1157,608.7,1153.1,610.7,1149.7,614.1C1142.6,621.2,1139.9,631.8,1141.7,645.9C1143.4,660,1148.9,671.6,1158.1,680.8C1166.2,688.9,1174.1,689.1,1181.8,681.5M1241.5,540.1L1263.9,517.7L1266.5,515.1C1275.1,506.4,1283.3,506,1291.1,513.7C1298.9,521.5,1298.5,529.8,1289.8,538.4L1287.2,541L1264.8,563.4L1262.2,566C1258.4,569.9,1254.2,571.9,1249.7,572.2C1245.1,572.5,1241.1,570.8,1237.5,567.3C1234.1,563.8,1232.4,559.8,1232.7,555.3C1232.9,550.8,1235,546.6,1238.9,542.7L1241.5,540.1M1343.4,498C1350.2,504.8,1358.8,503.1,1369.1,492.8L1409.7,452.2C1421.1,440.7,1430.9,439.1,1439,447.2C1444.6,452.7,1446.9,459.1,1445.9,466.2C1445,473.4,1440.9,480.6,1433.6,487.9L1394.9,526.6C1380.5,540.9,1366,548.3,1351.4,548.8C1336.8,549.2,1322.6,542.5,1309,528.9C1291.4,511.3,1282.2,490.2,1281.3,465.5C1280.4,440.9,1288.2,420.4,1304.6,404C1316.5,392.1,1329.2,385.6,1342.7,384.6C1356.2,383.6,1368,388.2,1378.2,398.4C1390.5,410.7,1394.6,424.8,1390.5,440.7C1388.4,449.7,1381.8,459.7,1370.7,470.7L1343.4,498M1325.1,466.6L1340.1,451.5C1349.9,441.8,1352.5,434.9,1347.9,430.9C1342.8,426.4,1337.3,427.1,1331.2,433.1C1322.9,441.5,1320.8,452.6,1325.1,466.6M1539.7,381.8L1500.1,421.4C1488.7,432.8,1475.4,438,1460.2,437.2C1445.1,436.3,1431.1,429.5,1418.4,416.7C1401.3,399.7,1392.4,379,1391.6,354.7C1390.8,330.4,1398.3,310.3,1414.1,294.5C1424.9,283.7,1436.6,278,1449.4,277.2C1462.1,276.5,1473.3,281,1483,290.6C1489.7,297.4,1493.6,304.6,1494.5,312.3C1495.5,320,1493.3,326.5,1488,331.8C1479.7,340.1,1471.6,340.4,1463.7,332.6C1462.5,331.4,1461.5,330.4,1460.7,329.6C1459.8,328.5,1458.9,327.5,1458,326.6C1451.6,320.2,1445.3,320.2,1439,326.4C1433.1,332.4,1430.8,340.9,1432.2,352.1C1433.6,363.2,1438.2,372.7,1446,380.4C1452.4,386.9,1459,389.5,1465.6,388.2C1472.3,386.9,1480.4,381.5,1489.8,372.1L1515.6,346.2C1527.2,334.7,1537.1,332.9,1545.2,341.1C1550.6,346.5,1552.9,352.9,1551.9,360.2C1550.9,367.5,1546.8,374.7,1539.7,381.8M1536.3,187.8C1540.7,173.1,1546,162.6,1552.2,156.4C1560.9,147.7,1570.5,142.9,1581,142.2C1591.5,141.5,1600.5,144.9,1608.1,152.5C1612.6,157,1616.5,163.1,1619.7,170.6L1641.1,220.8L1656.8,205.1C1668.3,193.6,1678.1,191.9,1686.2,200C1691.8,205.6,1694.1,211.9,1693.1,219.1C1692.2,226.2,1688,233.4,1680.7,240.7L1653.3,268.2C1647.5,274,1640.9,277.2,1633.6,277.9C1626.3,278.5,1620.3,276.4,1615.4,271.6C1612.2,268.3,1609,263.1,1606,255.9L1587.7,212.4C1585.3,207,1583.1,203.2,1581.1,201.2C1575.9,196,1569.9,196.9,1563,203.8C1553.7,213.1,1553.8,228.9,1563.2,251.1L1585.5,304C1592.6,320.7,1591.4,333.9,1582,343.3C1578.2,347.1,1573.9,349.1,1568.8,349.3C1563.8,349.6,1559.6,348.1,1556.3,344.7C1553.7,342.1,1551.4,338.5,1549.3,333.6L1547.1,328.4L1459.9,122.4C1452.6,104.6,1453.4,91.2,1462.4,82.2C1466.1,78.5,1470.6,76.5,1475.8,76.4C1481,76.2,1485.4,77.9,1488.9,81.4C1491.8,84.3,1495,89.8,1498.3,97.9L1536.3,187.8M1666,42.6C1679.2,29.4,1694.2,22.7,1711.1,22.6C1728,22.5,1743,28.9,1755.9,41.8C1765.6,51.5,1773.1,63.4,1778.2,77.5C1783.4,91.6,1785.3,105,1783.9,117.9C1782.9,126.4,1780.6,133.8,1776.9,140.3C1773.3,146.8,1766.9,154.6,1757.8,163.7C1743,178.5,1731.2,186.8,1722.4,188.4C1701.8,192.2,1683.3,185.9,1666.9,169.5C1649.6,152.2,1640.9,131,1640.7,105.9C1640.5,80.7,1649,59.6,1666,42.6M1691.8,75C1685.1,81.7,1682.2,91.2,1683.3,103.4C1684.4,115.6,1689,125.7,1697,133.7C1707.6,144.3,1718.8,143.7,1730.6,131.8C1737.5,124.9,1740.7,117.4,1740.2,109.4C1739.4,96.2,1734.4,85.1,1725.4,76.1C1720.2,70.9,1714.5,68.2,1708.3,68C1702.1,67.8,1696.6,70.2,1691.8,75" fill-opacity="0.5"/>
+    <path stroke="#f8ae1a" ed:type="summary" stroke-linejoin="round" fill="none" d="M11.9,0C6,0,6.1,9.4,6.1,9.4L6.1,66.2C6.1,66.2,5.1,74.3,0,74.3C5.1,74.6,6.1,82.3,6.1,82.3L6.1,139.1C6.1,139.1,6.2,148.5,12,148.5" transform="matrix(1,0,0,1,437,893)" id="262" ed:parentid="254,256" ed:idlist="254,256,264,266,268,270,272"/>
+    <path stroke="#f8ae1a" ed:type="summary" stroke-linejoin="round" fill="none" d="M11.9,0C6,0,6.1,3.5,6.1,3.5L6.1,24.8C6.1,24.8,5.1,27.8,0,27.8C5.1,27.9,6.1,30.7,6.1,30.7L6.1,52C6.1,52,6.2,55.5,12,55.5" transform="matrix(1,0,0,1,375,1222)" id="292" ed:parentid="288,290" ed:idlist="288,290"/>
+    <path stroke="#f8ae1a" ed:type="summary" stroke-linejoin="round" fill="none" d="M0.1,0C6,0,5.9,9.4,5.9,9.4L5.9,66.2C5.9,66.2,6.9,74.3,12,74.3C6.9,74.6,5.9,82.3,5.9,82.3L5.9,139.1C5.9,139.1,5.8,148.5,0,148.5" transform="matrix(1,0,0,1,1971,806)" id="352" ed:parentid="342,344,346,348,350" ed:idlist="342,344,346,348,350"/>
+    <g ed:type="relation" ed:fromid="116" transform="matrix(1,0,0,1,471,284)" id="125" ed:toid="118">
+        <path stroke="#f38590" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M3.5,-24.8C-104,-46.8,-81,41.2,-3.5,24.8"/>
+        <rect y="-11.6" fill="#ffffff" width="71" height="19" x="-105.9"/>
+        <text class="st11">
+            <tspan y="2.4" style="white-space:pre" x="-105">可读写ROM</tspan>
+        </text>
+    </g>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,9.4C0.5,9.4,-0.3,-9.4,-13.5,-9.4" transform="matrix(1,0,0,1,787,243)" id="103" ed:parentid="138" ed:tosuperid="102"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,31C-3.7,31,9.4,-31,-13.5,-31" transform="matrix(1,0,0,1,716,203)" id="105" ed:parentid="102" ed:tosuperid="104"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" transform="matrix(1,0,0,1,716,249)" id="107" ed:parentid="102" ed:tosuperid="106"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,529,164)" id="109" ed:parentid="104" ed:tosuperid="108"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,529,180)" id="111" ed:parentid="104" ed:tosuperid="110"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" transform="matrix(1,0,0,1,574,242)" id="113" ed:parentid="106" ed:tosuperid="112"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,574,257)" id="115" ed:parentid="106" ed:tosuperid="114"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,574,273)" id="117" ed:parentid="106" ed:tosuperid="116"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-23.3C-2.4,-23.3,6.4,23.3,-13.5,23.3" transform="matrix(1,0,0,1,574,288)" id="119" ed:parentid="106" ed:tosuperid="118"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-52.6C-5.4,-52.6,13.5,52.6,-13.5,52.6" transform="matrix(1,0,0,1,787,305)" id="127" ed:parentid="138" ed:tosuperid="126"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" transform="matrix(1,0,0,1,528,342)" id="129" ed:parentid="132" ed:tosuperid="128"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,625,350)" id="133" ed:parentid="126" ed:tosuperid="132"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,625,366)" id="135" ed:parentid="126" ed:tosuperid="134"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" transform="matrix(1,0,0,1,502,373)" id="137" ed:parentid="134" ed:tosuperid="136"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M44.9,205.4C-4,103.9,47.6,-233.9,-81.8,-233.9" transform="matrix(1,0,0,1,1033,486)" id="139" ed:parentid="101" ed:tosuperid="138"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-48.1,291.7C8.1,167.5,-60.9,-320.3,81.8,-320.3" transform="matrix(1,0,0,1,1196,400)" id="141" ed:parentid="101" ed:tosuperid="140"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,17.1C1.2,17.1,-3.6,-17.1,13.5,-17.1" transform="matrix(1,0,0,1,1491,63)" id="143" ed:parentid="140" ed:tosuperid="142"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-13.9C0.5,-13.9,-2,13.9,13.5,13.9" transform="matrix(1,0,0,1,1491,94)" id="145" ed:parentid="140" ed:tosuperid="144"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1601,46)" id="147" ed:parentid="142" ed:tosuperid="146"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1614,92)" id="149" ed:parentid="144" ed:tosuperid="148"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1614,108)" id="151" ed:parentid="144" ed:tosuperid="150"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1614,123)" id="156" ed:parentid="144" ed:tosuperid="155"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-43.5,173C2.3,81.1,-38.3,-201.5,81.8,-201.5" transform="matrix(1,0,0,1,1196,519)" id="158" ed:parentid="101" ed:tosuperid="157"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,45.1C5.1,45.1,-12.9,-45.1,13.5,-45.1" transform="matrix(1,0,0,1,1411,272)" id="160" ed:parentid="157" ed:tosuperid="159"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-21.6C2.1,-21.6,-5.7,21.6,13.5,21.6" transform="matrix(1,0,0,1,1411,339)" id="162" ed:parentid="157" ed:tosuperid="161"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-72.9C5.4,-72.9,-13.5,72.9,13.5,72.9" transform="matrix(1,0,0,1,1411,390)" id="164" ed:parentid="157" ed:tosuperid="163"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1516,212)" id="166" ed:parentid="159" ed:tosuperid="165"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1516,227)" id="168" ed:parentid="159" ed:tosuperid="167"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1516,243)" id="170" ed:parentid="159" ed:tosuperid="169"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,35.8C4.3,35.8,-10.9,-35.8,13.5,-35.8" transform="matrix(1,0,0,1,1516,325)" id="172" ed:parentid="161" ed:tosuperid="171"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,20.3C1.8,20.3,-5.1,-20.3,13.5,-20.3" transform="matrix(1,0,0,1,1516,340)" id="174" ed:parentid="161" ed:tosuperid="173"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,4.8C-1.6,4.8,2.8,-4.8,13.5,-4.8" transform="matrix(1,0,0,1,1516,356)" id="176" ed:parentid="161" ed:tosuperid="175"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-20.3C1.8,-20.3,-5.1,20.3,13.5,20.3" transform="matrix(1,0,0,1,1516,381)" id="178" ed:parentid="161" ed:tosuperid="177"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-35.8C4.3,-35.8,-10.9,35.8,13.5,35.8" transform="matrix(1,0,0,1,1516,396)" id="180" ed:parentid="161" ed:tosuperid="179"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1529,463)" id="182" ed:parentid="163" ed:tosuperid="181"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M36.9,83.6C-0.4,23.2,2,-112.1,-81.8,-112.1" transform="matrix(1,0,0,1,1033,608)" id="184" ed:parentid="101" ed:tosuperid="183"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,32.6C-3.9,32.6,10,-32.6,-13.5,-32.6" transform="matrix(1,0,0,1,817,463)" id="213" ed:parentid="183" ed:tosuperid="212"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,17.1C-1.2,17.1,3.6,-17.1,-13.5,-17.1" transform="matrix(1,0,0,1,817,479)" id="215" ed:parentid="183" ed:tosuperid="214"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,1.6C2.3,1.6,-4.5,-1.6,-13.5,-1.6" transform="matrix(1,0,0,1,817,494)" id="217" ed:parentid="183" ed:tosuperid="216"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-21.6C-2.1,-21.6,5.7,21.6,-13.5,21.6" transform="matrix(1,0,0,1,817,518)" id="219" ed:parentid="183" ed:tosuperid="218"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,694,532)" id="221" ed:parentid="218" ed:tosuperid="220"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,694,547)" id="223" ed:parentid="218" ed:tosuperid="222"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-44.9C-5.1,-44.9,12.8,44.9,-13.5,44.9" transform="matrix(1,0,0,1,817,541)" id="225" ed:parentid="183" ed:tosuperid="224"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-18.7,2.6C-39.4,6.4,-59.5,9.6,-81.8,9.6" transform="matrix(1,0,0,1,1033,730)" id="227" ed:parentid="101" ed:tosuperid="226"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,32.6C-3.9,32.6,10,-32.6,-13.5,-32.6" transform="matrix(1,0,0,1,787,707)" id="231" ed:parentid="226" ed:tosuperid="230"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-21.6C-2.1,-21.6,5.7,21.6,-13.5,21.6" transform="matrix(1,0,0,1,787,761)" id="233" ed:parentid="226" ed:tosuperid="232"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" transform="matrix(1,0,0,1,677,659)" id="235" ed:parentid="230" ed:tosuperid="234"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" transform="matrix(1,0,0,1,677,674)" id="237" ed:parentid="230" ed:tosuperid="236"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" transform="matrix(1,0,0,1,677,690)" id="239" ed:parentid="230" ed:tosuperid="238"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" transform="matrix(1,0,0,1,690,767)" id="241" ed:parentid="232" ed:tosuperid="240"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" transform="matrix(1,0,0,1,690,798)" id="243" ed:parentid="232" ed:tosuperid="242"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,593,744)" id="245" ed:parentid="240" ed:tosuperid="244"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,593,760)" id="247" ed:parentid="240" ed:tosuperid="246"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,593,806)" id="249" ed:parentid="242" ed:tosuperid="248"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,593,822)" id="251" ed:parentid="242" ed:tosuperid="250"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M43,-161.9C-1.7,-73.4,34.6,190.4,-81.8,190.4" transform="matrix(1,0,0,1,1033,911)" id="253" ed:parentid="101" ed:tosuperid="252"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,83.9C-5.4,83.9,13.5,-83.9,-13.5,-83.9" transform="matrix(1,0,0,1,817,1017)" id="255" ed:parentid="252" ed:tosuperid="254"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,45.1C-5.1,45.1,12.9,-45.1,-13.5,-45.1" transform="matrix(1,0,0,1,817,1056)" id="257" ed:parentid="252" ed:tosuperid="256"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,6.4C1.2,6.4,-1.9,-6.4,-13.5,-6.4" transform="matrix(1,0,0,1,817,1095)" id="259" ed:parentid="252" ed:tosuperid="258"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-60.4C-5.4,-60.4,13.5,60.4,-13.5,60.4" transform="matrix(1,0,0,1,817,1161)" id="261" ed:parentid="252" ed:tosuperid="260"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,707,926)" id="265" ed:parentid="254" ed:tosuperid="264"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,707,941)" id="267" ed:parentid="254" ed:tosuperid="266"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" transform="matrix(1,0,0,1,707,995)" id="269" ed:parentid="256" ed:tosuperid="268"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" transform="matrix(1,0,0,1,707,1011)" id="271" ed:parentid="256" ed:tosuperid="270"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" transform="matrix(1,0,0,1,707,1026)" id="273" ed:parentid="256" ed:tosuperid="272"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" transform="matrix(1,0,0,1,694,1081)" id="275" ed:parentid="258" ed:tosuperid="274"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" transform="matrix(1,0,0,1,694,1096)" id="277" ed:parentid="258" ed:tosuperid="276"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,12.5C-0.2,12.5,1.3,-12.5,-13.5,-12.5" transform="matrix(1,0,0,1,549,1147)" id="279" ed:parentid="282" ed:tosuperid="278"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-12.5C-0.2,-12.5,1.3,12.5,-13.5,12.5" transform="matrix(1,0,0,1,549,1172)" id="281" ed:parentid="282" ed:tosuperid="280"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,31C-3.7,31,9.4,-31,-13.5,-31" transform="matrix(1,0,0,1,620,1191)" id="283" ed:parentid="260" ed:tosuperid="282"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-12.5C-0.2,-12.5,1.3,12.5,-13.5,12.5" transform="matrix(1,0,0,1,620,1234)" id="285" ed:parentid="260" ed:tosuperid="284"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" transform="matrix(1,0,0,1,523,1231)" id="287" ed:parentid="284" ed:tosuperid="286"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" transform="matrix(1,0,0,1,523,1247)" id="289" ed:parentid="284" ed:tosuperid="288"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" transform="matrix(1,0,0,1,523,1262)" id="291" ed:parentid="284" ed:tosuperid="290"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-43.5C-5,-43.5,12.6,43.5,-13.5,43.5" transform="matrix(1,0,0,1,620,1265)" id="295" ed:parentid="260" ed:tosuperid="294"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-37.7,-90.3C0.2,-27.2,-5.1,118.8,81.8,118.8" transform="matrix(1,0,0,1,1196,839)" id="297" ed:parentid="101" ed:tosuperid="296"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,195.4C5.4,195.4,-13.5,-195.4,13.5,-195.4" transform="matrix(1,0,0,1,1395,762)" id="299" ed:parentid="296" ed:tosuperid="298"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1492,552)" id="301" ed:parentid="298" ed:tosuperid="300"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1492,583)" id="303" ed:parentid="298" ed:tosuperid="302"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" transform="matrix(1,0,0,1,1589,528)" id="305" ed:parentid="300" ed:tosuperid="304"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" transform="matrix(1,0,0,1,1589,544)" id="307" ed:parentid="300" ed:tosuperid="306"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" transform="matrix(1,0,0,1,1589,590)" id="309" ed:parentid="302" ed:tosuperid="308"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" transform="matrix(1,0,0,1,1589,606)" id="311" ed:parentid="302" ed:tosuperid="310"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,17.1C1.2,17.1,-3.6,-17.1,13.5,-17.1" transform="matrix(1,0,0,1,1395,941)" id="317" ed:parentid="296" ed:tosuperid="316"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,139.5C5.4,139.5,-13.5,-139.5,13.5,-139.5" transform="matrix(1,0,0,1,1622,784)" id="319" ed:parentid="316" ed:tosuperid="318"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,93C5.4,93,-13.5,-93,13.5,-93" transform="matrix(1,0,0,1,1622,831)" id="321" ed:parentid="316" ed:tosuperid="320"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1622,908)" id="323" ed:parentid="316" ed:tosuperid="322"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-77.5C5.4,-77.5,-13.5,77.5,13.5,77.5" transform="matrix(1,0,0,1,1622,1001)" id="325" ed:parentid="316" ed:tosuperid="324"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-139.5C5.4,-139.5,-13.5,139.5,13.5,139.5" transform="matrix(1,0,0,1,1622,1063)" id="327" ed:parentid="316" ed:tosuperid="326"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" transform="matrix(1,0,0,1,1797,714)" id="329" ed:parentid="320" ed:tosuperid="328"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1797,753)" id="331" ed:parentid="320" ed:tosuperid="330"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" transform="matrix(1,0,0,1,1907,683)" id="333" ed:parentid="328" ed:tosuperid="332"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" transform="matrix(1,0,0,1,1907,699)" id="335" ed:parentid="328" ed:tosuperid="334"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1894,753)" id="337" ed:parentid="330" ed:tosuperid="336"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1894,769)" id="339" ed:parentid="330" ed:tosuperid="338"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1894,784)" id="341" ed:parentid="330" ed:tosuperid="340"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,31C3.7,31,-9.4,-31,13.5,-31" transform="matrix(1,0,0,1,1740,862)" id="343" ed:parentid="322" ed:tosuperid="342"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1740,877)" id="345" ed:parentid="322" ed:tosuperid="344"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1740,893)" id="347" ed:parentid="322" ed:tosuperid="346"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1740,908)" id="349" ed:parentid="322" ed:tosuperid="348"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-31C3.7,-31,-9.4,31,13.5,31" transform="matrix(1,0,0,1,1740,924)" id="351" ed:parentid="322" ed:tosuperid="350"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,46.5C5.2,46.5,-13.1,-46.5,13.5,-46.5" transform="matrix(1,0,0,1,1753,1032)" id="355" ed:parentid="324" ed:tosuperid="354"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,31C3.7,31,-9.4,-31,13.5,-31" transform="matrix(1,0,0,1,1753,1048)" id="357" ed:parentid="324" ed:tosuperid="356"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1753,1063)" id="359" ed:parentid="324" ed:tosuperid="358"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1753,1079)" id="361" ed:parentid="324" ed:tosuperid="360"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1753,1094)" id="363" ed:parentid="324" ed:tosuperid="362"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-31C3.7,-31,-9.4,31,13.5,31" transform="matrix(1,0,0,1,1753,1110)" id="365" ed:parentid="324" ed:tosuperid="364"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-46.5C5.2,-46.5,-13.1,46.5,13.5,46.5" transform="matrix(1,0,0,1,1753,1125)" id="367" ed:parentid="324" ed:tosuperid="366"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1719,1203)" id="369" ed:parentid="326" ed:tosuperid="368"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-153.4C5.4,-153.4,-13.5,153.4,13.5,153.4" transform="matrix(1,0,0,1,1395,1111)" id="371" ed:parentid="296" ed:tosuperid="370"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" transform="matrix(1,0,0,1,1505,1249)" id="373" ed:parentid="370" ed:tosuperid="372"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" transform="matrix(1,0,0,1,1505,1265)" id="375" ed:parentid="370" ed:tosuperid="374"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" transform="matrix(1,0,0,1,1505,1280)" id="377" ed:parentid="370" ed:tosuperid="376"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-192.1C5.4,-192.1,-13.5,192.1,13.5,192.1" transform="matrix(1,0,0,1,1395,1150)" id="379" ed:parentid="296" ed:tosuperid="378"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" transform="matrix(1,0,0,1,1591,1334)" id="381" ed:parentid="378" ed:tosuperid="380"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" transform="matrix(1,0,0,1,1591,1350)" id="383" ed:parentid="378" ed:tosuperid="382"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-223.1C5.4,-223.1,-13.5,223.1,13.5,223.1" transform="matrix(1,0,0,1,1395,1181)" id="385" ed:parentid="296" ed:tosuperid="384"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" transform="matrix(1,0,0,1,1505,1396)" id="387" ed:parentid="384" ed:tosuperid="386"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" transform="matrix(1,0,0,1,1505,1412)" id="389" ed:parentid="384" ed:tosuperid="388"/>
+    <path stroke="#696969" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M13.5,-60.4C-5.4,-60.4,13.5,60.4,-13.5,60.4" transform="matrix(1,0,0,1,787,800)" id="391" ed:parentid="226" ed:tosuperid="390"/>
+    <g ed:height="57" transform="matrix(1,0,0,1,1014,692)" ed:width="201" id="101" ed:layout="map" ed:topictype="mainidea">
+        <path stroke="#435fbc" fill="#435fbc" stroke-linejoin="round" d="M4,0L197,0C199.7,0,201,1.3,201,4L201,53C201,55.7,199.7,57,197,57L4,57C1.3,57,0,55.7,0,53L0,4C0,1.3,1.3,0,4,0z" stroke-width="3"/>
+        <text class="st12">
+            <tspan y="34.5" style="white-space:pre" x="21">存储器与IO中断</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>每个存储单元由8个存储元构成&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(163,21)" xlink:href="#note"/>
+        </g>
+    </g>
+    <symbol id="note">
+        <image width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEKADAAQAAAABAAAAEAAAAAA0VXHyAAABu0lEQVQ4EaVTzysEcRT/fGeZHZQDmxihZEspoXDzmxIpR6F2b/4ARznZ5OAsUg4SBzdbcqJclCIlUnvAYaNEfs/Ozs54b9oZe5gheTXv+/p83+e9z5uZJ5A1y7KqKYzSozqYz5kkfE0Iccv3gh2Ra8zkwaV+PKOYH3c2xriXSYXlltw6p0lqVz0XkbJJESbLbTFROJbw4tkY3xFZcC4BrBZOAZU7SxWddmJA7bLPXBeo7CapJkRxLaCUsUp71LzcJCcOdq464fdJ5NThFJB+g9y+wHgZO0cBx/5GZG13GFb6FXnhCaQOJmE9Xw3Ru2v4vQCR9aNpkm8AH/eQQs2QW2ah7UfzqeO45wiulCzZSj1CGYzDSGxC2xulaxNK74ZOwfqPBbgzk4MdKzSsDBEsBTIa5LZ5epnhOH3GS98RjIslWO9Jl5y5iUM/jUEZ2Eb6YplFPrDzVaCfLULp27I7u+SedepcB/PpnLm2eReg2dnMlwTNvQHjegcFI/sQRVU2nuu8R8h8IhBqgvlwAqmk0ZfMhRwFSf7HaR8E/eOEFiHYv53byI0pB5xLAC/V/5fJ3TzeSCoYoedP6/wFlzuxc9t/NpsAAAAASUVORK5CYII=" height="16"/>
+    </symbol>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,729,209)" ed:width="44" id="102" ed:layout="leftmap" ed:parentid="138">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L44,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">分类</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,542,147)" ed:width="160" id="104" ed:layout="leftmap" ed:parentid="102">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L160,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">随机存取寄存器RAM</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>掉电后内容丢失&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑'; font-weight:600; color:#ff0000;&quot;>常用做数据存储器&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(134,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,587,240)" ed:width="115" id="106" ed:layout="leftmap" ed:parentid="102">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L115,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">只读存储器ROM</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,373,132)" ed:width="142" id="108" ed:layout="leftmap" ed:parentid="104">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L142,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">静态存储器SRAM</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>存储元为双稳态电路，存储信息稳定&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(116,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,371,163)" ed:width="144" id="110" ed:layout="leftmap" ed:parentid="104">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L144,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">动态存储器DRAM</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>存储元为电容，需要定时刷新&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(118,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,484,194)" ed:width="76" id="112" ed:layout="leftmap" ed:parentid="106">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L76,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">掩膜ROM</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,445,225)" ed:width="115" id="114" ed:layout="leftmap" ed:parentid="106">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L115,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">一次性可写ROM</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,474,256)" ed:width="86" id="116" ed:layout="leftmap" ed:parentid="106">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L86,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">EPROM</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>掉电后内容不丢失，紫外线擦除，&lt;/span>&lt;span style=&quot; font-family:'微软雅黑'; font-weight:600; color:#ff0000;&quot;>稳定性高，常用作程序存储器&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(60,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,467,287)" ed:width="93" id="118" ed:layout="leftmap" ed:parentid="106">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L93,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">EEPROM</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>掉电后内容不丢失，电可擦除&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(67,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,638,333)" ed:width="135" id="126" ed:layout="leftmap" ed:parentid="138">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L135,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">存储容量及存取时间</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,291,318)" ed:width="223" id="128" ed:layout="leftmap" ed:parentid="132">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L223,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">存储单元个数×每单元二进制数位数</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,541,318)" ed:width="70" id="132" ed:layout="leftmap" ed:parentid="126">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">存储容量</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,515,349)" ed:width="96" id="134" ed:layout="leftmap" ed:parentid="126">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L96,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">系统存取时间</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,183,349)" ed:width="305" id="136" ed:layout="leftmap" ed:parentid="134">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L305,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">命中率×Catch存取时间+不命中率×主存存取时间</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,800,234)" ed:width="151" id="138" ed:layout="leftmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L147,0C149.7,0,151,1.3,151,4L151,33C151,35.7,149.7,37,147,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.5" style="white-space:pre" x="18">存储器基本概念</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,1278,61)" ed:width="199" id="140" ed:layout="rightmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L195,0C197.7,0,199,1.3,199,4L199,33C199,35.7,197.7,37,195,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.5" style="white-space:pre" x="18">存储器编址与译码电路</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1504,21)" ed:width="83" id="142" ed:layout="rightmap" ed:parentid="140">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">存储器编址</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1504,83)" ed:width="96" id="144" ed:layout="rightmap" ed:parentid="140">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L96,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">译码电路方式</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1614,21)" ed:width="265" id="146" ed:layout="rightmap" ed:parentid="142">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L265,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">高位地址为片选地址，低位地址为片内地址</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1627,52)" ed:width="104" id="148" ed:layout="rightmap" ed:parentid="144">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L104,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">全地址译码</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>全部的高位地址信号作为译码信号，使得存储器芯片的每一个单元都占据一个唯一的内存地址&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(78,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1627,83)" ed:width="117" id="150" ed:layout="rightmap" ed:parentid="144">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L117,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">部分地址译码</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>部分高位地址作为译码信号，使得被选中存储器芯片占有几组不同的地址范围(浪费地址资源，但对空间比较友好)&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(91,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1627,114)" ed:width="187" id="155" ed:layout="rightmap" ed:parentid="144">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L187,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">读写操作需要作为译码器信号</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,1278,299)" ed:width="119" id="157" ed:layout="rightmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L115,0C117.7,0,119,1.3,119,4L119,33C119,35.7,117.7,37,115,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.4" style="white-space:pre" x="18">存储器扩展</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1424,203)" ed:width="78" id="159" ed:layout="rightmap" ed:parentid="157">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L78,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">位扩展</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>扩展字长&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>有分时复用(先送行地址，再送列地址)，则要有锁存信号&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(52,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1424,336)" ed:width="78" id="161" ed:layout="rightmap" ed:parentid="157">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L78,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">字扩展</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>扩展单元数&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(52,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1424,439)" ed:width="91" id="163" ed:layout="rightmap" ed:parentid="157">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">字位扩展</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>字长和单元数都扩展&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,172)" ed:width="278" id="165" ed:layout="rightmap" ed:parentid="159">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L278,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">将每片地址线、控制线并联，数据线分别引出</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,203)" ed:width="239" id="167" ed:layout="rightmap" ed:parentid="159">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L239,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" class="st15" style="white-space:pre" x="8">确保所有芯片具有</tspan>
+            <tspan style="white-space:pre">完全相同</tspan>
+            <tspan class="st15" style="white-space:pre">的地址范围</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,234)" ed:width="291" id="169" ed:layout="rightmap" ed:parentid="159">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L291,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">对于需要位扩展的存储芯片，单独一片没有意义</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,265)" ed:width="239" id="171" ed:layout="rightmap" ed:parentid="161">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L239,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" class="st15" style="white-space:pre" x="8">确保所有芯片具有</tspan>
+            <tspan style="white-space:pre">完全不同</tspan>
+            <tspan class="st15" style="white-space:pre">的地址范围</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,296)" ed:width="304" id="173" ed:layout="rightmap" ed:parentid="161">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L304,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">片选端分别引出，使得每个芯片有不同的地址范围</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,327)" ed:width="304" id="175" ed:layout="rightmap" ed:parentid="161">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L304,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">多片芯片构成存储器，电路设计时考虑使用译码器</tspan>
+        </text>
+    </g>
+    <g ed:height="43.5" transform="matrix(1,0,0,1,1529,358)" ed:width="304" id="177" ed:layout="rightmap" ed:parentid="161">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,43.5L304,43.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">译码器使能端要始终在有效状态，故不变的信号连</tspan>
+            <tspan y="35.1" style="white-space:pre" x="8">在译码器使能端，变化的连在译码器输入端</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1529,408)" ed:width="208" id="179" ed:layout="rightmap" ed:parentid="161">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L208,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">读写信号需要作为译码器信号</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>#MEMWh和#MEMR(#表示低有效)&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(182,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1542,439)" ed:width="122" id="181" ed:layout="rightmap" ed:parentid="163">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L122,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">先位扩展再字扩展</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,830,478)" ed:width="121" id="183" ed:layout="leftmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L117,0C119.7,0,121,1.3,121,4L121,33C121,35.7,119.7,37,117,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.5" style="white-space:pre" x="18">系统IO概述</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,621,406)" ed:width="182" id="212" ed:layout="leftmap" ed:parentid="183">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L182,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">每个接口中含1个或多个端口</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,538,437)" ed:width="265" id="214" ed:layout="leftmap" ed:parentid="183">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L265,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">端口分为：数据端口、状态端口、控制端口</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,502,468)" ed:width="301" id="216" ed:layout="leftmap" ed:parentid="183">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L301,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">每个端口地址=片选地址(高位地址)+片内地址</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>先找端口所在接口电路芯片(片选)&lt;br />再在该芯片上找具体访问端口(片内寻址)&lt;/p>&lt;/body>">
+            <use transform="translate(275,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,707,515)" ed:width="96" id="218" ed:layout="leftmap" ed:parentid="183">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L96,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">端口编址方式</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,571,499)" ed:width="109" id="220" ed:layout="leftmap" ed:parentid="218">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L109,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">与内存统一编址</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,589,530)" ed:width="91" id="222" ed:layout="leftmap" ed:parentid="218">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">独立编址</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>与内存共用地址总线，用IO/#M信号状态区分(表示高电平访问端口)&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,590,561)" ed:width="213" id="224" ed:layout="leftmap" ed:parentid="183">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L213,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">端口地址译码常采用部分地址译码</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,800,721)" ed:width="151" id="226" ed:layout="leftmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L147,0C149.7,0,151,1.3,151,4L151,33C151,35.7,149.7,37,147,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.5" style="white-space:pre" x="18">简单的接口电路</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,690,650)" ed:width="83" id="230" ed:layout="leftmap" ed:parentid="226">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">接口的分类</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,703,758)" ed:width="70" id="232" ed:layout="leftmap" ed:parentid="226">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">接口特点</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,489,619)" ed:width="174" id="234" ed:layout="leftmap" ed:parentid="230">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L174,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">按传输方向分：输入、输出</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,489,650)" ed:width="174" id="236" ed:layout="leftmap" ed:parentid="230">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L174,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">按传输类型分：数字、模拟</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,489,681)" ed:width="174" id="238" ed:layout="leftmap" ed:parentid="230">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L174,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">按传输方式分：并行、串行</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,606,727)" ed:width="70" id="240" ed:layout="leftmap" ed:parentid="232">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">输入接口</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,606,789)" ed:width="70" id="242" ed:layout="leftmap" ed:parentid="232">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">输出接口</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,457,712)" ed:width="122" id="244" ed:layout="leftmap" ed:parentid="240">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L122,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">对数据有控制能力</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,470,743)" ed:width="109" id="246" ed:layout="leftmap" ed:parentid="240">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L109,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">常用三态门实现</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,457,774)" ed:width="122" id="248" ed:layout="leftmap" ed:parentid="242">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L122,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">对数据有锁存能力</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,470,805)" ed:width="109" id="250" ed:layout="leftmap" ed:parentid="242">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L109,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">常用锁存器实现</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,830,1083)" ed:width="121" id="252" ed:layout="leftmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L117,0C119.7,0,121,1.3,121,4L121,33C121,35.7,119.7,37,117,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.5" style="white-space:pre" x="18">基本IO方法</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,720,909)" ed:width="83" id="254" ed:layout="leftmap" ed:parentid="252">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">无条件传送</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,720,986)" ed:width="83" id="256" ed:layout="leftmap" ed:parentid="252">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">查询式传送</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,707,1064)" ed:width="96" id="258" ed:layout="leftmap" ed:parentid="252">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L96,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断方式传送</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,633,1197)" ed:width="170" id="260" ed:layout="leftmap" ed:parentid="252">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L170,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">直接存储器存取(DMA)</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>QRD：请求信号&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>HOLD：总线请求输入端&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>HLDA：请求应答信号(表示可以由DMA控制，它放弃对总线的控制权)&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>DACK：告诉外设，已经得到总线控制权&lt;/p>&lt;/body>">
+            <use transform="translate(144,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="29" transform="matrix(1,0,0,1,335,953)" ed:width="93" id="263" ed:layout="leftmap" ed:parentid="262">
+        <path stroke="#f8ae1a" fill="#fef2e7" stroke-linejoin="round" d="M4,0L89,0C91.7,0,93,1.3,93,4L93,25C93,27.7,91.7,29,89,29L4,29C1.3,29,0,27.7,0,25L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan y="18.4" style="white-space:pre" x="6">程序控制方式</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,545,893)" ed:width="148" id="264" ed:layout="leftmap" ed:parentid="254">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L148,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">外设总在准备好的状态</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,545,924)" ed:width="148" id="266" ed:layout="leftmap" ed:parentid="254">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L148,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">实现简单，适应范围窄</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,472,955)" ed:width="221" id="268" ed:layout="leftmap" ed:parentid="256">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L221,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">当满足条件(空闲)时才进行数据传送</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,467,986)" ed:width="226" id="270" ed:layout="leftmap" ed:parentid="256">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L226,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">每满足一次条件仅进行一次数据传送</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,454,1017)" ed:width="239" id="272" ed:layout="leftmap" ed:parentid="256">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L239,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">实现简单、效率低、实时性差、速度慢</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,440,1048)" ed:width="240" id="274" ed:layout="leftmap" ed:parentid="258">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L240,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">外设需要时，提出请求，CPU再去服务</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,375,1079)" ed:width="305" id="276" ed:layout="leftmap" ed:parentid="258">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L305,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">CPU效率高，实时性好，速度快，程序编制较复杂</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,139,1110)" ed:width="396" id="278" ed:layout="leftmap" ed:parentid="282">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L396,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">外设直接与存储器进行数据交换，CPU不再担当数据传输的中介者</tspan>
+        </text>
+    </g>
+    <g ed:height="43.5" transform="matrix(1,0,0,1,21,1141)" ed:width="514" id="280" ed:layout="leftmap" ed:parentid="282">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,43.5L514,43.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">cpu放弃总线控制权，总线由DMA控制器(DMAC)控制，内存/外设的地址和读写控制</tspan>
+            <tspan y="35.1" style="white-space:pre" x="8">信号均由DMAC提供</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,562,1135)" ed:width="44" id="282" ed:layout="leftmap" ed:parentid="260">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L44,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">概述</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,536,1222)" ed:width="70" id="284" ed:layout="leftmap" ed:parentid="260">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">工作方式</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,418,1191)" ed:width="91" id="286" ed:layout="leftmap" ed:parentid="284">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">周期窃取</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>每个DMA周期只传送一个字节或一个字就立即释放总线&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,405,1222)" ed:width="104" id="288" ed:layout="leftmap" ed:parentid="284">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L104,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">数据块传送</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>DMAC在申请到总线后，将一块数据传送完后才释放总线，而不管中间DREQ是否有效&lt;/p>&lt;/body>">
+            <use transform="translate(78,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,392,1253)" ed:width="117" id="290" ed:layout="leftmap" ed:parentid="284">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L117,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">直接存取方式</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>DMA的数据传送请求直接发到主存储器，得到响应后，整个工作过程在DMA控制器中由硬件完成&lt;/p>&lt;/body>">
+            <use transform="translate(91,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="29" transform="matrix(1,0,0,1,234,1236)" ed:width="132" id="293" ed:layout="leftmap" ed:parentid="292">
+        <path stroke="#f8ae1a" fill="#fef2e7" stroke-linejoin="round" d="M4,0L128,0C130.7,0,132,1.3,132,4L132,25C132,27.7,130.7,29,128,29L4,29C1.3,29,0,27.7,0,25L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan y="18.4" style="white-space:pre" x="6">硬件要求高，成本高</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,458,1284)" ed:width="148" id="294" ed:layout="leftmap" ed:parentid="260">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L148,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">控制复杂，硬件成本高</tspan>
+        </text>
+    </g>
+    <g ed:height="37" transform="matrix(1,0,0,1,1278,939)" ed:width="103" id="296" ed:layout="rightmap" ed:parentid="101">
+        <path stroke="#ebecf3" fill="#ebecf3" stroke-linejoin="round" d="M4,0L99,0C101.7,0,103,1.3,103,4L103,33C103,35.7,101.7,37,99,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st13">
+            <tspan y="23.5" style="white-space:pre" x="18">中断技术</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1408,543)" ed:width="70" id="298" ed:layout="rightmap" ed:parentid="296">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断类型</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1505,512)" ed:width="70" id="300" ed:layout="rightmap" ed:parentid="298">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">内部中断</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1505,574)" ed:width="70" id="302" ed:layout="rightmap" ed:parentid="298">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">外部中断</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1602,496)" ed:width="91" id="304" ed:layout="rightmap" ed:parentid="300">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">异常中断</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>异常事件引起&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1602,527)" ed:width="91" id="306" ed:layout="rightmap" ed:parentid="300">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">软件中断</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>中断指令引起&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1602,558)" ed:width="78" id="308" ed:layout="rightmap" ed:parentid="302">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L78,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">可屏蔽</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>INTR&lt;/p>&lt;/body>">
+            <use transform="translate(52,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1602,589)" ed:width="91" id="310" ed:layout="rightmap" ed:parentid="302">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">非可屏蔽</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>NMI&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1408,899)" ed:width="200" id="316" ed:layout="rightmap" ed:parentid="296">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L200,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">外部可屏蔽中断响应的一般过程</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1635,620)" ed:width="70" id="318" ed:layout="rightmap" ed:parentid="316">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断请求</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1635,713)" ed:width="148" id="320" ed:layout="rightmap" ed:parentid="316">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L148,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断源识别及中断判优</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1635,868)" ed:width="91" id="322" ed:layout="rightmap" ed:parentid="316">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L91,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断响应</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>外部可屏蔽中断响应信号：#INTA&lt;/p>&lt;/body>">
+            <use transform="translate(65,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1635,1054)" ed:width="104" id="324" ed:layout="rightmap" ed:parentid="316">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L104,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断处理(服务)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1635,1178)" ed:width="70" id="326" ed:layout="rightmap" ed:parentid="316">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断返回</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1810,667)" ed:width="83" id="328" ed:layout="rightmap" ed:parentid="320">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断源识别</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1810,744)" ed:width="70" id="330" ed:layout="rightmap" ed:parentid="320">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断判优</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1920,651)" ed:width="83" id="332" ed:layout="rightmap" ed:parentid="328">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">软件查询法</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1920,682)" ed:width="104" id="334" ed:layout="rightmap" ed:parentid="328">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L104,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断矢量法</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>中断源提供中断类型号，CPU据类型好哦确定中断源&lt;/p>&lt;/body>">
+            <use transform="translate(78,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1907,713)" ed:width="83" id="336" ed:layout="rightmap" ed:parentid="330">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">优先级法则</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1907,744)" ed:width="143" id="338" ed:layout="rightmap" ed:parentid="330">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L143,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">排队法则(先来先响应)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1907,775)" ed:width="299" id="340" ed:layout="rightmap" ed:parentid="330">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L299,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断控制器据中断向量码(中断类型码)确定中断源</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1753,806)" ed:width="213" id="342" ed:layout="rightmap" ed:parentid="322">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L213,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">向中断源发出#INTA中断响应信号</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1753,837)" ed:width="57" id="344" ed:layout="rightmap" ed:parentid="322">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L57,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">关中断</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1753,868)" ed:width="117" id="346" ed:layout="rightmap" ed:parentid="322">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L117,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">保护硬件现场</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'微软雅黑'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>将FLAGS压入堆栈&lt;/p>&lt;/body>">
+            <use transform="translate(91,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1753,899)" ed:width="159" id="348" ed:layout="rightmap" ed:parentid="322">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L159,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">保护断点(CS、IP压入栈)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1753,930)" ed:width="174" id="350" ed:layout="rightmap" ed:parentid="322">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L174,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">获得中断服务程序入口地址</tspan>
+        </text>
+    </g>
+    <g ed:height="29" transform="matrix(1,0,0,1,1992,866)" ed:width="106" id="353" ed:layout="rightmap" ed:parentid="352">
+        <path stroke="#f8ae1a" fill="#fef2e7" stroke-linejoin="round" d="M4,0L102,0C104.7,0,106,1.3,106,4L106,25C106,27.7,104.7,29,102,29L4,29C1.3,29,0,27.7,0,25L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan y="18.4" style="white-space:pre" x="6">由硬件系统完成</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,961)" ed:width="265" id="354" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L265,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">关中断，保护现场，保护断点，找入口地址</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,992)" ed:width="130" id="356" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L130,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">保护软件现场(参数)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,1023)" ed:width="84" id="358" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L84,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">开中断(STI)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,1054)" ed:width="70" id="360" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断处理</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,1085)" ed:width="85" id="362" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L85,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">关中断(CLI)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,1116)" ed:width="70" id="364" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">恢复现场</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1766,1147)" ed:width="70" id="366" ed:layout="rightmap" ed:parentid="324">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L70,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断返回</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1732,1178)" ed:width="421" id="368" ed:layout="rightmap" ed:parentid="326">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L421,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">执行IRET指令，使IP、CS和FLAGS从堆栈中弹出(恢复断点和硬件现场)</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1408,1240)" ed:width="83" id="370" ed:layout="rightmap" ed:parentid="296">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断向量表</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1518,1209)" ed:width="252" id="372" ed:layout="rightmap" ed:parentid="370">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L252,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">存放各类中断的中断服务程序的入口地址</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1518,1240)" ed:width="332" id="374" ed:layout="rightmap" ed:parentid="370">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L332,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">每个入口占用4Bytes，低字为段内偏移，高字为段基址</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1518,1271)" ed:width="144" id="376" ed:layout="rightmap" ed:parentid="370">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L144,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">大小1KB，256个入口</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1408,1318)" ed:width="169" id="378" ed:layout="rightmap" ed:parentid="296">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L169,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">8088内部中断与NMI中断</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1604,1302)" ed:width="376" id="380" ed:layout="rightmap" ed:parentid="378">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L376,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">NMI中断有INTA响应周期，类型码多而不固定，必须要去接收</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1604,1333)" ed:width="354" id="382" ed:layout="rightmap" ed:parentid="378">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L354,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">8088内部中断无INTA周期，中断类型码固定或由指令给出</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1408,1380)" ed:width="83" id="384" ed:layout="rightmap" ed:parentid="296">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L83,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">中断优先级</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1518,1364)" ed:width="271" id="386" ed:layout="rightmap" ed:parentid="384">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L271,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">由高到低：内部中断、NMI中断、INTR中断</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,1518,1395)" ed:width="391" id="388" ed:layout="rightmap" ed:parentid="384">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L391,24.5"/>
+        <text class="st11">
+            <tspan y="16.1" style="white-space:pre" x="8">陷阱中断(TF中断)优先级虽低，但它可以中断其他所有类型的中断</tspan>
+        </text>
+    </g>
+    <g ed:height="24.5" transform="matrix(1,0,0,1,534,836)" ed:width="239" id="390" ed:layout="leftmap" ed:parentid="226">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,24.5L239,24.5"/>
+        <text class="st14">
+            <tspan y="16.1" style="white-space:pre" x="8">接口系统的译码电路采用部分地址译码</tspan>
+        </text>
+    </g>
+    <symbol id="plus">
+        <path fill="url(#lg3)" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z"/>
+        <path stroke="#46a000" fill="none" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6M6,3L6,9" stroke-width="0.7"/>
+    </symbol>
+    <symbol id="minus">
+        <path fill="url(#lg3)" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z"/>
+        <path stroke="#46a000" fill="none" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6" stroke-width="0.7"/>
+    </symbol>
+    <g ed:togtopicid="101" transform="translate(1216,714)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="102" transform="translate(716,216)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="104" transform="translate(529,154)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="106" transform="translate(574,247)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="126" transform="translate(625,340)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="132" transform="translate(528,324)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="134" transform="translate(502,355)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="138" transform="translate(787,247)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="140" transform="translate(1478,74)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="142" transform="translate(1588,27)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="144" transform="translate(1601,89)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="157" transform="translate(1398,311)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="159" transform="translate(1503,209)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="161" transform="translate(1503,342)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="163" transform="translate(1516,445)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="183" transform="translate(817,490)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="218" transform="translate(694,521)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="226" transform="translate(787,734)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="230" transform="translate(677,656)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="232" transform="translate(690,765)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="240" transform="translate(593,734)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="242" transform="translate(593,796)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="252" transform="translate(817,1095)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="254" transform="translate(707,915)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="256" transform="translate(707,993)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="258" transform="translate(694,1070)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="260" transform="translate(620,1204)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="282" transform="translate(549,1142)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="284" transform="translate(523,1229)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="296" transform="translate(1382,952)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="298" transform="translate(1479,549)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="300" transform="translate(1576,518)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="302" transform="translate(1576,580)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="316" transform="translate(1609,905)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="320" transform="translate(1784,719)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="322" transform="translate(1727,874)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="324" transform="translate(1740,1060)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="326" transform="translate(1706,1184)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="328" transform="translate(1894,673)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="330" transform="translate(1881,750)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="370" transform="translate(1492,1246)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="378" transform="translate(1578,1324)">
+        <use xlink:href="#minus"/>
+    </g>
+    <g ed:togtopicid="384" transform="translate(1492,1386)">
+        <use xlink:href="#minus"/>
+    </g>
+</svg>
+</div>
+        <div id="copyright">Created With  <a href="https://www.edrawsoft.com/" target="_blank" title="edrawsoft">MindMaster</a></div>
+      </div>
+    </div>
+    <script>eval(atob('dmFyIG11YT13aW5kb3cubmF2aWdhdG9yLnVzZXJBZ2VudDsNCnZhciB1YT0obXVhLmluZGV4T2YoJ3J2OjExJykrbXVhLmluZGV4T2YoJ01TSUUnKSk+PTA7DQpkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3ZnLWNvbnRhaW5lcicpLm9uY29udGV4dG1lbnUgPSBmdW5jdGlvbiAoZXZlbnQpIHsNCiAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpOw0KfQ0KZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N2Zy1jb250YWluZXInKS5vbm1vdXNlZG93biA9IGZ1bmN0aW9uIChldmVudCkgew0KICAgIGlmKGV2ZW50LndoaWNoID09Myl7DQogICAgICAgIHRoaXMuc3R5bGUuY3Vyc29yID0gJ3BvaW50ZXInOw0KICAgICAgICB0aGlzLm9ubW91c2Vtb3ZlID0gZnVuY3Rpb24gKGV2KSB7DQogICAgICAgICAgICB0aGlzLnNjcm9sbEJ5KC0oZXYubW92ZW1lbnRYKSwgMCk7DQogICAgICAgICAgICB3aW5kb3cuc2Nyb2xsQnkoMCwtKGV2Lm1vdmVtZW50WSkpDQogICAgICAgIH0NCiAgICAgICAgdGhpcy5vbm1vdXNldXAgPSBmdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnN0eWxlLmN1cnNvciA9ICBudWxsOw0KICAgICAgICAgICAgdGhpcy5vbm1vdXNldXAgPSBudWxsOw0KICAgICAgICAgICAgdGhpcy5vbm1vdXNlbW92ZSA9IG51bGw7DQogICAgICAgIH0NCiAgICB9DQp9DQpOdW1iZXIucHJvdG90eXBlLnRvc3VpdHN2Zz1mdW5jdGlvbiAoKSB7DQogICAgdmFyIG51bT10aGlzLnZhbHVlT2YoKTsNCiAgICBpZihudW0lMT09PTApew0KICAgICAgICByZXR1cm4gbnVtKzAuNQ0KICAgIH1lbHNlIHJldHVybiBudW07DQp9Ow0KTnVtYmVyLnByb3RvdHlwZS5wbHVzej1mdW5jdGlvbigpIHsNCiAgICB2YXIgbnVtPXRoaXMudmFsdWVPZigpOw0KICAgIHJldHVybiBudW08MTA/JzAnK251bTpudW07DQp9Ow0KZnVuY3Rpb24gcGFyc2VEYXRlKG51bSkgew0KICAgIHZhciBkYXRlID0gbmV3IERhdGUobnVtKTsNCiAgICB2YXIgWSA9IGRhdGUuZ2V0RnVsbFllYXIoKSArICctJzsNCiAgICB2YXIgTSA9IChkYXRlLmdldE1vbnRoKCkrMSkucGx1c3ooKSArICctJzsNCiAgICB2YXIgRCA9IGRhdGUuZ2V0RGF0ZSgpLnBsdXN6KCkgKyAnICc7DQogICAgdmFyIGggPSBkYXRlLmdldEhvdXJzKCkucGx1c3ooKSArICc6JzsNCiAgICB2YXIgbW0gPSBkYXRlLmdldE1pbnV0ZXMoKS5wbHVzeigpICsgJzonOw0KICAgIHZhciBzID0gZGF0ZS5nZXRTZWNvbmRzKCkucGx1c3ooKTsNCiAgICByZXR1cm4gWStNK0QraCttbStzOw0KfQ0KLy8tLXByZWRlZmluZWQNCi8vY29tbWVudC0tDQp2YXIgY29tbWVudHM9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnZz5nW2VkXFw6Y29tbWVudF0nKTsNCmZ1bmN0aW9uIGdldGN3aChwb3B1cCkgew0KICAgIGRvY3VtZW50LmJvZHkuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ3N2ZycpWzBdLmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICB2YXIgdz1wb3B1cC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS53aWR0aDsNCiAgICB2YXIgaD1wb3B1cC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS5oZWlnaHQ7DQogICAgcmV0dXJuIFt3LGhdDQp9DQpmb3IodmFyIGk9MDtpPGNvbW1lbnRzLmxlbmd0aDtpKyspew0KICAgIHZhciBwb3B1cD1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywnZycpOw0KICAgIHZhciBwb3B1cFI9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgdmFyIGhvdmVyPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgdmFyIG9saW5lPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCdmaWxsJywnI2NkY2RmZicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgneCcsJzAnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3knLCcwJyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCdoZWlnaHQnLCcxNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbC1vcGFjaXR5JywnMC42Jyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nLGNvbW1lbnRzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykpOw0KICAgIGhvdmVyLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIGNvbW1lbnRzW2ldLmFwcGVuZENoaWxkKGhvdmVyKTsNCiAgICB2YXIgYT1KU09OLnBhcnNlKGNvbW1lbnRzW2ldLmdldEF0dHJpYnV0ZSgnZWQ6Y29tbWVudCcpKTsNCiAgICB2YXIgaGVpZ2h0PTA7DQogICAgdmFyIGNhcnI9W107DQogICAgZm9yKHZhciBqPTA7ajxhLmxlbmd0aDtqKyspew0KICAgICAgICB2YXIgc3RhbXA9TnVtYmVyKGFbal0uRGF0ZSkqMTAwMDsNCiAgICAgICAgdmFyIHRpbWU9cGFyc2VEYXRlKHN0YW1wKTsNCiAgICAgICAgdmFyIG5hbWU9YVtqXS5OYW1lOw0KICAgICAgICB2YXIgbWVzc2FnZT1hW2pdLk1lc3NhZ2U7DQogICAgICAgIHZhciBtZXNzYWdlQXJyPW1lc3NhZ2Uuc3BsaXQoL1xuLyk7DQogICAgICAgIHZhciBvPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdnJyk7DQogICAgICAgIHZhciBuPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciB0PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciBtPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIG4uc2V0QXR0cmlidXRlKCd4Jyw1KTsNCiAgICAgICAgbi5zZXRBdHRyaWJ1dGUoJ3knLDEyKTsNCiAgICAgICAgbi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCcjMDA2ZWZmJyk7DQogICAgICAgIG4udGV4dENvbnRlbnQ9bmFtZSsnOiAnOw0KICAgICAgICBuLnNldEF0dHJpYnV0ZSgnZm9udC1zaXplJywnMTInKTsNCiAgICAgICAgdC5zZXRBdHRyaWJ1dGUoJ3gnLDIwMCk7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCd5JywxMik7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCdmaWxsJywnIzk2OTY5NicpOw0KICAgICAgICB0LnRleHRDb250ZW50PXRpbWU7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCdmb250LXNpemUnLCcxMCcpOw0KICAgICAgICBtLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDIwLDI3KScpOw0KICAgICAgICBtLnNldEF0dHJpYnV0ZSgnZm9udC1zaXplJywnMTInKTsNCiAgICAgICAgZm9yKHZhciBrPTA7azxtZXNzYWdlQXJyLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgdmFyIHRzPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0c3BhbicpOw0KICAgICAgICAgICAgdHMuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgICAgICAgICAgdHMuc2V0QXR0cmlidXRlKCd5JyxrKjE2KTsNCiAgICAgICAgICAgIHRzLnRleHRDb250ZW50PW1lc3NhZ2VBcnJba107DQogICAgICAgICAgICBtLmFwcGVuZENoaWxkKHRzKTsNCiAgICAgICAgfQ0KICAgICAgICBvLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDAsJytoZWlnaHQrJyknKTsNCiAgICAgICAgby5hcHBlbmRDaGlsZChuKTsNCiAgICAgICAgby5hcHBlbmRDaGlsZCh0KTsNCiAgICAgICAgby5hcHBlbmRDaGlsZChtKTsNCiAgICAgICAgY2Fyci5wdXNoKG8pOw0KICAgICAgICBwb3B1cC5hcHBlbmRDaGlsZChvKTsNCiAgICAgICAgaGVpZ2h0PShtZXNzYWdlQXJyLmxlbmd0aCsxKSoxNitoZWlnaHQ7DQogICAgfQ0KICAgIHZhciB3YXJyPWdldGN3aChwb3B1cCk7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgIG9saW5lLnNldEF0dHJpYnV0ZSgneScsJzAnKTsNCiAgICB2YXIgb3c9d2FyclswXSsxMC41Ow0KICAgIHZhciBvaD13YXJyWzFdKzM7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCd3aWR0aCcsb3cpOw0KICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvaCk7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCdmaWxsJywnd2hpdGUnKTsNCiAgICBvbGluZS5zZXRBdHRyaWJ1dGUoJ3N0cm9rZScsJyM2NTY1NjUnKTsNCiAgICBwb3B1cC5hcHBlbmRDaGlsZChvbGluZSk7DQogICAgdmFyIGw9Y2Fyci5sZW5ndGg7DQogICAgd2hpbGUobC0tKXsNCiAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQoY2FycltsXSk7DQogICAgfQ0KICAgIHBvcHVwLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgfTsNCiAgICBwb3B1cC5vbm1vdXNlb3V0PWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOw0KICAgIH07DQogICAgdmFyIGNzPWNvbW1lbnRzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICB2YXIgcHM9Y29tbWVudHNbaV0ucGFyZW50Tm9kZS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpOw0KICAgIGlmKHBzLnN1YnN0cigwLDIpID09ICd0cicpew0KICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgdmFyIHg9cGFyc2VGbG9hdChjc1swXSkrcGFyc2VGbG9hdChwcHNbMF0pOw0KICAgICAgICB2YXIgeT1wYXJzZUZsb2F0KHBwc1sxXSk7DQogICAgICAgIHg9eC50b3N1aXRzdmcoKTsNCiAgICAgICAgeT15LnRvc3VpdHN2ZygpOw0KICAgICAgICB2YXIgdHJzdHIgPSAndHJhbnNsYXRlKCcreCsnLCcreSsnKSc7DQogICAgfQ0KICAgIGVsc2UgaWYocHMuc3Vic3RyKDAsMikgPT0gJ21hJyl7DQogICAgICAgIHZhciBwcHMgPSBwcy5tYXRjaCgvKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVwpJC8pOw0KICAgICAgICB2YXIgbWFBcnIgPSBbcGFyc2VGbG9hdChwcHNbMV0pLHBhcnNlRmxvYXQocHBzWzNdKSxwYXJzZUZsb2F0KHBwc1s1XSkscGFyc2VGbG9hdChwcHNbN10pLHBhcnNlRmxvYXQocHBzWzldKSxwYXJzZUZsb2F0KHBwc1sxMV0pXTsNCiAgICAgICAgaWYobWFBcnJbMV0gPT0gMCl7DQogICAgICAgICAgICB2YXIgeCA9IHBhcnNlRmxvYXQoY3NbMF0pOw0KICAgICAgICAgICAgdmFyIHk9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgdmFyIHgxID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgeTE9eTEudG9zdWl0c3ZnKCk7DQogICAgICAgICAgICB2YXIgdHJzdHIgPSAgJ3RyYW5zbGF0ZSgnK3gxKycsJyt5MSsnKSc7DQogICAgICAgIH1lbHNlew0KICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKSsxNjsNCiAgICAgICAgICAgIHZhciB5ID0gcGFyc2VGbG9hdChjc1sxXSkrMTY7DQogICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgeCA9IHBhcnNlRmxvYXQoY3NbMF0pKzE2Ow0KICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgdmFyIHgyID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTIgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBmeSA9IHkxPnkyP3kxLnRvc3VpdHN2ZygpOiB5Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBvZmZ5ID0gTWF0aC5hYnMoeTEteTIpOw0KICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvZmZ5LnRvU3RyaW5nKCkpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCd0cmFuc3BhcmVudCcpOw0KICAgICAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQocG9wdXBSKTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBwb3B1cC5zZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScsdHJzdHIpOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnY29tbWVudCcsJycpOw0KICAgIHBvcHVwLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnZWQ6Y29tbWVudGlkJyxjb21tZW50c1tpXS5wYXJlbnROb2RlLmlkKTsNCiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjc3ZnLWNvbnRhaW5lciA+IHN2ZycpLmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICBjb21tZW50c1tpXS5vbm1vdXNlb3Zlcj1mdW5jdGlvbiAoKSB7DQogICAgICAgIHZhciBjb21tZW50aWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDpjb21tZW50aWQ9JyIrY29tbWVudGlkKyInXVtjb21tZW50XSIpLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICB9Ow0KICAgIGNvbW1lbnRzW2ldLm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgY29tbWVudGlkPXRoaXMucGFyZW50Tm9kZS5pZDsNCi8vICAgICAgICB3aW5kb3cuZ2V0U2VsZWN0aW9uKCkucmVtb3ZlQWxsUmFuZ2VzKCk7DQogICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6Y29tbWVudGlkPSciK2NvbW1lbnRpZCsiJ11bY29tbWVudF0iKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9DQp9DQovLy0tY29tbWVudA0KLy9ub3RlLS0NCmlmKCF1YSl7DQogICAgdmFyIG5vdGVzPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2c+Z1tlZFxcOm5vdGVdJyk7DQogICAgZnVuY3Rpb24gZ2V0d2gocyxwKSB7DQogICAgICAgIHZhciBtYWlucD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsNCiAgICAgICAgbWFpbnAuc3R5bGUuY3NzVGV4dD1zOw0KICAgICAgICBtYWlucC5zdHlsZS5kaXNwbGF5PSdpbmxpbmUtYmxvY2snOw0KCQltYWlucC5zdHlsZS5tYXhXaWR0aCA9ICc0MDBweCc7DQoJCW1haW5wLnN0eWxlLndvcmRCcmVhayA9ICdicmVhay1hbGwnOw0KICAgICAgICBtYWlucC5pbm5lckhUTUw9cDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChtYWlucCk7DQogICAgICAgIHZhciB3PW1haW5wLmNsaWVudFdpZHRoOw0KICAgICAgICB2YXIgaD1tYWlucC5jbGllbnRIZWlnaHQ7DQogICAgICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQobWFpbnApOw0KICAgICAgICByZXR1cm4gW3csaF0NCiAgICB9DQogICAgZm9yKHZhciBpPTA7aTxub3Rlcy5sZW5ndGg7aSsrKXsNCiAgICAgICAgdmFyIGE9bm90ZXNbaV0uZ2V0QXR0cmlidXRlKCdlZDpub3RlJyk7DQoJCXZhciBub3RlTG9jayA9IG5vdGVzW2ldLmdldEF0dHJpYnV0ZSgnZWQ6bm90ZWxvY2snKTsNCiAgICAgICAgaWYobm90ZUxvY2sgPT0gJ3RydWUnKXsNCiAgICAgICAgICAgIGNvbnRpbnVlOw0KICAgICAgICB9DQogICAgICAgIHZhciBtYWlucD1hLm1hdGNoKC88Ym9keVtePl0qPiguKik8XC9ib2R5Pi8pWzFdOw0KICAgICAgICB2YXIgbWFpbnM9YS5tYXRjaCgvc3R5bGU9IiguKj8pIi8pWzFdOw0KICAgICAgICB2YXIgb3V0PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdnJyk7DQogICAgICAgIHZhciBvbGluZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgICAgICB2YXIgcG9wdXA9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ2ZvcmVpZ25PYmplY3QnKTsNCiAgICAgICAgdmFyIHBvcHVwUj0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ3JlY3QnKTsNCiAgICAgICAgdmFyIGhvdmVyPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNjZGNkZmYnKTsNCiAgICAgICAgaG92ZXIuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgICAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3knLCcwJyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JywnMTYnKTsNCiAgICAgICAgaG92ZXIuc2V0QXR0cmlidXRlKCd3aWR0aCcsJzE2Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbC1vcGFjaXR5JywnMC42Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyxub3Rlc1tpXS5xdWVyeVNlbGVjdG9yKCd1c2UnKS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpKTsNCiAgICAgICAgaG92ZXIuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIG5vdGVzW2ldLmFwcGVuZENoaWxkKGhvdmVyKTsNCiAgICAgICAgcG9wdXAuc3R5bGUuY3NzVGV4dD1tYWluczsNCiAgICAgICAgcG9wdXAuaW5uZXJIVE1MPW1haW5wOw0KICAgICAgICB2YXIgd2g9Z2V0d2gobWFpbnMsbWFpbnApOw0KICAgICAgICBwb3B1cC5zZXRBdHRyaWJ1dGUoJ3dpZHRoJyx3aFswXSk7DQogICAgICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnaGVpZ2h0Jyx3aFsxXSk7DQogICAgICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDgsNCknKTsNCgkJcG9wdXAuc3R5bGUud29yZEJyZWFrID0gJ2JyZWFrLWFsbCc7DQogICAgICAgIHBvcHVwLnN0eWxlLnRleHRBbGlnbj0nbGVmdCc7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgneCcsJzAnKTsNCiAgICAgICAgb2xpbmUuc2V0QXR0cmlidXRlKCd5JywnMCcpOw0KICAgICAgICBvbGluZS5zZXRBdHRyaWJ1dGUoJ3dpZHRoJyx3aFswXSsxNik7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnaGVpZ2h0Jyx3aFsxXSs4KTsNCiAgICAgICAgb2xpbmUuc2V0QXR0cmlidXRlKCdzdHJva2UnLCcjYTI3YTAwJyk7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNmZmU3OWQnKTsNCiAgICAgICAgb3V0LmFwcGVuZENoaWxkKG9saW5lKTsNCiAgICAgICAgb3V0LmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICAgICAgb3V0LnNldEF0dHJpYnV0ZSgnbm90ZScsJycpOw0KICAgICAgICBvdXQuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIG91dC5zZXRBdHRyaWJ1dGUoJ2VkOm5vdGVpZCcsbm90ZXNbaV0ucGFyZW50Tm9kZS5pZCk7DQogICAgICAgIG91dC5vbm1vdXNlb3Zlcj1mdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICAgICAgfTsNCiAgICAgICAgb3V0Lm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KLy8gICAgICAgIHdpbmRvdy5nZXRTZWxlY3Rpb24gPyB3aW5kb3cuZ2V0U2VsZWN0aW9uKCkucmVtb3ZlUmFuZ2Uod2luZG93LmdldFNlbGVjdGlvbigpLnJlKTpkb2N1bWVudC5zZWxlY3Rpb24uZW1wdHkoKTsNCg0KICAgICAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICAgICAgfTsNCiAgICAgICAgdmFyIGNzPW5vdGVzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgdmFyIHBzPW5vdGVzW2ldLnBhcmVudE5vZGUuZ2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nKTsNCiAgICAgICAgaWYocHMuc3Vic3RyKDAsMikgPT0gJ3RyJyl7DQogICAgICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgICAgIHZhciB4PXBhcnNlRmxvYXQoY3NbMF0pK3BhcnNlRmxvYXQocHBzWzBdKTsNCiAgICAgICAgICAgIHZhciB5PXBhcnNlRmxvYXQocHBzWzFdKTsNCiAgICAgICAgICAgIHg9eC50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHk9eS50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciB0cnN0ciA9ICd0cmFuc2xhdGUoJyt4KycsJyt5KycpJzsNCiAgICAgICAgfWVsc2UgaWYocHMuc3Vic3RyKDAsMikgPT0gJ21hJyl7DQogICAgICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goLyhcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylcKSQvKTsNCiAgICAgICAgICAgIHZhciBtYUFyciA9IFtwYXJzZUZsb2F0KHBwc1sxXSkscGFyc2VGbG9hdChwcHNbM10pLHBhcnNlRmxvYXQocHBzWzVdKSxwYXJzZUZsb2F0KHBwc1s3XSkscGFyc2VGbG9hdChwcHNbOV0pLHBhcnNlRmxvYXQocHBzWzExXSldOw0KICAgICAgICAgICAgaWYobWFBcnJbMV0gPT0gMCl7DQogICAgICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKTsNCiAgICAgICAgICAgICAgICB2YXIgeSA9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgICAgIHZhciB4MSA9IHggKiBtYUFyclswXSArIHkgKiBtYUFyclsyXSArIG1hQXJyWzRdOw0KICAgICAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgICAgIHkxPXkxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgICAgIHZhciB0cnN0ciA9ICAndHJhbnNsYXRlKCcreDErJywnK3kxKycpJzsNCiAgICAgICAgICAgIH1lbHNlew0KICAgICAgICAgICAgICAgIHZhciB4ID0gcGFyc2VGbG9hdChjc1swXSkrMTY7DQogICAgICAgICAgICAgICAgdmFyIHkgPSBwYXJzZUZsb2F0KGNzWzFdKSsxNjsNCiAgICAgICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgICAgICB4ID0gcGFyc2VGbG9hdChjc1swXSkrMTY7DQogICAgICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgICAgIHZhciB4MiA9IHggKiBtYUFyclswXSArIHkgKiBtYUFyclsyXSArIG1hQXJyWzRdOw0KICAgICAgICAgICAgICAgIHZhciB5MiA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgICAgICB2YXIgZnkgPSB5MT55Mj95MS50b3N1aXRzdmcoKTogeTIudG9zdWl0c3ZnKCk7DQoJCQkJdmFyIG9mZnkgPSBNYXRoLmFicyh5MS15Mik7CQkJCQkJCQkJCSAgDQogICAgICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2hlaWdodCcsb2ZmeS50b1N0cmluZygpKTsNCiAgICAgICAgICAgICAgICBwb3B1cFIuc2V0QXR0cmlidXRlKCd3aWR0aCcsJzE2Jyk7DQogICAgICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgICAgICBwb3B1cFIuc2V0QXR0cmlidXRlKCdmaWxsJywndHJhbnNwYXJlbnQnKTsNCiAgICAgICAgICAgICAgICBwb3B1cC5hcHBlbmRDaGlsZChwb3B1cFIpOw0KICAgICAgICAgICAgfQ0KICAgICAgICB9DQogICAgICAgIG91dC5zZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScsdHJzdHIpOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjc3ZnLWNvbnRhaW5lciA+IHN2ZycpLmFwcGVuZENoaWxkKG91dCk7DQogICAgICAgIG5vdGVzW2ldLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHZhciBub3RlaWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICAgICAgdGhpcy5xdWVyeVNlbGVjdG9yKCdyZWN0Jykuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOm5vdGVpZD0nIitub3RlaWQrIiddW25vdGVdIikuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICB9Ow0KICAgICAgICBub3Rlc1tpXS5vbm1vdXNlb3V0PWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHZhciBub3RlaWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KLy8gICAgICAgIHdpbmRvdy5nZXRTZWxlY3Rpb24oKS5yZW1vdmVBbGxSYW5nZXMoKTsNCiAgICAgICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOm5vdGVpZD0nIitub3RlaWQrIiddW25vdGVdIikuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIH0NCiAgICB9DQp9ZWxzZXsNCiAgICBjb25zb2xlLmxvZygn5oqx5q2J77yMSUXmtY/op4jlmajkuI3mlK/mjIFub3Rl6Kej5p6Q77yM6K+35L2/55So5YW25LuW5YaF5qC45rWP6KeI5Zmo44CC6LCi6LCi77yBJykNCn0NCi8vLS1ub3RlDQovL2h5cGVybGluay0tDQp2YXIgbGlua3M9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnZz5nW2VkXFw6aHlwZXJsaW5rXScpOw0KZnVuY3Rpb24gZ2V0bWF4bGVuKGFycixicnIpIHsNCiAgICB2YXIgbD0wOw0KICAgIHZhciBsbD0wOw0KICAgIGZvcih2YXIgaj0wO2o8YXJyLmxlbmd0aDtqKyspew0KICAgICAgICB2YXIgZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywndGV4dCcpOw0KICAgICAgICBpZighaXNOYU4obGlua2FycltqXSkpew0KICAgICAgICAgICAgZS50ZXh0Q29udGVudD0nUGFnZS0nK2FycltqXTsNCiAgICAgICAgfWVsc2V7DQogICAgICAgICAgICBlLnRleHRDb250ZW50PWFycltqXTsNCiAgICAgICAgfQ0KICAgICAgICBlLnN0eWxlLmZvbnRTaXplPScxMnB4JzsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0uYXBwZW5kQ2hpbGQoZSk7DQogICAgICAgIHZhciBldz1lLmdldEJCb3goKS53aWR0aDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0ucmVtb3ZlQ2hpbGQoZSk7DQogICAgICAgIHZhciBoPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIGgudGV4dENvbnRlbnQ9YnJyW2pdOw0KICAgICAgICBoLnN0eWxlLmZvbnRTaXplPScxMnB4JzsNCiAgICAgICAgaC5zdHlsZS5mb250V2VpZ2h0PSdib2xkJzsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0uYXBwZW5kQ2hpbGQoaCk7DQogICAgICAgIHZhciBodz1oLmdldEJCb3goKS53aWR0aDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0ucmVtb3ZlQ2hpbGQoaCk7DQogICAgICAgIGw9ZXc+aHc/ZXc6aHc7DQogICAgICAgIGxsPWw+bGw/bDpsbDsNCiAgICB9DQogICAgcmV0dXJuIGxsOw0KfQ0KZm9yKHZhciBpPTA7aTxsaW5rcy5sZW5ndGg7aSsrKXsNCiAgICB2YXIgcG9wdXA9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ2cnKTsNCiAgICB2YXIgcG9wdXBSPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgIHZhciBob3Zlcj1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgIHZhciBkZXNjYXJyPVtdOw0KICAgIHZhciBsaW5rYXJyPVtdOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNjZGNkZmYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3gnLCcwJyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCd5JywnMCcpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JywnMTYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3dpZHRoJywnMTYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ2ZpbGwtb3BhY2l0eScsJzAuNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyxsaW5rc1tpXS5xdWVyeVNlbGVjdG9yKCd1c2UnKS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpKTsNCiAgICBob3Zlci5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICBsaW5rc1tpXS5hcHBlbmRDaGlsZChob3Zlcik7DQogICAgLy8gY29uc29sZS5sb2cobGlua3NbaV0uZ2V0QXR0cmlidXRlKCdlZDpoeXBlcmxpbmsnKSk7DQogICAgdmFyIGE9SlNPTi5wYXJzZShsaW5rc1tpXS5nZXRBdHRyaWJ1dGUoJ2VkOmh5cGVybGluaycpKTsNCiAgICB2YXIgY3M9bGlua3NbaV0ucXVlcnlTZWxlY3RvcigndXNlJykuZ2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nKS5tYXRjaCgvXCgoXFMqfFxTKlxzXFMqKVwpLylbMV0uc3BsaXQoLyB8LC8pOw0KICAgIHZhciBwcz1saW5rc1tpXS5wYXJlbnROb2RlLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyk7DQogICAgaWYocHMuc3Vic3RyKDAsMikgPT0gJ3RyJyl7DQogICAgICAgIHZhciBwcHMgPSBwcy5tYXRjaCgvXCgoXFMqfFxTKlxzXFMqKVwpLylbMV0uc3BsaXQoLyB8LC8pOw0KICAgICAgICB2YXIgeD1wYXJzZUZsb2F0KGNzWzBdKStwYXJzZUZsb2F0KHBwc1swXSk7DQogICAgICAgIHZhciB5PXBhcnNlRmxvYXQocHBzWzFdKTsNCiAgICAgICAgeD14LnRvc3VpdHN2ZygpOw0KICAgICAgICB5PXkudG9zdWl0c3ZnKCk7DQogICAgICAgIHZhciB0cnN0ciA9ICd0cmFuc2xhdGUoJyt4KycsJyt5KycpJzsNCiAgICB9ZWxzZSBpZihwcy5zdWJzdHIoMCwyKSA9PSAnbWEnKXsNCiAgICAgICAgdmFyIHBwcyA9IHBzLm1hdGNoKC8oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pXCkkLyk7DQogICAgICAgIHZhciBtYUFyciA9IFtwYXJzZUZsb2F0KHBwc1sxXSkscGFyc2VGbG9hdChwcHNbM10pLHBhcnNlRmxvYXQocHBzWzVdKSxwYXJzZUZsb2F0KHBwc1s3XSkscGFyc2VGbG9hdChwcHNbOV0pLHBhcnNlRmxvYXQocHBzWzExXSldOw0KICAgICAgICBpZihtYUFyclsxXSA9PSAwKXsNCiAgICAgICAgICAgIHZhciB4ID0gcGFyc2VGbG9hdChjc1swXSk7DQogICAgICAgICAgICB2YXIgeSA9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgdmFyIHgxID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgeTE9eTEudG9zdWl0c3ZnKCk7DQogICAgICAgICAgICB2YXIgdHJzdHIgPSAgJ3RyYW5zbGF0ZSgnK3gxKycsJyt5MSsnKSc7DQogICAgICAgIH1lbHNlew0KICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKSsxNjsNCiAgICAgICAgICAgIHZhciB5ID0gcGFyc2VGbG9hdChjc1sxXSkrMTY7DQogICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgeCA9IHBhcnNlRmxvYXQoY3NbMF0pKzE2Ow0KICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgdmFyIHgyID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTIgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBmeSA9IHkxPnkyP3kxLnRvc3VpdHN2ZygpOiB5Mi50b3N1aXRzdmcoKTsNCgkJCXZhciBvZmZ5ID0gTWF0aC5hYnMoeTEteTIpOwkJCQkJCQkJCQkgIA0KICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvZmZ5LnRvU3RyaW5nKCkpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCd0cmFuc3BhcmVudCcpOw0KICAgICAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQocG9wdXBSKTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICB2YXIgYWw9YS5sZW5ndGg7DQogICAgZm9yKHZhciBqPTA7ajxhbDtqKyspew0KICAgICAgICBsaW5rYXJyLnB1c2goYVtqXS5saW5rKTsNCiAgICAgICAgZGVzY2Fyci5wdXNoKGFbal0uZGVzYyk7DQogICAgfQ0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyx0cnN0cik7DQogICAgdmFyIG1heD1nZXRtYXhsZW4obGlua2FycixkZXNjYXJyKTsNCiAgICBmb3IodmFyIGs9MDtrPGFsO2srKyl7DQogICAgICAgIHZhciBjPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdhJyk7DQogICAgICAgIHZhciBkPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgICAgIHZhciBlPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciBmPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIGlmKGlzTmFOKGxpbmthcnJba10pKXsNCiAgICAgICAgICAgIGMuc2V0QXR0cmlidXRlTlMoImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiwgInhsaW5rIiwgImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiKTsNCiAgICAgICAgICAgIGMuc2V0QXR0cmlidXRlTlMoImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiLCAiaHJlZiIsIGxpbmthcnJba10pOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGUoJ3RhcmdldCcsJ19ibGFuaycpOw0KICAgICAgICAgICAgZS50ZXh0Q29udGVudD1saW5rYXJyW2tdOw0KICAgICAgICB9ZWxzZXsNCiAgICAgICAgICAgIGUudGV4dENvbnRlbnQ9J1BhZ2UtJytsaW5rYXJyW2tdOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGVOUygiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLCAieGxpbmsiLCAiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIpOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGVOUygiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIsICJocmVmIiwgIiMiK2xpbmthcnJba10pOw0KICAgICAgICB9DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCd3aWR0aCcsbWF4KzEwKTsNCiAgICAgICAgZC5zZXRBdHRyaWJ1dGUoJ2hlaWdodCcsJzMzJyk7DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCdzdHJva2UnLCcjOTk5OTk5Jyk7DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCdmaWxsJywnd2hpdGUnKTsNCiAgICAgICAgZC5zZXRBdHRyaWJ1dGUoJ3knLDMzKmspOw0KICAgICAgICBmLnRleHRDb250ZW50PWRlc2NhcnJba107DQogICAgICAgIGYuc3R5bGUuZm9udFNpemU9JzEycHgnOw0KICAgICAgICBmLnN0eWxlLmZvbnRXZWlnaHQ9J2JvbGQnOw0KICAgICAgICBmLnNldEF0dHJpYnV0ZSgneCcsNSk7DQogICAgICAgIGYuc2V0QXR0cmlidXRlKCd5JywzMyprKzEyKTsNCiAgICAgICAgZS5zdHlsZS5mb250U2l6ZT0nMTJweCc7DQogICAgICAgIGUuc2V0QXR0cmlidXRlKCd5JywzMyprKzI4KTsNCiAgICAgICAgZS5zZXRBdHRyaWJ1dGUoJ3gnLDUpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGQpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGYpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGUpOw0KICAgICAgICBjLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmZpbGw9JyNlMWUxZmYnDQogICAgICAgIH07DQogICAgICAgIGMub25tb3VzZW91dD1mdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5maWxsPSd3aGl0ZScNCiAgICAgICAgfTsNCiAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQoYyk7DQogICAgfQ0KICAgIHBvcHVwLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnaHlwZXJsaW5rJywnJyk7DQogICAgcG9wdXAuc2V0QXR0cmlidXRlKCdlZDpsaW5raWQnLGxpbmtzW2ldLnBhcmVudE5vZGUuaWQpOw0KICAgIHBvcHVwLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgfTsNCiAgICBwb3B1cC5vbmNsaWNrPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9Ow0KICAgIHBvcHVwLm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KICAgICAgICB0aGlzLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIH07DQogICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignI3N2Zy1jb250YWluZXIgPiBzdmcnKS5hcHBlbmRDaGlsZChwb3B1cCk7DQogICAgbGlua3NbaV0ub25tb3VzZW92ZXI9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgbGlua2lkPXRoaXMucGFyZW50Tm9kZS5pZDsNCiAgICAgICAgdGhpcy5xdWVyeVNlbGVjdG9yKCdyZWN0Jykuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6bGlua2lkPSciK2xpbmtpZCsiJ11baHlwZXJsaW5rXSIpLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICB9DQogICAgbGlua3NbaV0ub25tb3VzZW91dD1mdW5jdGlvbiAoKSB7DQogICAgICAgIHZhciBsaW5raWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOmxpbmtpZD0nIitsaW5raWQrIiddW2h5cGVybGlua10iKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9DQp9DQovLy0taHlwZXJsaW5rDQovL2luaXRpYWxpemUtLQ0KdmFyIHNoYXBlPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2dbZWRcXDp0b2d0b3BpY2lkXScpOw0KdmFyIG1JZD1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCdnW2VkXFw6dG9waWN0eXBlXScpOw0KdmFyIGRhdGFUcmVlPXt9Ow0KdmFyIGV4dHJhUmVsYT17fTsNCnZhciBjaGVja0lEPScnOw0KZm9yKHZhciBpPTA7aTxtSWQubGVuZ3RoO2krKyl7DQogICAgdmFyIHR5cGU9bUlkW2ldLmdldEF0dHJpYnV0ZSgnZWQ6dG9waWN0eXBlJyk7DQogICAgdmFyIHNpZD1tSWRbaV0uaWQ7DQogICAgaWYodHlwZSE9PSdjYWxsb3V0Jyl7DQogICAgICAgIGluaXQoc2lkLGRhdGFUcmVlKQ0KICAgIH0NCn0NCmZ1bmN0aW9uIGluaXQoaWQsIG9iaikgew0KICAgIHZhciBjaGlsZHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6cGFyZW50aWQ9JyIgKyBpZCArICInXTpub3QoW2VkXFw6dG9waWN0eXBlXSkiKTsNCiAgICB2YXIgY2FsbHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6cGFyZW50aWQ9JyIgKyBpZCArICInXVtlZFxcOnRvcGljdHlwZV0iKTsNCiAgICB2YXIgc3VtbWFyeSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoInBhdGhbZWRcXDpwYXJlbnRpZCo9JyIgKyBpZCArICInXVtlZFxcOnR5cGU9J3N1bW1hcnknXSIpOw0KICAgIHZhciBib3VuZGFyeT0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgicGF0aFtlZFxcOnBhcmVudGlkKj0nIiArIGlkICsgIiddW2VkXFw6dHlwZT0nYm91bmRhcnknXSIpOw0KICAgIHZhciByZWxhZnJvbT1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6ZnJvbWlkKj0nIiArIGlkICsgIiddW2VkXFw6dHlwZT0ncmVsYXRpb24nXSIpOw0KICAgIHZhciByZWxhdG89ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgiZ1tlZFxcOnRvaWQqPSciICsgaWQgKyAiJ11bZWRcXDp0eXBlPSdyZWxhdGlvbiddIik7DQogICAgb2JqWyJtIiArIGlkXSA9IHt9Ow0KICAgIHZhciB0eXBlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLmdldEF0dHJpYnV0ZSgnZWQ6dG9waWN0eXBlJyk7DQogICAgdmFyIGl3PWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOndpZHRoJyk7DQogICAgdmFyIGloPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOmhlaWdodCcpOw0KICAgIGlmICh0eXBlKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0udHlwZSA9IHR5cGU7DQogICAgfQ0KICAgIGlmKGl3JiZpaCl7DQogICAgICAgIG9ialsibSIgKyBpZF0ud2lkdGggPWl3Ow0KICAgICAgICBvYmpbIm0iICsgaWRdLmhlaWdodCA9aWg7DQogICAgfQ0KICAgIGlmIChyZWxhZnJvbS5sZW5ndGggIT09IDApIHsNCiAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhZnJvbSA9IHt9Ow0KICAgICAgICBmb3IgKHZhciBpID0gMDsgaSA8IHJlbGFmcm9tLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgaW5kZXhpZCA9IHJlbGFmcm9tW2ldLmlkOw0KICAgICAgICAgICAgdmFyIHRvaWQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpbmRleGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOnRvaWQnKTsNCiAgICAgICAgICAgIGlmIChleHRyYVJlbGFbaW5kZXhpZF0gPT09IHVuZGVmaW5lZCkgew0KICAgICAgICAgICAgICAgIGV4dHJhUmVsYVtpbmRleGlkXSA9IHsNCiAgICAgICAgICAgICAgICAgICAgaWQ6IGluZGV4aWQsDQogICAgICAgICAgICAgICAgICAgIGZyb21pZDogaWQsDQogICAgICAgICAgICAgICAgICAgIHRvaWQ6IHRvaWQsDQogICAgICAgICAgICAgICAgICAgIGlzQzogZmFsc2UNCiAgICAgICAgICAgICAgICB9Ow0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhZnJvbVtpbmRleGlkXT17fTsNCiAgICAgICAgICAgIG9ialsibSIgKyBpZF0ucmVsYWZyb20uZGlzcGxheT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSAhPT0gJ25vbmUnPydibG9jayc6J25vbmUnOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChyZWxhdG8ubGVuZ3RoICE9PSAwKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0ucmVsYXRvID0ge307DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgcmVsYXRvLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgaW5kZXhpZD1yZWxhdG9baV0uaWQ7DQogICAgICAgICAgICB2YXIgZnJvbWlkPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGluZGV4aWQpLmdldEF0dHJpYnV0ZSgnZWQ6ZnJvbWlkJyk7DQogICAgICAgICAgICBpZihleHRyYVJlbGFbaW5kZXhpZF0gPT09IHVuZGVmaW5lZCl7DQogICAgICAgICAgICAgICAgZXh0cmFSZWxhW2luZGV4aWRdPXsNCiAgICAgICAgICAgICAgICAgICAgaWQ6aW5kZXhpZCwNCiAgICAgICAgICAgICAgICAgICAgZnJvbWlkOmZyb21pZCwNCiAgICAgICAgICAgICAgICAgICAgdG9pZDppZCwNCiAgICAgICAgICAgICAgICAgICAgaXNDOmZhbHNlDQogICAgICAgICAgICAgICAgfTsNCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIG9ialsibSIgKyBpZF0ucmVsYXRvW2luZGV4aWRdPXt9Ow0KICAgICAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhdG8uZGlzcGxheT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSAhPT0gJ25vbmUnPydibG9jayc6J25vbmUnOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChjaGlsZHMubGVuZ3RoICE9PSAwKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0uY2hpbGQgPSB7fTsNCiAgICAgICAgaWYgKGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciICsgaWQgKyAiJ10iKSkgew0KICAgICAgICAgICAgLy8gY29uc29sZS5sb2coZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOnRvZ3RvcGljaWQ9JyIgKyBpZCArICInXSIpLmNoaWxkTm9kZXNbMF0uZ2V0QXR0cmlidXRlKCd4bGluazpocmVmJykpOw0KICAgICAgICAgICAgdmFyIHRvZyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciICsgaWQgKyAiJ10iKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgndXNlJylbMF0uZ2V0QXR0cmlidXRlKCd4bGluazpocmVmJykuc2xpY2UoMSk7DQogICAgICAgICAgICBvYmpbIm0iICsgaWRdLnRvZ3R5cGUgPSB0b2c7DQogICAgICAgIH0NCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjaGlsZHMubGVuZ3RoOyBpKyspIHsNCiAgICAgICAgICAgIHZhciBjaWQgPSBjaGlsZHNbaV0uaWQ7DQogICAgICAgICAgICBpbml0KGNpZCwgb2JqWyJtIiArIGlkXS5jaGlsZCk7DQogICAgICAgIH0NCiAgICB9DQogICAgaWYgKGNhbGxzLmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLmNhbGwgPSB7fTsNCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjYWxscy5sZW5ndGg7IGkrKykgew0KICAgICAgICAgICAgdmFyIGNpZCA9IGNhbGxzW2ldLmlkOw0KICAgICAgICAgICAgaW5pdChjaWQsIG9ialsibSIgKyBpZF0uY2FsbCk7DQogICAgICAgIH0NCiAgICB9DQogICAgaWYgKGJvdW5kYXJ5Lmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLmJvdW5kYXJ5ID0ge307DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgYm91bmRhcnkubGVuZ3RoOyBpKyspIHsNCiAgICAgICAgICAgIHZhciBjaWQgPWJvdW5kYXJ5W2ldLmlkOw0KICAgICAgICAgICAgaW5pdChjaWQsIG9ialsibSIgKyBpZF0uYm91bmRhcnkpOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChzdW1tYXJ5Lmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLnN1bW1hcnkgPSB7fTsNCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBzdW1tYXJ5Lmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgY2lkID0gc3VtbWFyeVtpXS5pZDsNCiAgICAgICAgICAgIGluaXQoY2lkLCBvYmpbIm0iICsgaWRdLnN1bW1hcnkpOw0KICAgICAgICB9DQogICAgfQ0KfQ0KLy8tLWluaXRpYWxpemUNCi8vdG9nZ2xlZGlzcGxheS0tDQp2YXIgY2hhaW5BcnI9W107DQpmdW5jdGlvbiBnZXRjaGFpbihpZCl7DQogICAgY2hhaW5BcnIudW5zaGlmdCgnbScraWQpOw0KICAgIHZhciBwYXJlbnQ9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLmdldEF0dHJpYnV0ZSgnZWQ6cGFyZW50aWQnKTsNCiAgICBpZighcGFyZW50KXsNCiAgICAgICAgcmV0dXJuOw0KICAgIH0NCglpZihwYXJlbnQubWF0Y2goL1wsLykpew0KICAgICAgICBwYXJlbnQgPSBwYXJlbnQubWF0Y2goL1xkKyg/PVwsKS8pWzBdDQogICAgfQ0KICAgIGdldGNoYWluKHBhcmVudCk7DQp9DQpmdW5jdGlvbiBnZXRvYmooaWQpIHsNCiAgICBjaGFpbkFycj1bXTsNCiAgICBnZXRjaGFpbihpZCk7DQogICAgdmFyIG1haW49Y2hhaW5BcnJbMF07DQogICAgaWYoY2hhaW5BcnIubGVuZ3RoPjEpew0KICAgICAgICB2YXIgb2JqPWRhdGFUcmVlW21haW5dOw0KICAgICAgICAvLyBjb25zb2xlLmxvZyhjaGFpbkFycik7DQogICAgICAgIGZvcih2YXIgaT0xO2k8Y2hhaW5BcnIubGVuZ3RoO2krKykgew0KICAgICAgICAgICAgdmFyIGEgPSBjaGFpbkFycltpXTsNCiAgICAgICAgICAgIGZvcih2YXIgaj0wO2o8T2JqZWN0LmtleXMob2JqKS5sZW5ndGg7aisrKXsNCiAgICAgICAgICAgICAgICB2YXIgY29iaj0gb2JqW09iamVjdC5rZXlzKG9iailbal1dW2FdOw0KICAgICAgICAgICAgICAgIGlmKGNvYmopew0KICAgICAgICAgICAgICAgICAgICBvYmo9Y29iajsNCiAgICAgICAgICAgICAgICAgICAgY29udGludWUNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICAgICAgcmV0dXJuIG9iag0KICAgIH1lbHNlew0KICAgICAgICB2YXIgb2JqPWRhdGFUcmVlW21haW5dOw0KICAgICAgICByZXR1cm4gb2JqDQogICAgfQ0KDQp9DQpmb3IodmFyIGk9MDtpPHNoYXBlLmxlbmd0aDtpKyspew0KICAgIHNoYXBlW2ldLm9uY2xpY2s9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgaWQ9TnVtYmVyKHRoaXMuZ2V0QXR0cmlidXRlKCdlZDp0b2d0b3BpY2lkJykpOw0KICAgICAgICB2YXIgb2JqPWdldG9iaihpZCk7DQoNCiAgICAgICAgdmFyIHR5cGU9b2JqLnRvZ3R5cGU9PT0nbWludXMnPydwbHVzJzonbWludXMnOw0KICAgICAgICB2YXIgZGlzcGxheT1vYmoudG9ndHlwZT09PSdtaW51cyc/J25vbmUnOidibG9jayc7DQogICAgICAgIHRoaXMuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ3VzZScpWzBdLnNldEF0dHJpYnV0ZSgneGxpbms6aHJlZicsJyMnK3R5cGUpOw0KICAgICAgICBvYmoudG9ndHlwZT10eXBlOw0KICAgICAgICBjaGVja0lEPW9iajsNCg0KICAgICAgICB1dGQob2JqLGlkLGRpc3BsYXkpOw0KICAgICAgICBleHRyYVJlbGFGaW4oKTsNCiAgICB9DQp9DQpmdW5jdGlvbiB1dGQob2JqLGlkLHNob3csb2MpIHsNCg0KICAgIHZhciBwc2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSE9PSAnbm9uZSc/J2Jsb2NrJzonbm9uZSc7DQogICAgaWYgKG9iai5yZWxhZnJvbSl7DQogICAgICAgIGlmKG9iai5yZWxhZnJvbS5kaXNwbGF5IT09IHBzaG93KXsNCiAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMob2JqLnJlbGFmcm9tKTsNCiAgICAgICAgICAgIHJlbGFmcm9tcy5zcGxpY2UocmVsYWZyb21zLmluZGV4T2YoJ2Rpc3BsYXknKSwxKTsNCiAgICAgICAgICAgIGZvcih2YXIgaz0wO2s8cmVsYWZyb21zLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgICAgIHZhciBkPXJlbGFmcm9tc1trXTsNCiAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBvYmoucmVsYWZyb20uZGlzcGxheSA9IHBzaG93Ow0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChvYmoucmVsYXRvKXsNCiAgICAgICAgaWYob2JqLnJlbGF0by5kaXNwbGF5IT09IHBzaG93KXsNCiAgICAgICAgICAgIHZhciByZWxhdG9zPU9iamVjdC5rZXlzKG9iai5yZWxhdG8pOw0KICAgICAgICAgICAgcmVsYXRvcy5zcGxpY2UocmVsYXRvcy5pbmRleE9mKCdkaXNwbGF5JyksMSk7DQogICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGF0b3MubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgdmFyIGQ9cmVsYXRvc1trXTsNCiAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBvYmoucmVsYXRvLmRpc3BsYXkgPSBwc2hvdzsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBpZihvYmouY2FsbCl7DQogICAgICAgIHZhciBjYWxscz1PYmplY3Qua2V5cyhvYmouY2FsbCk7DQogICAgICAgIGlmKGNoZWNrSUQhPT1vYmopew0KICAgICAgICAgICAgZm9yKHZhciBpPTA7aSA8IGNhbGxzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPWNhbGxzW2ldLnNsaWNlKDEpOw0KICAgICAgICAgICAgICAgIHZhciBiPW9iai5jYWxsW2NhbGxzW2ldXTsNCiAgICAgICAgICAgICAgICB2YXIgYz1iLnRvZ3R5cGU7DQogICAgICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoYSkuc3R5bGUuZGlzcGxheT1zaG93Ow0KICAgICAgICAgICAgICAgIGlmIChiLnJlbGFmcm9tJiYhYyl7DQogICAgICAgICAgICAgICAgICAgIGlmKGIucmVsYWZyb20uZGlzcGxheSE9PSBzaG93KXsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMoYi5yZWxhZnJvbSk7DQogICAgICAgICAgICAgICAgICAgICAgICByZWxhZnJvbXMuc3BsaWNlKHJlbGFmcm9tcy5pbmRleE9mKCdkaXNwbGF5JyksMSk7DQogICAgICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGFmcm9tcy5sZW5ndGg7aysrKXsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhZnJvbXNba107DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgYi5yZWxhZnJvbS5kaXNwbGF5ID0gc2hvdzsNCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBpZiAoYi5yZWxhdG8mJiFjKXsNCiAgICAgICAgICAgICAgICAgICAgaWYoYi5yZWxhdG8uZGlzcGxheSE9PSBzaG93KXsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWxhdG9zPU9iamVjdC5rZXlzKGIucmVsYXRvKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIHJlbGF0b3Muc3BsaWNlKHJlbGF0b3MuaW5kZXhPZignZGlzcGxheScpLDEpOw0KICAgICAgICAgICAgICAgICAgICAgICAgZm9yKHZhciBrPTA7azxyZWxhdG9zLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhciBkPXJlbGF0b3Nba107DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgYi5yZWxhdG8uZGlzcGxheSA9IHNob3c7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoYyl7DQogICAgICAgICAgICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciK2ErIiddIikuc3R5bGUuZGlzcGxheT1zaG93Ow0KICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQogICAgICAgICAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgaWYgKChiLmNhbGx8fGIuYm91bmRhcnl8fGIuc3VtbWFyeSkmJmM9PT0ncGx1cycpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdyx0cnVlKQ0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCiAgICAgICAgICAgICAgICAgICAgdXRkKGIsYSxzaG93LHRydWUpDQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIGlmIChiLnN1bW1hcnkmJiFjKSB7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYgKGIuYm91bmRhcnkmJiFjKSB7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIH0NCiAgICAgICAgfQ0KICAgIH0NCiAgICBpZihvYmouc3VtbWFyeSl7DQogICAgICAgIHZhciBzdW1tYXJ5cz1PYmplY3Qua2V5cyhvYmouc3VtbWFyeSk7DQogICAgICAgIGlmKChjaGVja0lEIT09b2JqJiYob2JqLnRvZ3R5cGU9PT0nbWludXMnfHwhb2JqLnRvZ3R5cGUpKXx8Y2hlY2tJRD09PW9iail7DQogICAgICAgICAgICBmb3IodmFyIGk9MDtpPHN1bW1hcnlzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPXN1bW1hcnlzW2ldLnNsaWNlKDEpOw0KCQkJCXZhciBvc3AgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5nZXRBdHRyaWJ1dGUoJ2VkOnBhcmVudGlkJyk7DQogICAgICAgICAgICAgICAgaWYob3NwLm1hdGNoKC9cLC8pKXsNCiAgICAgICAgICAgICAgICAgICAgdmFyIG9zcGEgPSBvc3Auc3BsaXQoJywnKTsNCiAgICAgICAgICAgICAgICAgICAgdmFyIG9zcEw9MDsNCg0KICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGo9MDtqPG9zcGEubGVuZ3RoO2orKyl7DQogICAgICAgICAgICAgICAgICAgICAgICBpZihzaG93ID09ICdub25lJyl7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQob3NwYVtqXSkuc3R5bGUuZGlzcGxheSAhPSAnbm9uZScpew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9ZWxzZXsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3NwTCsrOw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIH1lbHNlew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZihkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5ICE9ICdub25lJyl7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfWVsc2V7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvc3BMKys7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgIGlmKG9zcEwgIT09IG9zcGEubGVuZ3RoKXsNCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlOw0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIHZhciBiPW9iai5zdW1tYXJ5W3N1bW1hcnlzW2ldXTsNCiAgICAgICAgICAgICAgICAvLyBjb25zb2xlLmxvZyhhKTsNCiAgICAgICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5PXNob3c7DQovLyAgICAgICAgICAgICAgICBpZihjKXsNCi8vICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6dG9ndG9waWNpZD0nIithKyInXSIpLnN0eWxlLmRpc3BsYXk9c2hvdzsNCi8vICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQovLyAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLHNob3cpDQovLyAgICAgICAgICAgICAgICAgICAgfQ0KLy8gICAgICAgICAgICAgICAgICAgIGlmIChiLmNhbGwmJmM9PT0ncGx1cycpIHsNCi8vICAgICAgICAgICAgICAgICAgICAgICAgdXRkKGIsc2hvdyx0cnVlKQ0KLy8gICAgICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCi8vICAgICAgICAgICAgICAgICAgICB1dGQoYixzaG93LHRydWUpDQovLyAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoT2JqZWN0LmtleXMoYikubGVuZ3RoIT09MCl7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYob2JqLmJvdW5kYXJ5KXsNCiAgICAgICAgdmFyIGJvdW5kYXJ5cz1PYmplY3Qua2V5cyhvYmouYm91bmRhcnkpOw0KICAgICAgICBpZihjaGVja0lEIT09b2JqKXsNCiAgICAgICAgICAgIGZvcih2YXIgaT0wO2k8Ym91bmRhcnlzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPWJvdW5kYXJ5c1tpXS5zbGljZSgxKTsNCiAgICAgICAgICAgICAgICB2YXIgYj1vYmouYm91bmRhcnlbYm91bmRhcnlzW2ldXTsNCiAgICAgICAgICAgICAgICAvLyBjb25zb2xlLmxvZyhhKTsNCiAgICAgICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5PXNob3c7DQovLyAgICAgICAgICAgICAgICBpZihjKXsNCi8vICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6dG9ndG9waWNpZD0nIithKyInXSIpLnN0eWxlLmRpc3BsYXk9c2hvdzsNCi8vICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQovLyAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLHNob3cpDQovLyAgICAgICAgICAgICAgICAgICAgfQ0KLy8gICAgICAgICAgICAgICAgICAgIGlmIChiLmNhbGwmJmM9PT0ncGx1cycpIHsNCi8vICAgICAgICAgICAgICAgICAgICAgICAgdXRkKGIsc2hvdyx0cnVlKQ0KLy8gICAgICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCi8vICAgICAgICAgICAgICAgICAgICB1dGQoYixzaG93LHRydWUpDQovLyAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoT2JqZWN0LmtleXMoYikubGVuZ3RoIT09MCl7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYoIW9jJiZvYmouY2hpbGQpIHsNCiAgICAgICAgdmFyIGNoaWxkcyA9IE9iamVjdC5rZXlzKG9iai5jaGlsZCk7DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgY2hpbGRzLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgYSA9IGNoaWxkc1tpXS5zbGljZSgxKTsNCiAgICAgICAgICAgIHZhciBiID0gb2JqLmNoaWxkW2NoaWxkc1tpXV07DQogICAgICAgICAgICB2YXIgYyA9IGIudG9ndHlwZTsNCiAgICAgICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGEpLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KCQkJdmFyIHRTUGF0aCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInBhdGhbZWRcXDp0b3N1cGVyaWQ9JyIrYSsiJ10iKTsNCiAgICAgICAgICAgIGlmKHRTUGF0aCl7DQogICAgICAgICAgICAgICAgdFNQYXRoLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgfQ0KCQkJdmFyIG5vdGVUaXAgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6bm90ZXRvPSciK2ErIiddIik7DQogICAgICAgICAgICBpZihub3RlVGlwKXsNCiAgICAgICAgICAgICAgICBub3RlVGlwLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgaWYgKGIucmVsYWZyb20mJiFjKXsNCiAgICAgICAgICAgICAgICBpZihiLnJlbGFmcm9tLmRpc3BsYXkhPT0gc2hvdyl7DQogICAgICAgICAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMoYi5yZWxhZnJvbSk7DQogICAgICAgICAgICAgICAgICAgIHJlbGFmcm9tcy5zcGxpY2UocmVsYWZyb21zLmluZGV4T2YoJ2Rpc3BsYXknKSwxKTsNCiAgICAgICAgICAgICAgICAgICAgZm9yKHZhciBrPTA7azxyZWxhZnJvbXMubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhZnJvbXNba107DQogICAgICAgICAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgYi5yZWxhZnJvbS5kaXNwbGF5ID0gc2hvdzsNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5yZWxhdG8mJiFjKXsNCiAgICAgICAgICAgICAgICBpZihiLnJlbGF0by5kaXNwbGF5IT09IHNob3cpew0KICAgICAgICAgICAgICAgICAgICB2YXIgcmVsYXRvcz1PYmplY3Qua2V5cyhiLnJlbGF0byk7DQogICAgICAgICAgICAgICAgICAgIHJlbGF0b3Muc3BsaWNlKHJlbGF0b3MuaW5kZXhPZignZGlzcGxheScpLDEpOw0KICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGF0b3MubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhdG9zW2tdOw0KICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgIGIucmVsYXRvLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIGlmIChjKSB7DQogICAgICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOnRvZ3RvcGljaWQ9JyIgKyBhICsgIiddIikuc3R5bGUuZGlzcGxheSA9IHNob3c7DQogICAgICAgICAgICAgICAgaWYgKGMgPT09ICdtaW51cycpIHsNCiAgICAgICAgICAgICAgICAgICAgdXRkKGIsYSxzaG93KQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBpZiAoKGIuY2FsbHx8Yi5ib3VuZGFyeXx8Yi5zdW1tYXJ5KSYmYz09PSdwbHVzJykgew0KICAgICAgICAgICAgICAgICAgICB1dGQoYixhLHNob3csdHJ1ZSkNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5jYWxsJiYhYykgew0KICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdyx0cnVlKQ0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgaWYgKGIuc3VtbWFyeSYmIWMpIHsNCiAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5ib3VuZGFyeSYmIWMpIHsNCiAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQp9DQoNCmZ1bmN0aW9uIGV4dHJhUmVsYUZpbigpIHsNCiAgICB2YXIgZXh0cmFrZXlzPU9iamVjdC5rZXlzKGV4dHJhUmVsYSk7DQogICAgZm9yKHZhciBpPTA7aTxleHRyYWtleXMubGVuZ3RoO2krKyl7DQogICAgICAgIHZhciBleHRyYU9iaj1leHRyYVJlbGFbZXh0cmFrZXlzW2ldXTsNCiAgICAgICAgaWYoZXh0cmFPYmouaXNDID09PSB0cnVlKXsNCiAgICAgICAgICAgIHZhciBmc2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai5mcm9taWQpLnN0eWxlLmRpc3BsYXkgIT09J25vbmUnPyB0cnVlOiBmYWxzZTsNCiAgICAgICAgICAgIHZhciB0c2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai50b2lkKS5zdHlsZS5kaXNwbGF5ICE9PSdub25lJz8gdHJ1ZTogZmFsc2U7DQogICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai5pZCkuc3R5bGUuZGlzcGxheT1mc2hvdyAmJiB0c2hvdz8gJ2Jsb2NrJzogJ25vbmUnOw0KICAgICAgICAgICAgZXh0cmFSZWxhW2V4dHJha2V5c1tpXV0uaXNDID0gZmFsc2U7DQogICAgICAgIH0NCiAgICB9DQp9'))</script>
+  </body>
+</html>
