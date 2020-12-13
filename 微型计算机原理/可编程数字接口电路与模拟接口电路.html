@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>可编程数字接口电路与模拟接口电路</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #content-info{
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #author-info{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #title{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-top: 10px;
+            margin-bottom: 2px;
+            font-size: 34px;
+            color: #505050;
+        }
+        .text{
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            font-size: 20px;
+            color: #8c8c8c;
+        }
+        #navBar{
+            width: auto;
+            height: auto;
+            position: fixed;
+            right:0;
+            bottom: 0;
+            background-color: #f0f3f4;
+            overflow-y: auto;
+            text-align: center;
+        }
+        #svg-container{
+            width: 100%;
+            overflow-x: scroll;
+            min-width: 0px;
+            margin: 0 10px;
+        }
+        #nav-thumbs{
+            overflow-y: scroll;
+            padding: 0 5px;
+        }
+        .nav-thumb{
+            position: relative;
+            margin: 10px auto;
+        }
+        .nav-thumb >p{
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+        }
+        .nav-thumb >div{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #c6cfd5;
+        }
+        .nav-thumb img{
+            display: block;
+        }
+        #main-content{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d0cfd8;
+            display: flex;
+            height: auto;
+            flex-flow: row wrap;
+            text-align:center;
+        }
+        #svg-container >svg{
+            display: block;
+            margin:10px auto;
+            margin-bottom: 0;
+        }
+        #copyright{
+            bottom: 0;
+            left: 50%;
+            margin: 5px auto;
+            font-size: 16px;
+            color: #515151;
+        }
+        #copyright >a{
+            text-decoration: none;
+            color: #77C;
+        }
+        .number{
+            position: absolute;
+            top:0;
+            left:0;
+            border-top:22px solid #08a1ef;
+            border-right: 22px solid transparent;
+        }
+        .pagenum{
+            font-size: 12px;
+            color: #fff;
+            position: absolute;
+            top: -23px;
+            left: 2px;
+        }
+            #navBar::-webkit-scrollbar{
+            width: 8px;
+            background-color: #f5f5f5;
+        }
+            #navBar::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+            #navBar::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            background-color: #6b6b70;
+        }
+        #navBar::-webkit-scrollbar-thumb:hover{
+            background-color: #4a4a4f;
+        }
+</style>
+  </head>
+  <body>
+    <div id="main-area">
+      <div id="content-info">
+        <div id="content-info">
+          <div id="title">可编程数字接口电路与模拟接口电路</div>
+        </div>
+        <div id="author-info">
+          <div id="author-name" class="text">Dell</div>
+          <div id="share-time" class="text">2020-12-13</div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="svg-container"><svg xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" ed:name="Page-1" viewBox="0 0 2405 2375" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" width="2405" ed:hSpacing="30" height="2375" ed:vSpacing="30" xmlns:xlink="http://www.w3.org/1999/xlink" id="page1" preserveAspectRadio="xMinYMin meet">
+    <style type="text/css"><![CDATA[
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st11 {fill:#303030;font-family:微软雅黑;font-size:12pt}
+.st12 {fill:#454545;font-family:微软雅黑;font-size:10pt}
+.st13 {fill:#c00000;font-family:微软雅黑;font-size:10pt}
+.st10 {fill:#ffffff;font-family:微软雅黑;font-size:14pt}
+]]></style>
+    <defs>
+        <linearGradient x2="0%" id="lg4" x1="0%" y1="0%" y2="100%">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.25" stop-color="#f0f5f0"/>
+            <stop offset="0.75" stop-color="#e1ebe1"/>
+            <stop offset="1" stop-color="#c8d7c8"/>
+        </linearGradient>
+    </defs>
+    <rect y="0" width="2405" fill="#ffffff" height="2375" x="0"/>
+    <path fill="#dcdcdc" fill-opacity="0.5" stroke="#dcdcdc" d="M117.6,2070.1C122.3,2061.2,127.3,2054,132.6,2048.7C150.2,2031.1,171.1,2023.4,195.1,2025.6C219.2,2027.8,241.7,2039.4,262.7,2060.3C303.2,2100.9,319.2,2148.1,310.5,2202C307.5,2220.9,300,2236.2,288.2,2248.1L266.6,2269.7C251.5,2284.7,233.3,2292.2,211.9,2292C216.3,2309.2,211.7,2324.6,198,2338.3C191.5,2344.8,183.8,2348.2,175,2348.5C166.2,2348.8,158.7,2345.9,152.7,2339.9C148.1,2335.3,144.1,2328.8,140.6,2320.5L136.9,2311.8L-2.9,1981.1L-6.8,1972.2C-16.7,1948,-14.2,1928.5,0.7,1913.6C7.5,1906.8,15.4,1903.2,24.2,1902.7C33,1902.3,40.4,1905.1,46.5,1911.1C51.2,1915.8,55.2,1922.3,58.6,1930.5L62.4,1939.4L117.6,2070.1M183.9,2227.1C201.2,2229.2,214.9,2225.2,225.1,2215C232.4,2207.7,236.5,2199.5,237.4,2190.4C238.8,2177.8,236.5,2163.4,230.7,2147C224.8,2130.7,217.5,2118.1,208.7,2109.3C201.9,2102.5,194.3,2098.9,186,2098.5C177.7,2098.1,170.4,2101.1,164,2107.5C149.6,2121.9,148.8,2144.2,161.5,2174.2L183.9,2227.1M522.4,2032.6L548.8,2006.1C568.1,1986.8,584.5,1984,598,1997.5C607.3,2006.7,611.1,2017.3,609.5,2029.3C607.9,2041.2,601,2053.2,588.9,2065.4L552,2102.3C560.6,2119.7,570,2145,580,2178.1C597.9,2236.1,587.7,2284.3,549.5,2322.5C526.2,2345.8,499.4,2358,469.1,2359.2C438.7,2360.4,412.7,2350.3,391.2,2328.7C376.1,2313.7,366.4,2295.4,362,2273.8C357.6,2252.2,359.1,2231.2,366.6,2210.7C375.2,2187.2,395.3,2159.7,426.7,2128.2L463.8,2091.1L454,2068.1C447.5,2084,439.5,2096.7,430.1,2106.1C413.9,2122.4,396.5,2131.4,378.2,2133.2C359.8,2135.1,344,2129.4,330.8,2116.2C322.7,2108.1,313.9,2092.8,304.4,2070.1L267.9,1984L264,1975.2C254.2,1950.7,256.9,1930.8,272.2,1915.5C278.9,1908.8,286.6,1905.3,295.4,1905.1C304.1,1904.9,311.7,1908,318.3,1914.6C322.7,1919,327.8,1928.1,333.8,1941.9L365.9,2018.7C371.2,2031,375.1,2038.5,377.5,2041.2C384.5,2049.1,392.9,2048.1,402.8,2038.3C409.8,2031.3,414.8,2022.1,418,2010.7C421.2,1999.3,421.2,1990,418,1982.9L374.1,1877.9L370,1869.2C359.9,1844.9,362.7,1825,378.2,1809.5C384.9,1802.9,392.6,1799.4,401.4,1799.3C410.2,1799.1,417.8,1802.3,424.2,1808.6C428.6,1813,432.5,1819.3,436,1827.3L439.5,1836.2L522.4,2032.6M497.5,2156.7L465.6,2188.6C430.7,2223.5,424.2,2251.9,446.1,2273.8C453.8,2281.5,462.4,2285.4,471.9,2285.3C481.4,2285.2,490.2,2281.2,498.2,2273.1C509.3,2262,514.8,2247.9,514.7,2230.6C514.7,2213.4,508.9,2188.8,497.5,2156.7M650.3,1537.4L681.8,1506C701,1486.7,717.4,1483.8,731,1497.3C740.2,1506.6,744.1,1517.2,742.5,1529.1C740.9,1541,734,1553,721.8,1565.2L679.9,1607.1L829.8,1961.6C842.1,1990.9,840.7,2013.1,825.5,2028.3C818.8,2035,811.1,2038.6,802.5,2039C793.8,2039.5,786.5,2036.7,780.4,2030.6C776,2026.2,770.7,2017,764.7,2003L622.1,1665L606.6,1680.5C587.3,1699.7,571,1702.8,557.8,1689.6C548.4,1680.2,544.5,1669.4,546,1657.4C547.5,1645.5,554.3,1633.4,566.5,1621.2L592.5,1595.3L550.1,1495C536.1,1461.6,530.9,1433.1,534.6,1409.6C538.2,1386.1,551.5,1362.9,574.2,1340.1L600.2,1314.2C619.6,1294.7,636,1291.7,649.4,1305C659,1314.6,663,1325.5,661.5,1337.6C660,1349.8,653.1,1361.9,641,1374.1L634.1,1380.9C621.4,1393.7,613.9,1406.3,611.7,1418.8C609.5,1431.4,612,1446.3,619.3,1463.6L650.3,1537.4M868,1568.9L893.8,1543.2C912.9,1524,929.2,1521.2,942.7,1534.7C952,1544,955.8,1554.6,954.2,1566.5C952.6,1578.4,945.8,1590.5,933.6,1602.6L897.4,1638.8C884,1652.2,870.8,1660,857.7,1662.2C844.5,1664.4,833.2,1660.8,823.8,1651.4C818.8,1646.4,814,1638.4,809.5,1627.5L754.6,1497.4L750.7,1488.5C740.5,1464.4,743.2,1444.5,758.7,1429C765.1,1422.7,772.7,1419.3,781.6,1418.9C790.5,1418.5,797.9,1421.3,803.8,1427.2C808.6,1432.1,814,1441.6,819.9,1455.7L868,1568.9M700.8,1341.6C709.6,1332.8,720.2,1328.4,732.5,1328.4C744.8,1328.4,755.3,1332.8,764.1,1341.6C772.9,1350.4,777.4,1360.9,777.4,1373.2C777.4,1385.5,772.9,1396.1,764.1,1404.9C755.3,1413.7,744.8,1418.1,732.5,1418.1C720.2,1418.1,709.6,1413.7,700.8,1404.9C692,1396.1,687.6,1385.5,687.6,1373.2C687.6,1360.9,692,1350.4,700.8,1341.6M968.6,1434.1C980,1445.5,994.3,1442.6,1011.5,1425.5L1079.1,1357.8C1098.2,1338.7,1114.6,1335.9,1128.1,1349.4C1137.3,1358.7,1141.2,1369.2,1139.6,1381.2C1138,1393.1,1131.1,1405.1,1119,1417.3L1054.5,1481.7C1030.5,1505.7,1006.3,1518.1,982,1518.8C957.6,1519.4,934,1508.4,911.2,1485.6C881.9,1456.3,866.5,1421.1,865.1,1380C863.6,1338.9,876.6,1304.7,903.9,1277.4C923.8,1257.5,945,1246.7,967.5,1245.1C990,1243.4,1009.7,1251.1,1026.7,1268.1C1047.2,1288.6,1054.1,1312.1,1047.2,1338.7C1043.6,1353.6,1032.6,1370.2,1014.2,1388.6L968.6,1434.1M938.1,1381.7L963.2,1356.7C979.4,1340.4,983.7,1329,976.1,1322.3C967.6,1314.7,958.4,1315.9,948.4,1325.9C934.4,1339.9,931,1358.5,938.1,1381.7M1176.8,1260.2L1200.7,1236.2C1220,1217,1236.4,1214.1,1249.9,1227.6C1259.1,1236.9,1263,1247.4,1261.4,1259.4C1259.8,1271.3,1252.9,1283.3,1240.8,1295.5L1199.8,1336.5C1188.5,1347.7,1177,1353.9,1165.1,1355.2C1153.3,1356.4,1142.9,1352.5,1133.9,1343.5C1129.2,1338.8,1123.6,1328.8,1117.1,1313.5L982.7,995L979,986.4C969,962.4,971.7,942.7,987,927.4C993.4,921,1000.9,917.7,1009.7,917.4C1018.4,917.2,1025.7,920.1,1031.7,926C1036.2,930.5,1040.2,936.8,1043.7,944.9L1047.4,953.6L1176.8,1260.2M1398.6,1038.4L1424.5,1012.4C1443.8,993.1,1460.2,990.2,1473.7,1003.7C1483,1013,1486.8,1023.6,1485.1,1035.6C1483.5,1047.6,1476.6,1059.6,1464.6,1071.6L1433.9,1102.4C1422,1114.2,1408.5,1118,1393.3,1113.8C1393.3,1133.2,1387.8,1148.5,1376.7,1159.6L1347.8,1188.5C1330.9,1205.3,1311.7,1213.1,1290,1211.6C1268.4,1210.2,1248,1199.9,1228.8,1180.7C1199.5,1151.4,1183.2,1115.1,1179.8,1071.7C1176.3,1028.4,1187.1,994.3,1212,969.3C1230.4,951,1251.6,942.9,1275.8,945.2L1202,769.8C1189.4,739.9,1190.8,717.2,1206.3,701.7C1212.8,695.2,1220.5,691.7,1229.2,691.3C1237.9,690.9,1245.3,693.8,1251.4,699.9C1256.1,704.6,1260.3,711,1263.9,719.2L1267.3,728.1L1398.6,1038.4M1316.3,1122.9L1325,1114.2C1335.5,1103.7,1338.2,1092.7,1333.2,1081L1308.1,1021.7C1305.1,1014.4,1302.2,1009.4,1299.5,1006.7C1294.9,1002.1,1289.1,1000.2,1282,1000.9C1275,1001.6,1268.6,1004.8,1262.8,1010.6C1250.9,1022.4,1246.5,1040.1,1249.5,1063.5C1252.4,1087,1261.6,1106.4,1276.9,1121.7C1290.4,1135.3,1303.6,1135.6,1316.3,1122.9M1415.9,887.1L1453.2,849.8L1457.6,845.4C1472,831,1485.7,830.2,1498.6,843.1C1511.6,856.2,1510.9,869.9,1496.5,884.4L1492.2,888.7L1454.8,926.1L1450.5,930.4C1444.1,936.8,1437.1,940.2,1429.5,940.6C1421.9,941.1,1415.2,938.4,1409.3,932.4C1403.5,926.7,1400.8,920,1401.2,912.5C1401.6,905,1405,898,1411.5,891.4L1415.9,887.1M1585.8,816.9C1597.2,828.3,1611.5,825.5,1628.6,808.3L1696.3,740.6C1715.4,721.5,1731.8,718.7,1745.3,732.2C1754.5,741.5,1758.4,752.1,1756.8,764C1755.2,775.9,1748.3,787.9,1736.2,800.1L1671.7,864.6C1647.7,888.6,1623.5,900.9,1599.1,901.6C1574.8,902.3,1551.2,891.2,1528.4,868.4C1499.1,839.1,1483.7,803.9,1482.3,762.8C1480.8,721.8,1493.8,687.6,1521.1,660.2C1541,640.3,1562.2,629.5,1584.7,627.9C1607.1,626.2,1626.9,633.9,1643.9,650.9C1664.4,671.4,1671.2,694.9,1664.4,721.5C1660.8,736.4,1649.7,753,1631.4,771.4L1585.8,816.9M1555.3,764.6L1580.3,739.5C1596.6,723.2,1600.9,711.8,1593.3,705.1C1584.8,697.5,1575.6,698.7,1565.5,708.7C1551.6,722.7,1548.1,741.3,1555.3,764.6M1913.1,623.2L1847,689.2C1828,708.2,1805.9,717,1780.6,715.5C1755.3,714.1,1732.1,702.7,1710.8,681.5C1682.4,653.1,1667.5,618.6,1666.1,578.1C1664.8,537.5,1677.3,504,1703.7,477.6C1721.7,459.7,1741.2,450.1,1762.5,448.9C1783.8,447.7,1802.4,455.1,1818.5,471.2C1829.8,482.5,1836.2,494.5,1837.8,507.3C1839.4,520.2,1835.8,531,1827,539.8C1813,553.8,1799.5,554.2,1786.4,541.2C1784.4,539.2,1782.8,537.5,1781.4,536.1C1779.9,534.3,1778.4,532.7,1776.9,531.1C1766.2,520.5,1755.7,520.4,1745.2,530.9C1735.3,540.8,1731.6,555,1733.9,573.6C1736.3,592.2,1743.9,608,1756.8,620.9C1767.6,631.7,1778.5,636,1789.6,633.9C1800.7,631.7,1814.1,622.8,1829.9,607L1873,563.9C1892.3,544.7,1908.7,541.8,1922.2,555.3C1931.3,564.4,1935,575,1933.4,587.2C1931.7,599.3,1924.9,611.3,1913.1,623.2M1907.5,299.8C1914.8,275.2,1923.6,257.8,1933.9,247.5C1948.5,232.9,1964.5,225,1982,223.8C1999.4,222.5,2014.5,228.2,2027.1,240.8C2034.6,248.4,2041.1,258.5,2046.4,271.1L2082.2,354.7L2108.4,328.5C2127.5,309.4,2143.8,306.6,2157.4,320.1C2166.6,329.4,2170.5,340,2168.9,351.9C2167.3,363.8,2160.4,375.9,2148.2,388L2102.5,433.8C2092.7,443.5,2081.8,448.9,2069.7,450C2057.5,451,2047.4,447.5,2039.4,439.5C2033.9,434,2028.7,425.3,2023.6,413.3L1993.1,340.8C1989.2,331.7,1985.5,325.5,1982.2,322.2C1973.5,313.5,1963.4,315,1951.9,326.5C1936.4,342,1936.5,368.3,1952.3,405.3L1989.5,493.5C2001.3,521.4,1999.3,543.3,1983.5,559.1C1977.3,565.3,1970,568.6,1961.7,569.1C1953.3,569.6,1946.3,567,1940.7,561.4C1936.5,557.1,1932.6,551,1929.1,542.9L1925.5,534.2L1780.1,190.7C1767.8,161.1,1769.2,138.8,1784.2,123.8C1790.4,117.5,1797.9,114.3,1806.5,114C1815.2,113.7,1822.5,116.5,1828.4,122.4C1833.3,127.2,1838.5,136.4,1844.1,150L1907.5,299.8M2123.6,57.7C2145.7,35.7,2170.8,24.5,2198.9,24.3C2227.1,24.1,2252,34.8,2273.5,56.3C2289.8,72.6,2302.2,92.4,2310.8,115.9C2319.4,139.4,2322.5,161.8,2320.2,183.2C2318.6,197.3,2314.7,209.8,2308.6,220.6C2302.5,231.4,2291.9,244.3,2276.7,259.5C2252,284.3,2232.3,298,2217.7,300.8C2183.4,307.1,2152.6,296.7,2125.2,269.3C2096.4,240.5,2081.8,205.1,2081.5,163.2C2081.2,121.2,2095.2,86.1,2123.6,57.7M2166.7,111.7C2155.5,122.9,2150.8,138.7,2152.6,159.1C2154.4,179.4,2162,196.3,2175.4,209.6C2193,227.3,2211.6,226.2,2231.4,206.4C2242.9,194.9,2248.2,182.5,2247.3,169.1C2246,147.1,2237.8,128.5,2222.7,113.5C2214.1,104.8,2204.6,100.4,2194.3,100.1C2183.9,99.8,2174.7,103.6,2166.7,111.7" stroke-opacity="0.5"/>
+    <path transform="matrix(1,0,0,1,2227,941)" ed:idlist="148,150" fill="none" ed:parentid="148,150" stroke-linejoin="round" id="152" ed:type="summary" stroke="#f8ae1a" d="M0.1,0C6,0,5.9,3.5,5.9,3.5L5.9,24.8C5.9,24.8,6.9,27.8,12,27.8C6.9,27.9,5.9,30.7,5.9,30.7L5.9,52C5.9,52,5.8,55.5,0,55.5"/>
+    <path transform="matrix(1,0,0,1,1445,1264)" fill="none" ed:parentid="101" stroke-linejoin="round" id="103" stroke="#696969" d="M-44.1,-47.9C8.3,-3.7,37.1,76.4,118.8,76.4" ed:tosuperid="102" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1208,824)" fill="none" ed:parentid="101" stroke-linejoin="round" id="105" stroke="#696969" d="M73.1,334.6C-12.2,200.3,80.5,-363.1,-118.8,-363.1" ed:tosuperid="104" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1754,974)" fill="none" ed:parentid="102" stroke-linejoin="round" id="109" stroke="#696969" d="M-13.5,365.9C5.4,365.9,-13.5,-365.9,13.5,-365.9" ed:tosuperid="108" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1883,570)" fill="none" ed:parentid="108" stroke-linejoin="round" id="111" stroke="#696969" d="M-13.5,38.8C4.6,38.8,-11.7,-38.8,13.5,-38.8" ed:tosuperid="110" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1883,585)" fill="none" ed:parentid="108" stroke-linejoin="round" id="113" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="112" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1883,601)" fill="none" ed:parentid="108" stroke-linejoin="round" id="115" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="114" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1883,632)" fill="none" ed:parentid="108" stroke-linejoin="round" id="117" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="116" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1980,640)" fill="none" ed:parentid="116" stroke-linejoin="round" id="119" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="118" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1980,655)" fill="none" ed:parentid="116" stroke-linejoin="round" id="121" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="120" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1980,671)" fill="none" ed:parentid="116" stroke-linejoin="round" id="123" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="122" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,818)" fill="none" ed:parentid="132" stroke-linejoin="round" id="125" stroke="#696969" d="M-13.5,54.3C5.4,54.3,-13.5,-54.3,13.5,-54.3" ed:tosuperid="124" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2013,740)" fill="none" ed:parentid="124" stroke-linejoin="round" id="127" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="126" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2013,764)" fill="none" ed:parentid="124" stroke-linejoin="round" id="129" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="128" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2013,787)" fill="none" ed:parentid="124" stroke-linejoin="round" id="131" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="130" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1754,1106)" fill="none" ed:parentid="102" stroke-linejoin="round" id="133" stroke="#696969" d="M-13.5,234.1C5.4,234.1,-13.5,-234.1,13.5,-234.1" ed:tosuperid="132" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,857)" fill="none" ed:parentid="132" stroke-linejoin="round" id="135" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="134" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,872)" fill="none" ed:parentid="132" stroke-linejoin="round" id="137" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="136" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,888)" fill="none" ed:parentid="132" stroke-linejoin="round" id="139" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="138" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,926)" fill="none" ed:parentid="132" stroke-linejoin="round" id="141" stroke="#696969" d="M-13.5,-54.3C5.4,-54.3,-13.5,54.3,13.5,54.3" ed:tosuperid="140" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1974,957)" fill="none" ed:parentid="140" stroke-linejoin="round" id="143" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="142" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1974,981)" fill="none" ed:parentid="140" stroke-linejoin="round" id="145" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="144" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1974,1004)" fill="none" ed:parentid="140" stroke-linejoin="round" id="147" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="146" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2097,973)" fill="none" ed:parentid="144" stroke-linejoin="round" id="149" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="148" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2097,988)" fill="none" ed:parentid="144" stroke-linejoin="round" id="151" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="150" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2182,756)" fill="none" ed:parentid="128" stroke-linejoin="round" id="158" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="157" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2182,771)" fill="none" ed:parentid="128" stroke-linejoin="round" id="160" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="159" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1754,1323)" fill="none" ed:parentid="102" stroke-linejoin="round" id="162" stroke="#696969" d="M-13.5,17.1C1.2,17.1,-3.6,-17.1,13.5,-17.1" ed:tosuperid="161" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1190)" fill="none" ed:parentid="161" stroke-linejoin="round" id="164" stroke="#696969" d="M-13.5,116.3C5.4,116.3,-13.5,-116.3,13.5,-116.3" ed:tosuperid="163" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1229)" fill="none" ed:parentid="161" stroke-linejoin="round" id="166" stroke="#696969" d="M-13.5,77.5C5.4,77.5,-13.5,-77.5,13.5,-77.5" ed:tosuperid="165" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1275)" fill="none" ed:parentid="161" stroke-linejoin="round" id="168" stroke="#696969" d="M-13.5,31C3.7,31,-9.4,-31,13.5,-31" ed:tosuperid="167" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1322)" fill="none" ed:parentid="161" stroke-linejoin="round" id="170" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="169" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1360)" fill="none" ed:parentid="161" stroke-linejoin="round" id="172" stroke="#696969" d="M-13.5,-54.3C5.4,-54.3,-13.5,54.3,13.5,54.3" ed:tosuperid="171" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1066)" fill="none" ed:parentid="163" stroke-linejoin="round" id="174" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="173" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1081)" fill="none" ed:parentid="163" stroke-linejoin="round" id="176" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="175" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1136)" fill="none" ed:parentid="165" stroke-linejoin="round" id="178" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="177" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1151)" fill="none" ed:parentid="165" stroke-linejoin="round" id="180" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="179" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1229)" fill="none" ed:parentid="167" stroke-linejoin="round" id="182" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="181" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1244)" fill="none" ed:parentid="167" stroke-linejoin="round" id="184" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="183" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1322)" fill="none" ed:parentid="169" stroke-linejoin="round" id="186" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="185" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1337)" fill="none" ed:parentid="169" stroke-linejoin="round" id="188" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="187" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1260)" fill="none" ed:parentid="167" stroke-linejoin="round" id="190" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="189" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1407)" fill="none" ed:parentid="171" stroke-linejoin="round" id="192" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="191" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1422)" fill="none" ed:parentid="171" stroke-linejoin="round" id="194" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="193" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1391)" fill="none" ed:parentid="161" stroke-linejoin="round" id="196" stroke="#696969" d="M-13.5,-85.3C5.4,-85.3,-13.5,85.3,13.5,85.3" ed:tosuperid="195" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1469)" fill="none" ed:parentid="195" stroke-linejoin="round" id="198" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="197" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1484)" fill="none" ed:parentid="195" stroke-linejoin="round" id="200" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="199" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1851,1422)" fill="none" ed:parentid="161" stroke-linejoin="round" id="204" stroke="#696969" d="M-13.5,-116.3C5.4,-116.3,-13.5,116.3,13.5,116.3" ed:tosuperid="203" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2073,1531)" fill="none" ed:parentid="203" stroke-linejoin="round" id="206" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="205" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2073,1546)" fill="none" ed:parentid="203" stroke-linejoin="round" id="208" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="207" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1754,1579)" fill="none" ed:parentid="102" stroke-linejoin="round" id="210" stroke="#696969" d="M-13.5,-238.6C5.4,-238.6,-13.5,238.6,13.5,238.6" ed:tosuperid="209" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1838,1725)" fill="none" ed:parentid="209" stroke-linejoin="round" id="212" stroke="#696969" d="M-13.5,93C5.4,93,-13.5,-93,13.5,-93" ed:tosuperid="211" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1838,1787)" fill="none" ed:parentid="209" stroke-linejoin="round" id="214" stroke="#696969" d="M-13.5,31C3.7,31,-9.4,-31,13.5,-31" ed:tosuperid="213" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1838,1864)" fill="none" ed:parentid="209" stroke-linejoin="round" id="216" stroke="#696969" d="M-13.5,-46.5C5.2,-46.5,-13.1,46.5,13.5,46.5" ed:tosuperid="215" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1838,1926)" fill="none" ed:parentid="209" stroke-linejoin="round" id="218" stroke="#696969" d="M-13.5,-108.5C5.4,-108.5,-13.5,108.5,13.5,108.5" ed:tosuperid="217" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2019,1608)" fill="none" ed:parentid="211" stroke-linejoin="round" id="220" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="219" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2019,1624)" fill="none" ed:parentid="211" stroke-linejoin="round" id="222" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="221" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2019,1639)" fill="none" ed:parentid="211" stroke-linejoin="round" id="224" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="223" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2019,1655)" fill="none" ed:parentid="211" stroke-linejoin="round" id="226" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="225" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2028,1732)" fill="none" ed:parentid="213" stroke-linejoin="round" id="228" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="227" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2028,1748)" fill="none" ed:parentid="213" stroke-linejoin="round" id="230" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="229" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2028,1763)" fill="none" ed:parentid="213" stroke-linejoin="round" id="232" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="231" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2028,1779)" fill="none" ed:parentid="213" stroke-linejoin="round" id="234" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="233" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2058,1872)" fill="none" ed:parentid="215" stroke-linejoin="round" id="237" stroke="#696969" d="M-13.5,38.8C4.6,38.8,-11.7,-38.8,13.5,-38.8" ed:tosuperid="236" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2058,1887)" fill="none" ed:parentid="215" stroke-linejoin="round" id="239" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="238" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2058,1903)" fill="none" ed:parentid="215" stroke-linejoin="round" id="241" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="240" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2058,1918)" fill="none" ed:parentid="215" stroke-linejoin="round" id="243" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="242" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2058,1934)" fill="none" ed:parentid="215" stroke-linejoin="round" id="245" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="244" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2058,1949)" fill="none" ed:parentid="215" stroke-linejoin="round" id="247" stroke="#696969" d="M-13.5,-38.8C4.6,-38.8,-11.7,38.8,13.5,38.8" ed:tosuperid="246" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2004,2027)" fill="none" ed:parentid="217" stroke-linejoin="round" id="249" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="248" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2004,2042)" fill="none" ed:parentid="217" stroke-linejoin="round" id="251" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="250" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1754,1734)" fill="none" ed:parentid="102" stroke-linejoin="round" id="253" stroke="#696969" d="M-13.5,-393.6C5.4,-393.6,-13.5,393.6,13.5,393.6" ed:tosuperid="252" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1870,2112)" fill="none" ed:parentid="252" stroke-linejoin="round" id="255" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="254" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1870,2135)" fill="none" ed:parentid="252" stroke-linejoin="round" id="257" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="256" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2084,2089)" fill="none" ed:parentid="254" stroke-linejoin="round" id="259" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="258" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,2084,2104)" fill="none" ed:parentid="254" stroke-linejoin="round" id="261" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="260" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1870,2151)" fill="none" ed:parentid="252" stroke-linejoin="round" id="263" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="262" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1167)" fill="none" ed:parentid="165" stroke-linejoin="round" id="265" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="264" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1930,1353)" fill="none" ed:parentid="169" stroke-linejoin="round" id="267" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="266" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,889,292)" fill="none" ed:parentid="104" stroke-linejoin="round" id="271" stroke="#696969" d="M13.5,169.1C-5.4,169.1,13.5,-169.1,-13.5,-169.1" ed:tosuperid="270" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,773,84)" fill="none" ed:parentid="270" stroke-linejoin="round" id="273" stroke="#696969" d="M13.5,38.8C-4.6,38.8,11.7,-38.8,-13.5,-38.8" ed:tosuperid="272" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,773,108)" fill="none" ed:parentid="270" stroke-linejoin="round" id="275" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="274" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,773,131)" fill="none" ed:parentid="270" stroke-linejoin="round" id="277" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="276" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,773,146)" fill="none" ed:parentid="270" stroke-linejoin="round" id="279" stroke="#696969" d="M13.5,-23.3C-2.4,-23.3,6.4,23.3,-13.5,23.3" ed:tosuperid="278" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,84)" fill="none" ed:parentid="274" stroke-linejoin="round" id="281" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="280" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,100)" fill="none" ed:parentid="274" stroke-linejoin="round" id="283" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="282" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,773,162)" fill="none" ed:parentid="270" stroke-linejoin="round" id="285" stroke="#696969" d="M13.5,-38.8C-4.6,-38.8,11.7,38.8,-13.5,38.8" ed:tosuperid="284" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,889,514)" fill="none" ed:parentid="104" stroke-linejoin="round" id="287" stroke="#696969" d="M13.5,-52.6C-5.4,-52.6,13.5,52.6,-13.5,52.6" ed:tosuperid="286" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,792,450)" fill="none" ed:parentid="286" stroke-linejoin="round" id="289" stroke="#696969" d="M13.5,116.3C-5.4,116.3,13.5,-116.3,-13.5,-116.3" ed:tosuperid="288" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,792,548)" fill="none" ed:parentid="286" stroke-linejoin="round" id="291" stroke="#696969" d="M13.5,18.5C-1.5,18.5,4.3,-18.5,-13.5,-18.5" ed:tosuperid="290" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,792,633)" fill="none" ed:parentid="286" stroke-linejoin="round" id="293" stroke="#696969" d="M13.5,-66.8C-5.4,-66.8,13.5,66.8,-13.5,66.8" ed:tosuperid="292" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,595,306)" fill="none" ed:parentid="288" stroke-linejoin="round" id="295" stroke="#696969" d="M13.5,28C-3.2,28,8.3,-28,-13.5,-28" ed:tosuperid="294" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,595,365)" fill="none" ed:parentid="288" stroke-linejoin="round" id="297" stroke="#696969" d="M13.5,-31C-3.7,-31,9.4,31,-13.5,31" ed:tosuperid="296" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,255)" fill="none" ed:parentid="294" stroke-linejoin="round" id="299" stroke="#696969" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" ed:tosuperid="298" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,270)" fill="none" ed:parentid="294" stroke-linejoin="round" id="301" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="300" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,286)" fill="none" ed:parentid="294" stroke-linejoin="round" id="303" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="302" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,301)" fill="none" ed:parentid="294" stroke-linejoin="round" id="305" stroke="#696969" d="M13.5,-23.3C-2.4,-23.3,6.4,23.3,-13.5,23.3" ed:tosuperid="304" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,376)" fill="none" ed:parentid="296" stroke-linejoin="round" id="307" stroke="#696969" d="M13.5,20.3C-1.8,20.3,5.1,-20.3,-13.5,-20.3" ed:tosuperid="306" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,391)" fill="none" ed:parentid="296" stroke-linejoin="round" id="309" stroke="#696969" d="M13.5,4.8C1.6,4.8,-2.8,-4.8,-13.5,-4.8" ed:tosuperid="308" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,524,416)" fill="none" ed:parentid="296" stroke-linejoin="round" id="311" stroke="#696969" d="M13.5,-20.3C-1.8,-20.3,5.1,20.3,-13.5,20.3" ed:tosuperid="310" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,483)" fill="none" ed:parentid="318" stroke-linejoin="round" id="313" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="312" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,514)" fill="none" ed:parentid="318" stroke-linejoin="round" id="317" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="316" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,627,514)" fill="none" ed:parentid="290" stroke-linejoin="round" id="319" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="318" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,499)" fill="none" ed:parentid="318" stroke-linejoin="round" id="320" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="314" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,627,553)" fill="none" ed:parentid="290" stroke-linejoin="round" id="322" stroke="#696969" d="M13.5,-23.3C-2.4,-23.3,6.4,23.3,-13.5,23.3" ed:tosuperid="321" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,568)" fill="none" ed:parentid="321" stroke-linejoin="round" id="324" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="323" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,584)" fill="none" ed:parentid="321" stroke-linejoin="round" id="326" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="325" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,627,669)" fill="none" ed:parentid="292" stroke-linejoin="round" id="328" stroke="#696969" d="M13.5,31C-3.7,31,9.4,-31,-13.5,-31" ed:tosuperid="327" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,630)" fill="none" ed:parentid="327" stroke-linejoin="round" id="330" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="329" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,646)" fill="none" ed:parentid="327" stroke-linejoin="round" id="332" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="331" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,627,716)" fill="none" ed:parentid="292" stroke-linejoin="round" id="335" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="334" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,708)" fill="none" ed:parentid="334" stroke-linejoin="round" id="337" stroke="#696969" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" ed:tosuperid="336" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,723)" fill="none" ed:parentid="334" stroke-linejoin="round" id="339" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="338" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,556,747)" fill="none" ed:parentid="334" stroke-linejoin="round" id="341" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="340" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,403,754)" fill="none" ed:parentid="340" stroke-linejoin="round" id="343" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="342" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,403,770)" fill="none" ed:parentid="340" stroke-linejoin="round" id="345" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="344" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,792,711)" fill="none" ed:parentid="286" stroke-linejoin="round" id="347" stroke="#696969" d="M13.5,-144.3C-5.4,-144.3,13.5,144.3,-13.5,144.3" ed:tosuperid="346" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,617,832)" fill="none" ed:parentid="346" stroke-linejoin="round" id="349" stroke="#696969" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" ed:tosuperid="348" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,617,863)" fill="none" ed:parentid="346" stroke-linejoin="round" id="351" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="350" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,520,855)" fill="none" ed:parentid="350" stroke-linejoin="round" id="353" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="352" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,520,871)" fill="none" ed:parentid="350" stroke-linejoin="round" id="355" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="354" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,520,886)" fill="none" ed:parentid="350" stroke-linejoin="round" id="357" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="356" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1208,1416)" fill="none" ed:parentid="101" stroke-linejoin="round" id="471" stroke="#696969" d="M67.6,-199.9C-3.6,-100,38.3,228.4,-118.8,228.4" ed:tosuperid="470" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1761,320)" fill="none" ed:parentid="468" stroke-linejoin="round" id="475" stroke="#696969" d="M-13.5,17.1C1.2,17.1,-3.6,-17.1,13.5,-17.1" ed:tosuperid="474" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1761,390)" fill="none" ed:parentid="468" stroke-linejoin="round" id="477" stroke="#696969" d="M-13.5,-52.6C5.4,-52.6,-13.5,52.6,13.5,52.6" ed:tosuperid="476" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1910,264)" fill="none" ed:parentid="474" stroke-linejoin="round" id="479" stroke="#696969" d="M-13.5,38.8C4.6,38.8,-11.7,-38.8,13.5,-38.8" ed:tosuperid="478" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1910,280)" fill="none" ed:parentid="474" stroke-linejoin="round" id="481" stroke="#696969" d="M-13.5,23.3C2.4,23.3,-6.4,-23.3,13.5,-23.3" ed:tosuperid="480" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1910,295)" fill="none" ed:parentid="474" stroke-linejoin="round" id="483" stroke="#696969" d="M-13.5,7.8C-0.9,7.8,1.2,-7.8,13.5,-7.8" ed:tosuperid="482" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1910,311)" fill="none" ed:parentid="474" stroke-linejoin="round" id="485" stroke="#696969" d="M-13.5,-7.8C-0.9,-7.8,1.2,7.8,13.5,7.8" ed:tosuperid="484" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1910,326)" fill="none" ed:parentid="474" stroke-linejoin="round" id="487" stroke="#696969" d="M-13.5,-23.3C2.4,-23.3,-6.4,23.3,13.5,23.3" ed:tosuperid="486" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1910,342)" fill="none" ed:parentid="474" stroke-linejoin="round" id="489" stroke="#696969" d="M-13.5,-38.8C4.6,-38.8,-11.7,38.8,13.5,38.8" ed:tosuperid="488" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1858,427)" fill="none" ed:parentid="476" stroke-linejoin="round" id="491" stroke="#696969" d="M-13.5,15.5C0.8,15.5,-2.8,-15.5,13.5,-15.5" ed:tosuperid="490" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1858,443)" fill="none" ed:parentid="476" stroke-linejoin="round" id="493" stroke="#696969" d="M-13.5,0C-2.7,0,5.4,0,13.5,0" ed:tosuperid="492" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1858,458)" fill="none" ed:parentid="476" stroke-linejoin="round" id="495" stroke="#696969" d="M-13.5,-15.5C0.8,-15.5,-2.8,15.5,13.5,15.5" ed:tosuperid="494" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,824,1130)" fill="none" ed:parentid="564" stroke-linejoin="round" id="497" stroke="#696969" d="M13.5,155C-5.4,155,13.5,-155,-13.5,-155" ed:tosuperid="496" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,701,967)" fill="none" ed:parentid="496" stroke-linejoin="round" id="499" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="498" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,701,982)" fill="none" ed:parentid="496" stroke-linejoin="round" id="501" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="500" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,824,1300)" fill="none" ed:parentid="564" stroke-linejoin="round" id="503" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="502" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,629,1184)" fill="none" ed:parentid="502" stroke-linejoin="round" id="505" stroke="#696969" d="M13.5,131.8C-5.4,131.8,13.5,-131.8,-13.5,-131.8" ed:tosuperid="504" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,558,1037)" fill="none" ed:parentid="504" stroke-linejoin="round" id="507" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="506" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,558,1052)" fill="none" ed:parentid="504" stroke-linejoin="round" id="509" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="508" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,558,1068)" fill="none" ed:parentid="504" stroke-linejoin="round" id="511" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="510" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,629,1254)" fill="none" ed:parentid="502" stroke-linejoin="round" id="513" stroke="#696969" d="M13.5,62C-5.4,62,13.5,-62,-13.5,-62" ed:tosuperid="512" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,493,1176)" fill="none" ed:parentid="512" stroke-linejoin="round" id="515" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="514" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,493,1223)" fill="none" ed:parentid="512" stroke-linejoin="round" id="517" stroke="#696969" d="M13.5,-31C-3.7,-31,9.4,31,-13.5,31" ed:tosuperid="516" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,331,1137)" fill="none" ed:parentid="514" stroke-linejoin="round" id="519" stroke="#696969" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" ed:tosuperid="518" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,331,1153)" fill="none" ed:parentid="514" stroke-linejoin="round" id="521" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="520" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,331,1168)" fill="none" ed:parentid="514" stroke-linejoin="round" id="523" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="522" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,331,1184)" fill="none" ed:parentid="514" stroke-linejoin="round" id="525" stroke="#696969" d="M13.5,-23.3C-2.4,-23.3,6.4,23.3,-13.5,23.3" ed:tosuperid="524" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,329,1246)" fill="none" ed:parentid="516" stroke-linejoin="round" id="527" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="526" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,329,1261)" fill="none" ed:parentid="516" stroke-linejoin="round" id="529" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="528" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,629,1370)" fill="none" ed:parentid="502" stroke-linejoin="round" id="531" stroke="#696969" d="M13.5,-54.3C-5.4,-54.3,13.5,54.3,-13.5,54.3" ed:tosuperid="530" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,532,1378)" fill="none" ed:parentid="530" stroke-linejoin="round" id="533" stroke="#696969" d="M13.5,46.5C-5.2,46.5,13.1,-46.5,-13.5,-46.5" ed:tosuperid="532" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,532,1432)" fill="none" ed:parentid="530" stroke-linejoin="round" id="535" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="534" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,532,1478)" fill="none" ed:parentid="530" stroke-linejoin="round" id="537" stroke="#696969" d="M13.5,-54.3C-5.4,-54.3,13.5,54.3,-13.5,54.3" ed:tosuperid="536" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,401,1432)" fill="none" ed:parentid="534" stroke-linejoin="round" id="539" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="538" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,401,1455)" fill="none" ed:parentid="534" stroke-linejoin="round" id="541" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="540" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,330,1463)" fill="none" ed:parentid="540" stroke-linejoin="round" id="543" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="542" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,330,1478)" fill="none" ed:parentid="540" stroke-linejoin="round" id="545" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="544" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,422,1525)" fill="none" ed:parentid="536" stroke-linejoin="round" id="547" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="546" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,401,1416)" fill="none" ed:parentid="534" stroke-linejoin="round" id="549" stroke="#696969" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" ed:tosuperid="548" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,401,1316)" fill="none" ed:parentid="532" stroke-linejoin="round" id="551" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="550" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,401,1331)" fill="none" ed:parentid="532" stroke-linejoin="round" id="553" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="552" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,401,1347)" fill="none" ed:parentid="532" stroke-linejoin="round" id="555" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="554" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,422,1540)" fill="none" ed:parentid="536" stroke-linejoin="round" id="557" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="556" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,629,1455)" fill="none" ed:parentid="502" stroke-linejoin="round" id="559" stroke="#696969" d="M13.5,-139.5C-5.4,-139.5,13.5,139.5,-13.5,139.5" ed:tosuperid="558" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,558,1587)" fill="none" ed:parentid="558" stroke-linejoin="round" id="561" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="560" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,558,1602)" fill="none" ed:parentid="558" stroke-linejoin="round" id="563" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="562" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,927,1464)" fill="none" ed:parentid="470" stroke-linejoin="round" id="565" stroke="#696969" d="M13.5,179.9C-5.4,179.9,13.5,-179.9,-13.5,-179.9" ed:tosuperid="564" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,927,1821)" fill="none" ed:parentid="470" stroke-linejoin="round" id="567" stroke="#696969" d="M13.5,-176.6C-5.4,-176.6,13.5,176.6,-13.5,176.6" ed:tosuperid="566" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,803,1835)" fill="none" ed:parentid="566" stroke-linejoin="round" id="569" stroke="#696969" d="M13.5,162.8C-5.4,162.8,13.5,-162.8,-13.5,-162.8" ed:tosuperid="568" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,803,1897)" fill="none" ed:parentid="566" stroke-linejoin="round" id="571" stroke="#696969" d="M13.5,100.8C-5.4,100.8,13.5,-100.8,-13.5,-100.8" ed:tosuperid="570" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,706,1657)" fill="none" ed:parentid="568" stroke-linejoin="round" id="573" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="572" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,706,1672)" fill="none" ed:parentid="568" stroke-linejoin="round" id="575" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="574" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,706,1688)" fill="none" ed:parentid="568" stroke-linejoin="round" id="577" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="576" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,680,1781)" fill="none" ed:parentid="570" stroke-linejoin="round" id="579" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="578" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,680,1812)" fill="none" ed:parentid="570" stroke-linejoin="round" id="581" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="580" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,680,1827)" fill="none" ed:parentid="570" stroke-linejoin="round" id="583" stroke="#696969" d="M13.5,-31C-3.7,-31,9.4,31,-13.5,31" ed:tosuperid="582" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,583,1750)" fill="none" ed:parentid="578" stroke-linejoin="round" id="585" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="584" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,583,1765)" fill="none" ed:parentid="578" stroke-linejoin="round" id="587" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="586" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,583,1781)" fill="none" ed:parentid="578" stroke-linejoin="round" id="589" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="588" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,803,2060)" fill="none" ed:parentid="566" stroke-linejoin="round" id="591" stroke="#696969" d="M13.5,-62C-5.4,-62,13.5,62,-13.5,62" ed:tosuperid="590" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,646,2036)" fill="none" ed:parentid="590" stroke-linejoin="round" id="593" stroke="#696969" d="M13.5,85.3C-5.4,85.3,13.5,-85.3,-13.5,-85.3" ed:tosuperid="592" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,1920)" fill="none" ed:parentid="592" stroke-linejoin="round" id="595" stroke="#696969" d="M13.5,31C-3.7,31,9.4,-31,-13.5,-31" ed:tosuperid="594" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,1936)" fill="none" ed:parentid="592" stroke-linejoin="round" id="597" stroke="#696969" d="M13.5,15.5C-0.8,15.5,2.8,-15.5,-13.5,-15.5" ed:tosuperid="596" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,1951)" fill="none" ed:parentid="592" stroke-linejoin="round" id="599" stroke="#696969" d="M13.5,0C2.7,0,-5.4,0,-13.5,0" ed:tosuperid="598" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,1967)" fill="none" ed:parentid="592" stroke-linejoin="round" id="601" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="600" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,1982)" fill="none" ed:parentid="592" stroke-linejoin="round" id="603" stroke="#696969" d="M13.5,-31C-3.7,-31,9.4,31,-13.5,31" ed:tosuperid="602" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,646,2137)" fill="none" ed:parentid="590" stroke-linejoin="round" id="605" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="604" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2098)" fill="none" ed:parentid="604" stroke-linejoin="round" id="607" stroke="#696969" d="M13.5,54.3C-5.4,54.3,13.5,-54.3,-13.5,-54.3" ed:tosuperid="606" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2114)" fill="none" ed:parentid="604" stroke-linejoin="round" id="609" stroke="#696969" d="M13.5,38.8C-4.6,38.8,11.7,-38.8,-13.5,-38.8" ed:tosuperid="608" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2129)" fill="none" ed:parentid="604" stroke-linejoin="round" id="611" stroke="#696969" d="M13.5,23.3C-2.4,23.3,6.4,-23.3,-13.5,-23.3" ed:tosuperid="610" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2145)" fill="none" ed:parentid="604" stroke-linejoin="round" id="613" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="612" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2160)" fill="none" ed:parentid="604" stroke-linejoin="round" id="615" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="614" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2176)" fill="none" ed:parentid="604" stroke-linejoin="round" id="617" stroke="#696969" d="M13.5,-23.3C-2.4,-23.3,6.4,23.3,-13.5,23.3" ed:tosuperid="616" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2191)" fill="none" ed:parentid="604" stroke-linejoin="round" id="619" stroke="#696969" d="M13.5,-38.8C-4.6,-38.8,11.7,38.8,-13.5,38.8" ed:tosuperid="618" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,523,2207)" fill="none" ed:parentid="604" stroke-linejoin="round" id="622" stroke="#696969" d="M13.5,-54.3C-5.4,-54.3,13.5,54.3,-13.5,54.3" ed:tosuperid="621" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,646,2222)" fill="none" ed:parentid="590" stroke-linejoin="round" id="624" stroke="#696969" d="M13.5,-100.8C-5.4,-100.8,13.5,100.8,-13.5,100.8" ed:tosuperid="623" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,2315)" fill="none" ed:parentid="623" stroke-linejoin="round" id="626" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="625" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,387,2300)" fill="none" ed:parentid="625" stroke-linejoin="round" id="628" stroke="#696969" d="M13.5,7.8C0.9,7.8,-1.2,-7.8,-13.5,-7.8" ed:tosuperid="627" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,387,2315)" fill="none" ed:parentid="625" stroke-linejoin="round" id="630" stroke="#696969" d="M13.5,-7.8C0.9,-7.8,-1.2,7.8,-13.5,7.8" ed:tosuperid="629" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,575,2339)" fill="none" ed:parentid="623" stroke-linejoin="round" id="632" stroke="#696969" d="M13.5,-15.5C-0.8,-15.5,2.8,15.5,-13.5,15.5" ed:tosuperid="631" stroke-linecap="round"/>
+    <path transform="matrix(1,0,0,1,1445,762)" fill="none" ed:parentid="101" stroke-linejoin="round" id="633" stroke="#696969" d="M-75.2,396.6C15.5,248.7,-90.7,-425.1,118.8,-425.1" ed:tosuperid="468" stroke-linecap="round"/>
+    <g transform="matrix(1,0,0,1,1152,1159)" ed:height="57" ed:topictype="mainidea" ed:width="349" id="101" ed:layout="map">
+        <path stroke-width="3" fill="#435fbc" stroke-linejoin="round" stroke="#435fbc" d="M4,0L345,0C347.7,0,349,1.3,349,4L349,53C349,55.7,347.7,57,345,57L4,57C1.3,57,0,55.7,0,53L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st10">
+            <tspan style="white-space:pre" y="34.5" x="21">可编程数字接口电路与模拟接口电路</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1564,1322)" ed:height="37" ed:parentid="101" ed:width="176" id="102" ed:layout="rightmap">
+        <path fill="#ebecf3" stroke-linejoin="round" stroke="#ebecf3" d="M4,0L172,0C174.7,0,176,1.3,176,4L176,33C176,35.7,174.7,37,172,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan style="white-space:pre" y="23.4" x="18">8253定时计数器</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>可控制芯片工作方式&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>&#x9;数据传输方式&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>&#x9;输入/输出方式&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>定时的时间长度取决于时钟脉冲的周期及脉冲数&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(141,11)" xlink:href="#note"/>
+        </g>
+    </g>
+    <symbol id="note">
+        <image width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAEKADAAQAAAABAAAAEAAAAAA0VXHyAAABu0lEQVQ4EaVTzysEcRT/fGeZHZQDmxihZEspoXDzmxIpR6F2b/4ARznZ5OAsUg4SBzdbcqJclCIlUnvAYaNEfs/Ozs54b9oZe5gheTXv+/p83+e9z5uZJ5A1y7KqKYzSozqYz5kkfE0Iccv3gh2Ra8zkwaV+PKOYH3c2xriXSYXlltw6p0lqVz0XkbJJESbLbTFROJbw4tkY3xFZcC4BrBZOAZU7SxWddmJA7bLPXBeo7CapJkRxLaCUsUp71LzcJCcOdq464fdJ5NThFJB+g9y+wHgZO0cBx/5GZG13GFb6FXnhCaQOJmE9Xw3Ru2v4vQCR9aNpkm8AH/eQQs2QW2ah7UfzqeO45wiulCzZSj1CGYzDSGxC2xulaxNK74ZOwfqPBbgzk4MdKzSsDBEsBTIa5LZ5epnhOH3GS98RjIslWO9Jl5y5iUM/jUEZ2Eb6YplFPrDzVaCfLULp27I7u+SedepcB/PpnLm2eReg2dnMlwTNvQHjegcFI/sQRVU2nuu8R8h8IhBqgvlwAqmk0ZfMhRwFSf7HaR8E/eOEFiHYv53byI0pB5xLAC/V/5fJ3TzeSCoYoedP6/wFlzuxc9t/NpsAAAAASUVORK5CYII="/>
+    </symbol>
+    <g transform="matrix(1,0,0,1,902,443)" ed:height="37" ed:parentid="101" ed:width="187" id="104" ed:layout="leftmap">
+        <path fill="#ebecf3" stroke-linejoin="round" stroke="#ebecf3" d="M4,0L183,0C185.7,0,187,1.3,187,4L187,33C187,35.7,185.7,37,183,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan style="white-space:pre" y="23.4" x="18">可编程并行接口8255</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1767,584)" ed:height="24.5" ed:parentid="102" ed:width="102" id="108" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L102,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">8253芯片特点</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1896,507)" ed:height="24.5" ed:parentid="108" ed:width="362" id="110" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L362,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可编程，可通过软件初始化控制其工作方式和计数/定时时长</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1896,538)" ed:height="24.5" ed:parentid="108" ed:width="187" id="112" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L187,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">非通道的接口，具有特定功能</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1896,569)" ed:height="24.5" ed:parentid="108" ed:width="122" id="114" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L122,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可实现计数和定时</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1896,631)" ed:height="24.5" ed:parentid="108" ed:width="70" id="116" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">工作方式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1993,600)" ed:height="24.5" ed:parentid="116" ed:width="70" id="118" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st13">
+            <tspan style="white-space:pre" y="16.1" x="8">减法计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1993,631)" ed:height="24.5" ed:parentid="116" ed:width="221" id="120" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L221,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数值减为0时输出相应的控制信号</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1993,662)" ed:height="24.5" ed:parentid="116" ed:width="226" id="122" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L226,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">输出控制信号的形式可通过软件设置</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,739)" ed:height="24.5" ed:parentid="132" ed:width="135" id="124" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L135,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">连接外设的主要引线</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2026,693)" ed:height="24.5" ed:parentid="124" ed:width="133" id="126" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L133,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">CLK：时钟脉冲输入</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2026,739)" ed:height="24.5" ed:parentid="124" ed:width="142" id="128" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L142,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">GATE：门控信号输入</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2026,786)" ed:height="24.5" ed:parentid="124" ed:width="111" id="130" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L111,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">OUT：定时输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1767,848)" ed:height="24.5" ed:parentid="102" ed:width="70" id="132" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">内部结构</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,817)" ed:height="24.5" ed:parentid="132" ed:width="258" id="134" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L258,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">具有三个完全相同的、独立的计数/定时器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,848)" ed:height="24.5" ed:parentid="132" ed:width="440" id="136" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L440,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">每个计数器占用一个端口地址(3个计数器，1个控制寄存器共4个端口地址)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,879)" ed:height="24.5" ed:parentid="132" ed:width="187" id="138" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L187,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">接口中的寄存器其实就是端口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,956)" ed:height="24.5" ed:parentid="132" ed:width="96" id="140" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">内部结构特点</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1987,910)" ed:height="24.5" ed:parentid="140" ed:width="216" id="142" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L216,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">内部3个计数器均为减法计数器</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>据计数频率及需要定时的时间长确定计数初值&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(190,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,1987,956)" ed:height="24.5" ed:parentid="140" ed:width="96" id="144" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">每个计数器含</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1987,1003)" ed:height="24.5" ed:parentid="140" ed:width="83" id="146" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">控制命令字</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2110,941)" ed:height="24.5" ed:parentid="144" ed:width="112" id="148" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L112,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">16位初值寄存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2110,972)" ed:height="24.5" ed:parentid="144" ed:width="112" id="150" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L112,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">16位计数寄存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2248,954)" ed:height="29" ed:parentid="152" ed:width="93" id="153" ed:layout="rightmap">
+        <path fill="#fef2e7" stroke-linejoin="round" stroke="#f8ae1a" d="M4,0L89,0C91.7,0,93,1.3,93,4L93,25C93,27.7,91.7,29,89,29L4,29C1.3,29,0,27.7,0,25L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="18.4" x="6">相同端口地址</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2195,724)" ed:height="24.5" ed:parentid="128" ed:width="117" id="157" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L117,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">高电平(软件启动)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2195,755)" ed:height="24.5" ed:parentid="128" ed:width="189" id="159" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L189,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">GATE有一个上升沿(硬件启动)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1767,1282)" ed:height="24.5" ed:parentid="102" ed:width="70" id="161" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">工作方式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1049)" ed:height="24.5" ed:parentid="161" ed:width="52" id="163" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L52,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式0</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1127)" ed:height="24.5" ed:parentid="161" ed:width="52" id="165" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L52,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式1</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1220)" ed:height="24.5" ed:parentid="161" ed:width="52" id="167" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L52,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式2</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1313)" ed:height="24.5" ed:parentid="161" ed:width="52" id="169" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L52,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式3</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1390)" ed:height="24.5" ed:parentid="161" ed:width="52" id="171" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L52,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式4</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1034)" ed:height="24.5" ed:parentid="163" ed:width="174" id="173" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">软件启动，不自动重复计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1065)" ed:height="24.5" ed:parentid="163" ed:width="135" id="175" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L135,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数结束输出高电平</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1096)" ed:height="24.5" ed:parentid="165" ed:width="174" id="177" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">硬件启动，不自动重复计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1127)" ed:height="24.5" ed:parentid="165" ed:width="226" id="179" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L226,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数开始输出低电平，结束后又变高</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1189)" ed:height="24.5" ed:parentid="167" ed:width="187" id="181" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L187,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">软、硬件启动，自动重复计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1220)" ed:height="24.5" ed:parentid="167" ed:width="213" id="183" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L213,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数到最后一个脉冲时输出低电平</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1282)" ed:height="24.5" ed:parentid="169" ed:width="174" id="185" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">软硬件启动，自动重复计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1313)" ed:height="24.5" ed:parentid="169" ed:width="214" id="187" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L214,24.5"/>
+        <text class="st13">
+            <tspan style="white-space:pre" y="16.1" x="8">初值为偶数个，输出连续对称方波</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1251)" ed:height="24.5" ed:parentid="167" ed:width="169" id="189" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L169,24.5"/>
+        <rect y="2.1" width="150" fill="#fffbf0" height="19" x="8"/>
+        <text class="st13">
+            <tspan style="white-space:pre" y="16.1" x="8">输出频率为(1/N)连续方波</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1375)" ed:height="24.5" ed:parentid="171" ed:width="174" id="191" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">软件启动，不自动重复计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1406)" ed:height="24.5" ed:parentid="171" ed:width="224" id="193" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L224,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数结束输出一个CLK宽度的低电平</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1452)" ed:height="24.5" ed:parentid="161" ed:width="52" id="195" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L52,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式5</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1437)" ed:height="24.5" ed:parentid="195" ed:width="174" id="197" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">硬件启动，不自动重复计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1468)" ed:height="24.5" ed:parentid="195" ed:width="224" id="199" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L224,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数结束输出一个CLK宽度的低电平</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1864,1514)" ed:height="24.5" ed:parentid="161" ed:width="195" id="203" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L195,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">都需要两个写脉冲(两次写操作)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2086,1499)" ed:height="24.5" ed:parentid="203" ed:width="174" id="205" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">第一个写脉冲：写入控制字</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2086,1530)" ed:height="24.5" ed:parentid="203" ed:width="187" id="207" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L187,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">第二个写脉冲：写入计数初值</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1767,1793)" ed:height="24.5" ed:parentid="102" ed:width="57" id="209" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L57,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">控制字</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1851,1607)" ed:height="24.5" ed:parentid="209" ed:width="154" id="211" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L154,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">SC1、SC0(计数器选择)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1851,1731)" ed:height="24.5" ed:parentid="209" ed:width="163" id="213" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L163,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">RL1、RL0(计数长度选择)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1851,1886)" ed:height="24.5" ed:parentid="209" ed:width="193" id="215" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L193,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">M2、M1、M0(工作方式选择)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1851,2010)" ed:height="24.5" ed:parentid="209" ed:width="139" id="217" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L139,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">BCD(计数制选择)</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>最大16位BCD数：9999&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>最大16位二进制数：FFFF&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>8253为减法计数器,最大计数初值：0     BCD方式：0-1=9999/二进制方式：0-1=FFFF&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(113,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,2032,1561)" ed:height="24.5" ed:parentid="211" ed:width="87" id="219" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L87,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">00-计数器0</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2032,1592)" ed:height="24.5" ed:parentid="211" ed:width="87" id="221" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L87,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">01-计数器1</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2032,1623)" ed:height="24.5" ed:parentid="211" ed:width="87" id="223" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L87,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">10-计数器2</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2032,1654)" ed:height="24.5" ed:parentid="211" ed:width="66" id="225" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L66,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">11-非法</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2041,1685)" ed:height="24.5" ed:parentid="213" ed:width="183" id="227" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L183,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">00-计数器数据锁存于缓冲器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2041,1716)" ed:height="24.5" ed:parentid="213" ed:width="171" id="229" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L171,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">01-只读/写计数器最低8位</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2041,1747)" ed:height="24.5" ed:parentid="213" ed:width="171" id="231" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L171,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">10-只读/写计数器最高8位</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2041,1778)" ed:height="24.5" ed:parentid="213" ed:width="315" id="233" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L315,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">11-先读/写计数器最低8位，再读/写计数器最高8位</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2071,1809)" ed:height="24.5" ed:parentid="215" ed:width="82" id="236" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L82,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">000-方式0</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2071,1840)" ed:height="24.5" ed:parentid="215" ed:width="82" id="238" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L82,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">001-方式1</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2071,1871)" ed:height="24.5" ed:parentid="215" ed:width="81" id="240" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L81,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">x10-方式2</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2071,1902)" ed:height="24.5" ed:parentid="215" ed:width="81" id="242" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L81,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">x11-方式3</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2071,1933)" ed:height="24.5" ed:parentid="215" ed:width="82" id="244" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L82,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">100-方式4</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2071,1964)" ed:height="24.5" ed:parentid="215" ed:width="82" id="246" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L82,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">101-方式5</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2017,1995)" ed:height="24.5" ed:parentid="217" ed:width="85" id="248" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L85,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">1-BCD计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2017,2026)" ed:height="24.5" ed:parentid="217" ed:width="97" id="250" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L97,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">0-二进制计数</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1767,2103)" ed:height="24.5" ed:parentid="102" ed:width="89" id="252" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L89,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">8253的应用</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1883,2072)" ed:height="24.5" ed:parentid="252" ed:width="187" id="254" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L187,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">每次启动计数，需两次写操作</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1883,2119)" ed:height="24.5" ed:parentid="252" ed:width="252" id="256" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L252,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">每个计数器的控制命令字送入控制寄存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2097,2057)" ed:height="24.5" ed:parentid="254" ed:width="83" id="258" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">先写控制字</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,2097,2088)" ed:height="24.5" ed:parentid="254" ed:width="117" id="260" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L117,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">再写计数初值</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>初值为8位字长，则一次写入&lt;br />初值为16位字长，则两次写入&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(91,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,1883,2150)" ed:height="24.5" ed:parentid="252" ed:width="369" id="262" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L369,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">各计数器的计数初值送到该计数器的计数寄存器及初值寄存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1158)" ed:height="24.5" ed:parentid="165" ed:width="436" id="264" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L436,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可重复触发，计数到0只要再出现GATE上升沿即可产生同样宽度的负脉冲</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1943,1344)" ed:height="24.5" ed:parentid="169" ed:width="422" id="266" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L422,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">初值N为奇数个，输出(N+1)/2CLK周期的正脉冲，(N-1)/2CLK负脉冲</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,786,99)" ed:height="24.5" ed:parentid="104" ed:width="89" id="270" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L89,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">8255的特点</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,512,21)" ed:height="24.5" ed:parentid="270" ed:width="247" id="272" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L247,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">通道型接口(主要用于数据的输入或输出)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,537,68)" ed:height="24.5" ed:parentid="270" ed:width="222" id="274" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L222,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">含3个独立的8位并行输入/输出接口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,525,114)" ed:height="24.5" ed:parentid="270" ed:width="234" id="276" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L234,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">各端口均有数据的控制和锁存能力</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>可做输入也可做输出端口&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(208,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,468,145)" ed:height="24.5" ed:parentid="270" ed:width="291" id="278" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L291,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可通过编程，设置各端口工作在某一确定状态下</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,370,52)" ed:height="24.5" ed:parentid="274" ed:width="140" id="280" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L140,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">2个8位端口(PA，PB)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,308,83)" ed:height="24.5" ed:parentid="274" ed:width="202" id="282" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L202,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">1个可拆分为两个4位端口(PC口)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,403,176)" ed:height="24.5" ed:parentid="270" ed:width="356" id="284" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L356,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">ABC端口和控制寄存器在一片芯片上则具有同样的高位地址</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,805,542)" ed:height="24.5" ed:parentid="104" ed:width="70" id="286" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">工作方式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,608,310)" ed:height="24.5" ed:parentid="286" ed:width="170" id="288" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L170,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">基本输入/输出方式(方式0)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,640,505)" ed:height="24.5" ed:parentid="286" ed:width="138" id="290" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L138,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">选通工作方式(方式1)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,640,676)" ed:height="24.5" ed:parentid="286" ed:width="138" id="292" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L138,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">双向传送方式(方式2)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,537,254)" ed:height="24.5" ed:parentid="288" ed:width="44" id="294" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">概述</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,537,372)" ed:height="24.5" ed:parentid="288" ed:width="44" id="296" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">应用</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,320,207)" ed:height="24.5" ed:parentid="294" ed:width="190" id="298" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L190,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">相当于3个独立的8位简单接口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,76,238)" ed:height="24.5" ed:parentid="294" ed:width="434" id="300" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L434,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">各端口既可设置为输入口，也可设置为输出口，但不能同时实现输入输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,126,269)" ed:height="24.5" ed:parentid="294" ed:width="384" id="302" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L384,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">C端口可以是一个8位的简单接口,也可以分为两个独立的4位端口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,232,300)" ed:height="24.5" ed:parentid="294" ed:width="278" id="304" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L278,24.5"/>
+        <text class="st13">
+            <tspan style="white-space:pre" y="16.1" x="8">常用于连接简单外设，适于无条件或查询方式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,272,331)" ed:height="24.5" ed:parentid="296" ed:width="238" id="306" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L238,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">A和B端口作为8位数据的输入或输出口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,340,362)" ed:height="24.5" ed:parentid="296" ed:width="170" id="308" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L170,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">C口的某些位作为状态输入</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,132,393)" ed:height="43.5" ed:parentid="296" ed:width="378" id="310" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,43.5L378,43.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">若C扣低四位某一位为输入，则低四位其他位都要作为输入口。</tspan>
+            <tspan style="white-space:pre" y="35.1" x="8">同时可设高四位作为输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,213,443)" ed:height="24.5" ed:parentid="318" ed:width="329" id="312" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L329,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">利用一组选通控制信号控制A和Bb端口的数据输入输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,199,474)" ed:height="24.5" ed:parentid="318" ed:width="343" id="314" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L343,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">A口和B口作输入或输出口，C口部分位用作选通控制信号</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,286,505)" ed:height="24.5" ed:parentid="318" ed:width="256" id="316" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L256,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">A、B口在作为输入和输出时选通信号不同</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,569,474)" ed:height="24.5" ed:parentid="290" ed:width="44" id="318" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">概述</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,569,552)" ed:height="24.5" ed:parentid="290" ed:width="44" id="321" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">应用</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,316,536)" ed:height="24.5" ed:parentid="321" ed:width="226" id="323" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L226,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">主要用于中断控制方式下的输入输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,96,567)" ed:height="24.5" ed:parentid="321" ed:width="446" id="325" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L446,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">C口的8位除用作选通信号外，其余位可工作于方式0下，作为输入或输出口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,569,614)" ed:height="24.5" ed:parentid="292" ed:width="44" id="327" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">概述</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,295,598)" ed:height="24.5" ed:parentid="327" ed:width="247" id="329" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L247,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">双向输入输出方式(可即做输入又做输出)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,364,629)" ed:height="24.5" ed:parentid="327" ed:width="178" id="331" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L178,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">只有A端口可工作在方式2下</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,569,707)" ed:height="24.5" ed:parentid="292" ed:width="44" id="334" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">应用</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,346,660)" ed:height="24.5" ed:parentid="334" ed:width="196" id="336" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L196,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可使得A端口作为双向端口所有</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,420,691)" ed:height="24.5" ed:parentid="334" ed:width="122" id="338" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L122,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">用于中断控制方式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,416,738)" ed:height="24.5" ed:parentid="334" ed:width="126" id="340" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L126,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">当A口工作于方式2</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,26,722)" ed:height="24.5" ed:parentid="340" ed:width="363" id="342" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L363,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">B口可工作于方式1(C口所有位用作选通控制信号的输入输出)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,122,753)" ed:height="24.5" ed:parentid="340" ed:width="267" id="344" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L267,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">B口可工作于方式0(C口剩余位可用作方式0)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,630,831)" ed:height="24.5" ed:parentid="286" ed:width="148" id="346" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L148,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式控制字及位控制字</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,252,784)" ed:height="24.5" ed:parentid="346" ed:width="351" id="348" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L351,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">方式控制字：用于确定3个端口的工作方式及数据传送方向</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,533,846)" ed:height="24.5" ed:parentid="346" ed:width="70" id="350" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">位控制字</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,414,815)" ed:height="24.5" ed:parentid="350" ed:width="92" id="352" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L92,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">仅用于C端口</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,254,846)" ed:height="24.5" ed:parentid="350" ed:width="252" id="354" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L252,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可设置C口某位的初始状态(高或低电平）</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,56,877)" ed:height="24.5" ed:parentid="350" ed:width="450" id="356" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L450,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">当工作于方式0且为输出口时，一般要对作为输出的位设置初始状态(初始化)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1564,319)" ed:height="37" ed:parentid="101" ed:width="183" id="468" ed:layout="rightmap">
+        <path fill="#ebecf3" stroke-linejoin="round" stroke="#ebecf3" d="M4,0L179,0C181.7,0,183,1.3,183,4L183,33C183,35.7,181.7,37,179,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan style="white-space:pre" y="23.4" x="18">模拟量输入输出通道</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,940,1626)" ed:height="37" ed:parentid="101" ed:width="149" id="470" ed:layout="leftmap">
+        <path fill="#ebecf3" stroke-linejoin="round" stroke="#ebecf3" d="M4,0L145,0C147.7,0,149,1.3,149,4L149,33C149,35.7,147.7,37,145,37L4,37C1.3,37,0,35.7,0,33L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st11">
+            <tspan style="white-space:pre" y="23.4" x="18">DA与AD转换器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1774,279)" ed:height="24.5" ed:parentid="468" ed:width="122" id="474" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L122,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">输入通道主要部件</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1774,418)" ed:height="24.5" ed:parentid="468" ed:width="70" id="476" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">输出通道</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1923,201)" ed:height="24.5" ed:parentid="474" ed:width="57" id="478" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L57,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">传感器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1923,232)" ed:height="24.5" ed:parentid="474" ed:width="57" id="480" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L57,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">变送器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1923,263)" ed:height="24.5" ed:parentid="474" ed:width="70" id="482" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">信号处理</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1923,294)" ed:height="24.5" ed:parentid="474" ed:width="96" id="484" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">多路转换开关</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1923,325)" ed:height="24.5" ed:parentid="474" ed:width="83" id="486" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">采样保持器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1923,356)" ed:height="24.5" ed:parentid="474" ed:width="82" id="488" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L82,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">A/D变换器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1871,387)" ed:height="24.5" ed:parentid="476" ed:width="82" id="490" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L82,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">D/A变换器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1871,418)" ed:height="24.5" ed:parentid="476" ed:width="71" id="492" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L71,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">低通滤波</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,1871,449)" ed:height="24.5" ed:parentid="476" ed:width="122" id="494" ed:layout="rightmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L122,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">整型、放大、驱动</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,714,950)" ed:height="24.5" ed:parentid="564" ed:width="96" id="496" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">主要技术指标</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,630,935)" ed:height="24.5" ed:parentid="496" ed:width="57" id="498" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L57,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">分辨率</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,617,966)" ed:height="24.5" ed:parentid="496" ed:width="70" id="500" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">转换精度</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,642,1291)" ed:height="24.5" ed:parentid="564" ed:width="168" id="502" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L168,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">典型D/A转换器DAC0832</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,571,1028)" ed:height="24.5" ed:parentid="502" ed:width="44" id="504" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">特点</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,376,997)" ed:height="24.5" ed:parentid="504" ed:width="168" id="506" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L168,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">8位电流输出型D/A转换器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,454,1028)" ed:height="24.5" ed:parentid="504" ed:width="90" id="508" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L90,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">T型电阻网络</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,474,1059)" ed:height="24.5" ed:parentid="504" ed:width="70" id="510" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">差动输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,506,1167)" ed:height="24.5" ed:parentid="502" ed:width="109" id="512" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L109,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">主要引脚及功能</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,344,1136)" ed:height="24.5" ed:parentid="512" ed:width="135" id="514" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L135,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">输入寄存器控制信号</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,342,1229)" ed:height="24.5" ed:parentid="512" ed:width="137" id="516" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L137,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">DAC寄存器控制信号</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,175,1090)" ed:height="24.5" ed:parentid="514" ed:width="142" id="518" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L142,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">D7~D0：输入数据线</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,190,1121)" ed:height="24.5" ed:parentid="514" ed:width="127" id="520" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L127,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">ILE：输入锁存允许</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,207,1152)" ed:height="24.5" ed:parentid="514" ed:width="110" id="522" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L110,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">~CS：片选信号</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,177,1183)" ed:height="24.5" ed:parentid="514" ed:width="140" id="524" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L140,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">~WR：写输入锁存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,165,1214)" ed:height="24.5" ed:parentid="516" ed:width="150" id="526" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L150,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">~WR2：写DAC寄存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,21,1245)" ed:height="24.5" ed:parentid="516" ed:width="294" id="528" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L294,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">~XFER：允许输入锁存器数据传送到DAC寄存器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,545,1400)" ed:height="24.5" ed:parentid="502" ed:width="70" id="530" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">工作模式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,414,1307)" ed:height="24.5" ed:parentid="530" ed:width="104" id="532" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L104,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">单缓冲模式</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>使输入寄存器或DAC寄存器二者之一处于直通，即芯片只占用一个端口地址&lt;br />CPU只需一次写入即可开始转换，写入程序为&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>MOV DX,PORT&lt;br />MOV AL,DATA&lt;/span>&lt;/p>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>OUT DX，AL&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(78,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,414,1415)" ed:height="24.5" ed:parentid="530" ed:width="104" id="534" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L104,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">双缓冲模式</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;>&lt;li style=&quot; font-family:'微软雅黑';&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>输入寄存器控制信号有效，数据写入输入寄存器中，并同时位于DAC寄存器的输入端&lt;/li>&lt;li style=&quot; font-family:'微软雅黑';&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>DAC寄存器控制信号有效，数据写入DAC寄存器，并启动变换&lt;/li>&lt;/ul>&lt;/body>">
+            <use transform="translate(78,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,435,1508)" ed:height="24.5" ed:parentid="530" ed:width="83" id="536" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">无缓冲模式</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,213,1400)" ed:height="24.5" ed:parentid="534" ed:width="174" id="538" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L174,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">此时芯片占用两个端口地址</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,343,1446)" ed:height="24.5" ed:parentid="534" ed:width="44" id="540" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">优点</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,117,1431)" ed:height="24.5" ed:parentid="540" ed:width="199" id="542" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L199,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">数据接收与D/A转换可异步进行</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,127,1462)" ed:height="24.5" ed:parentid="540" ed:width="189" id="544" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L189,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">可实现多个DAC同步转换输出</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,208,1493)" ed:height="24.5" ed:parentid="536" ed:width="200" id="546" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L200,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">内部两个寄存器都处于直通状态</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,159,1369)" ed:height="24.5" ed:parentid="534" ed:width="228" id="548" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L228,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">输入寄存器和DAC寄存器均需控制。</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,107,1276)" ed:height="24.5" ed:parentid="532" ed:width="280" id="550" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L280,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">使输入寄存器或DAC寄存器二者之一处于直通</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,226,1307)" ed:height="24.5" ed:parentid="532" ed:width="161" id="552" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L161,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">芯片只占用一个端口地址</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,186,1338)" ed:height="24.5" ed:parentid="532" ed:width="201" id="554" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L201,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">CPU只需一次写入即可开始转换</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,221,1524)" ed:height="24.5" ed:parentid="536" ed:width="187" id="556" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L187,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">模拟量输出始终跟随输入变化</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,571,1570)" ed:height="24.5" ed:parentid="502" ed:width="44" id="558" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">应用</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,461,1555)" ed:height="24.5" ed:parentid="558" ed:width="83" id="560" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">信号发生器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,448,1586)" ed:height="24.5" ed:parentid="558" ed:width="96" id="562" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">闭环控制系统</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,837,1260)" ed:height="24.5" ed:parentid="470" ed:width="76" id="564" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L76,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">DA转换器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,816,1973)" ed:height="24.5" ed:parentid="470" ed:width="97" id="566" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L97,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">AD转换器</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>连续变换的模拟信号转换为数字信号&lt;/span>&lt;/p>&lt;/body>">
+            <use transform="translate(71,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,719,1648)" ed:height="24.5" ed:parentid="566" ed:width="70" id="568" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">主要类型</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,693,1772)" ed:height="24.5" ed:parentid="566" ed:width="96" id="570" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">主要技术指标</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,635,1617)" ed:height="24.5" ed:parentid="568" ed:width="57" id="572" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L57,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">计数型</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,622,1648)" ed:height="24.5" ed:parentid="568" ed:width="70" id="574" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">双积分型</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,609,1679)" ed:height="24.5" ed:parentid="568" ed:width="83" id="576" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">逐位反馈型</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,596,1741)" ed:height="24.5" ed:parentid="570" ed:width="70" id="578" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">转换精度</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,596,1803)" ed:height="24.5" ed:parentid="570" ed:width="70" id="580" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">转换时间</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,596,1834)" ed:height="24.5" ed:parentid="570" ed:width="70" id="582" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">动态范围</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,499,1710)" ed:height="24.5" ed:parentid="578" ed:width="70" id="584" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">量化误差</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,486,1741)" ed:height="24.5" ed:parentid="578" ed:width="83" id="586" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">非线性误差</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,499,1772)" ed:height="24.5" ed:parentid="578" ed:width="70" id="588" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L70,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">其他误差</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,659,2097)" ed:height="24.5" ed:parentid="566" ed:width="130" id="590" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L130,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">典型芯片ADC0809</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,588,1927)" ed:height="24.5" ed:parentid="590" ed:width="44" id="592" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">特点</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,454,1865)" ed:height="24.5" ed:parentid="592" ed:width="107" id="594" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L107,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">8通道(8路)输入</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,496,1896)" ed:height="24.5" ed:parentid="592" ed:width="65" id="596" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L65,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">8位字长</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,478,1927)" ed:height="24.5" ed:parentid="592" ed:width="83" id="598" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L83,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">逐位逼近型</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,453,1958)" ed:height="24.5" ed:parentid="592" ed:width="108" id="600" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L108,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">转换时间100us</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,426,1989)" ed:height="24.5" ed:parentid="592" ed:width="135" id="602" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L135,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">内置三态输出缓冲器</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,536,2128)" ed:height="24.5" ed:parentid="590" ed:width="96" id="604" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">主要引脚功能</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,333,2020)" ed:height="24.5" ed:parentid="604" ed:width="176" id="606" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L176,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">D7~D0：输出数据线(三态)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,320,2051)" ed:height="24.5" ed:parentid="604" ed:width="189" id="608" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L189,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">IN0~IN7(8通道(路)模拟输入)</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,287,2082)" ed:height="24.5" ed:parentid="604" ed:width="222" id="610" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L222,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">ADDA、ADDB、ADDC：通道地址</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,377,2113)" ed:height="24.5" ed:parentid="604" ed:width="132" id="612" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L132,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">ALE：通道地址锁存</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,387,2144)" ed:height="24.5" ed:parentid="604" ed:width="122" id="614" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L122,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">START：启动转换</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,326,2175)" ed:height="24.5" ed:parentid="604" ed:width="183" id="616" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L183,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">EOC：转换结束状态输出</tspan>
+        </text>
+        <g ed:note="&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>&lt;span style=&quot; font-family:'微软雅黑';&quot;>判断转换结束方法：&lt;/span>&lt;/p>&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;>&lt;li style=&quot; font-family:'微软雅黑';&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>软件延时等待&lt;/li>&lt;li style=&quot; font-family:'微软雅黑';&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>软件查询EOC状态&lt;/li>&lt;li style=&quot; font-family:'微软雅黑';&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; &quot;>把EOC作为中断申请信号，接到中断控制器的IN端&lt;/li>&lt;/ul>&lt;/body>">
+            <use transform="translate(157,4)" xlink:href="#note"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,408,2206)" ed:height="24.5" ed:parentid="604" ed:width="101" id="618" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L101,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">OE：输出允许</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,402,2237)" ed:height="24.5" ed:parentid="604" ed:width="107" id="621" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L107,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">CLK：时钟输入</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,588,2299)" ed:height="24.5" ed:parentid="590" ed:width="44" id="623" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L44,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">应用</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,400,2283)" ed:height="24.5" ed:parentid="623" ed:width="161" id="625" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L161,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">通过数字接口与系统连接</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,251,2268)" ed:height="24.5" ed:parentid="625" ed:width="122" id="627" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L122,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">仅采用单路模拟量</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,238,2299)" ed:height="24.5" ed:parentid="625" ed:width="135" id="629" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L135,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">循环采用多路模拟量</tspan>
+        </text>
+    </g>
+    <g transform="matrix(1,0,0,1,465,2330)" ed:height="24.5" ed:parentid="623" ed:width="96" id="631" ed:layout="leftmap">
+        <path fill="none" stroke-linejoin="round" stroke="#696969" d="M0,24.5L96,24.5"/>
+        <text class="st12">
+            <tspan style="white-space:pre" y="16.1" x="8">数据采集程序</tspan>
+        </text>
+    </g>
+    <symbol id="plus">
+        <path fill="url(#lg4)" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z"/>
+        <path stroke-width="0.7" fill="none" stroke="#46a000" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6M6,3L6,9"/>
+    </symbol>
+    <symbol id="minus">
+        <path fill="url(#lg4)" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6z"/>
+        <path stroke-width="0.7" fill="none" stroke="#46a000" d="M11,6C11,8.8,8.8,11,6,11C3.2,11,1,8.8,1,6C1,3.2,3.2,1,6,1C8.8,1,11,3.2,11,6zM3,6L9,6"/>
+    </symbol>
+    <g transform="translate(1502,1182)" ed:togtopicid="101">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1741,1334)" ed:togtopicid="102">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(889,455)" ed:togtopicid="104">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1870,590)" ed:togtopicid="108">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1967,637)" ed:togtopicid="116">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2000,745)" ed:togtopicid="124">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2169,745)" ed:togtopicid="128">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1838,854)" ed:togtopicid="132">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1961,962)" ed:togtopicid="140">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2084,962)" ed:togtopicid="144">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1838,1288)" ed:togtopicid="161">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1917,1055)" ed:togtopicid="163">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1917,1133)" ed:togtopicid="165">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1917,1226)" ed:togtopicid="167">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1917,1319)" ed:togtopicid="169">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1917,1396)" ed:togtopicid="171">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1917,1458)" ed:togtopicid="195">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2060,1520)" ed:togtopicid="203">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1825,1799)" ed:togtopicid="209">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2006,1613)" ed:togtopicid="211">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2015,1737)" ed:togtopicid="213">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2045,1892)" ed:togtopicid="215">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1991,2016)" ed:togtopicid="217">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1857,2109)" ed:togtopicid="252">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(2071,2078)" ed:togtopicid="254">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(773,105)" ed:togtopicid="270">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(524,74)" ed:togtopicid="274">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(792,548)" ed:togtopicid="286">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(595,316)" ed:togtopicid="288">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(627,511)" ed:togtopicid="290">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(627,682)" ed:togtopicid="292">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(524,260)" ed:togtopicid="294">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(524,378)" ed:togtopicid="296">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(556,480)" ed:togtopicid="318">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(556,558)" ed:togtopicid="321">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(556,620)" ed:togtopicid="327">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(556,713)" ed:togtopicid="334">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(403,744)" ed:togtopicid="340">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(617,837)" ed:togtopicid="346">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(520,852)" ed:togtopicid="350">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1748,331)" ed:togtopicid="468">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(927,1638)" ed:togtopicid="470">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1897,285)" ed:togtopicid="474">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(1845,424)" ed:togtopicid="476">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(701,956)" ed:togtopicid="496">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(629,1297)" ed:togtopicid="502">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(558,1034)" ed:togtopicid="504">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(493,1173)" ed:togtopicid="512">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(331,1142)" ed:togtopicid="514">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(329,1235)" ed:togtopicid="516">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(532,1406)" ed:togtopicid="530">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(401,1313)" ed:togtopicid="532">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(401,1421)" ed:togtopicid="534">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(422,1514)" ed:togtopicid="536">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(330,1452)" ed:togtopicid="540">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(558,1576)" ed:togtopicid="558">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(824,1266)" ed:togtopicid="564">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(803,1979)" ed:togtopicid="566">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(706,1654)" ed:togtopicid="568">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(680,1778)" ed:togtopicid="570">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(583,1747)" ed:togtopicid="578">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(646,2103)" ed:togtopicid="590">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(575,1933)" ed:togtopicid="592">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(523,2134)" ed:togtopicid="604">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(575,2305)" ed:togtopicid="623">
+        <use xlink:href="#minus"/>
+    </g>
+    <g transform="translate(387,2289)" ed:togtopicid="625">
+        <use xlink:href="#minus"/>
+    </g>
+</svg>
+</div>
+        <div id="copyright">Created With  <a href="https://www.edrawsoft.com/" target="_blank" title="edrawsoft">MindMaster</a></div>
+      </div>
+    </div>
+    <script>eval(atob('dmFyIG11YT13aW5kb3cubmF2aWdhdG9yLnVzZXJBZ2VudDsNCnZhciB1YT0obXVhLmluZGV4T2YoJ3J2OjExJykrbXVhLmluZGV4T2YoJ01TSUUnKSk+PTA7DQpkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3ZnLWNvbnRhaW5lcicpLm9uY29udGV4dG1lbnUgPSBmdW5jdGlvbiAoZXZlbnQpIHsNCiAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpOw0KfQ0KZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N2Zy1jb250YWluZXInKS5vbm1vdXNlZG93biA9IGZ1bmN0aW9uIChldmVudCkgew0KICAgIGlmKGV2ZW50LndoaWNoID09Myl7DQogICAgICAgIHRoaXMuc3R5bGUuY3Vyc29yID0gJ3BvaW50ZXInOw0KICAgICAgICB0aGlzLm9ubW91c2Vtb3ZlID0gZnVuY3Rpb24gKGV2KSB7DQogICAgICAgICAgICB0aGlzLnNjcm9sbEJ5KC0oZXYubW92ZW1lbnRYKSwgMCk7DQogICAgICAgICAgICB3aW5kb3cuc2Nyb2xsQnkoMCwtKGV2Lm1vdmVtZW50WSkpDQogICAgICAgIH0NCiAgICAgICAgdGhpcy5vbm1vdXNldXAgPSBmdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnN0eWxlLmN1cnNvciA9ICBudWxsOw0KICAgICAgICAgICAgdGhpcy5vbm1vdXNldXAgPSBudWxsOw0KICAgICAgICAgICAgdGhpcy5vbm1vdXNlbW92ZSA9IG51bGw7DQogICAgICAgIH0NCiAgICB9DQp9DQpOdW1iZXIucHJvdG90eXBlLnRvc3VpdHN2Zz1mdW5jdGlvbiAoKSB7DQogICAgdmFyIG51bT10aGlzLnZhbHVlT2YoKTsNCiAgICBpZihudW0lMT09PTApew0KICAgICAgICByZXR1cm4gbnVtKzAuNQ0KICAgIH1lbHNlIHJldHVybiBudW07DQp9Ow0KTnVtYmVyLnByb3RvdHlwZS5wbHVzej1mdW5jdGlvbigpIHsNCiAgICB2YXIgbnVtPXRoaXMudmFsdWVPZigpOw0KICAgIHJldHVybiBudW08MTA/JzAnK251bTpudW07DQp9Ow0KZnVuY3Rpb24gcGFyc2VEYXRlKG51bSkgew0KICAgIHZhciBkYXRlID0gbmV3IERhdGUobnVtKTsNCiAgICB2YXIgWSA9IGRhdGUuZ2V0RnVsbFllYXIoKSArICctJzsNCiAgICB2YXIgTSA9IChkYXRlLmdldE1vbnRoKCkrMSkucGx1c3ooKSArICctJzsNCiAgICB2YXIgRCA9IGRhdGUuZ2V0RGF0ZSgpLnBsdXN6KCkgKyAnICc7DQogICAgdmFyIGggPSBkYXRlLmdldEhvdXJzKCkucGx1c3ooKSArICc6JzsNCiAgICB2YXIgbW0gPSBkYXRlLmdldE1pbnV0ZXMoKS5wbHVzeigpICsgJzonOw0KICAgIHZhciBzID0gZGF0ZS5nZXRTZWNvbmRzKCkucGx1c3ooKTsNCiAgICByZXR1cm4gWStNK0QraCttbStzOw0KfQ0KLy8tLXByZWRlZmluZWQNCi8vY29tbWVudC0tDQp2YXIgY29tbWVudHM9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnZz5nW2VkXFw6Y29tbWVudF0nKTsNCmZ1bmN0aW9uIGdldGN3aChwb3B1cCkgew0KICAgIGRvY3VtZW50LmJvZHkuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ3N2ZycpWzBdLmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICB2YXIgdz1wb3B1cC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS53aWR0aDsNCiAgICB2YXIgaD1wb3B1cC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKS5oZWlnaHQ7DQogICAgcmV0dXJuIFt3LGhdDQp9DQpmb3IodmFyIGk9MDtpPGNvbW1lbnRzLmxlbmd0aDtpKyspew0KICAgIHZhciBwb3B1cD1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywnZycpOw0KICAgIHZhciBwb3B1cFI9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgdmFyIGhvdmVyPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgdmFyIG9saW5lPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCdmaWxsJywnI2NkY2RmZicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgneCcsJzAnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3knLCcwJyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCdoZWlnaHQnLCcxNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbC1vcGFjaXR5JywnMC42Jyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nLGNvbW1lbnRzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykpOw0KICAgIGhvdmVyLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIGNvbW1lbnRzW2ldLmFwcGVuZENoaWxkKGhvdmVyKTsNCiAgICB2YXIgYT1KU09OLnBhcnNlKGNvbW1lbnRzW2ldLmdldEF0dHJpYnV0ZSgnZWQ6Y29tbWVudCcpKTsNCiAgICB2YXIgaGVpZ2h0PTA7DQogICAgdmFyIGNhcnI9W107DQogICAgZm9yKHZhciBqPTA7ajxhLmxlbmd0aDtqKyspew0KICAgICAgICB2YXIgc3RhbXA9TnVtYmVyKGFbal0uRGF0ZSkqMTAwMDsNCiAgICAgICAgdmFyIHRpbWU9cGFyc2VEYXRlKHN0YW1wKTsNCiAgICAgICAgdmFyIG5hbWU9YVtqXS5OYW1lOw0KICAgICAgICB2YXIgbWVzc2FnZT1hW2pdLk1lc3NhZ2U7DQogICAgICAgIHZhciBtZXNzYWdlQXJyPW1lc3NhZ2Uuc3BsaXQoL1xuLyk7DQogICAgICAgIHZhciBvPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdnJyk7DQogICAgICAgIHZhciBuPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciB0PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciBtPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIG4uc2V0QXR0cmlidXRlKCd4Jyw1KTsNCiAgICAgICAgbi5zZXRBdHRyaWJ1dGUoJ3knLDEyKTsNCiAgICAgICAgbi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCcjMDA2ZWZmJyk7DQogICAgICAgIG4udGV4dENvbnRlbnQ9bmFtZSsnOiAnOw0KICAgICAgICBuLnNldEF0dHJpYnV0ZSgnZm9udC1zaXplJywnMTInKTsNCiAgICAgICAgdC5zZXRBdHRyaWJ1dGUoJ3gnLDIwMCk7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCd5JywxMik7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCdmaWxsJywnIzk2OTY5NicpOw0KICAgICAgICB0LnRleHRDb250ZW50PXRpbWU7DQogICAgICAgIHQuc2V0QXR0cmlidXRlKCdmb250LXNpemUnLCcxMCcpOw0KICAgICAgICBtLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDIwLDI3KScpOw0KICAgICAgICBtLnNldEF0dHJpYnV0ZSgnZm9udC1zaXplJywnMTInKTsNCiAgICAgICAgZm9yKHZhciBrPTA7azxtZXNzYWdlQXJyLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgdmFyIHRzPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0c3BhbicpOw0KICAgICAgICAgICAgdHMuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgICAgICAgICAgdHMuc2V0QXR0cmlidXRlKCd5JyxrKjE2KTsNCiAgICAgICAgICAgIHRzLnRleHRDb250ZW50PW1lc3NhZ2VBcnJba107DQogICAgICAgICAgICBtLmFwcGVuZENoaWxkKHRzKTsNCiAgICAgICAgfQ0KICAgICAgICBvLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDAsJytoZWlnaHQrJyknKTsNCiAgICAgICAgby5hcHBlbmRDaGlsZChuKTsNCiAgICAgICAgby5hcHBlbmRDaGlsZCh0KTsNCiAgICAgICAgby5hcHBlbmRDaGlsZChtKTsNCiAgICAgICAgY2Fyci5wdXNoKG8pOw0KICAgICAgICBwb3B1cC5hcHBlbmRDaGlsZChvKTsNCiAgICAgICAgaGVpZ2h0PShtZXNzYWdlQXJyLmxlbmd0aCsxKSoxNitoZWlnaHQ7DQogICAgfQ0KICAgIHZhciB3YXJyPWdldGN3aChwb3B1cCk7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgIG9saW5lLnNldEF0dHJpYnV0ZSgneScsJzAnKTsNCiAgICB2YXIgb3c9d2FyclswXSsxMC41Ow0KICAgIHZhciBvaD13YXJyWzFdKzM7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCd3aWR0aCcsb3cpOw0KICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvaCk7DQogICAgb2xpbmUuc2V0QXR0cmlidXRlKCdmaWxsJywnd2hpdGUnKTsNCiAgICBvbGluZS5zZXRBdHRyaWJ1dGUoJ3N0cm9rZScsJyM2NTY1NjUnKTsNCiAgICBwb3B1cC5hcHBlbmRDaGlsZChvbGluZSk7DQogICAgdmFyIGw9Y2Fyci5sZW5ndGg7DQogICAgd2hpbGUobC0tKXsNCiAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQoY2FycltsXSk7DQogICAgfQ0KICAgIHBvcHVwLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgfTsNCiAgICBwb3B1cC5vbm1vdXNlb3V0PWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOw0KICAgIH07DQogICAgdmFyIGNzPWNvbW1lbnRzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICB2YXIgcHM9Y29tbWVudHNbaV0ucGFyZW50Tm9kZS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpOw0KICAgIGlmKHBzLnN1YnN0cigwLDIpID09ICd0cicpew0KICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgdmFyIHg9cGFyc2VGbG9hdChjc1swXSkrcGFyc2VGbG9hdChwcHNbMF0pOw0KICAgICAgICB2YXIgeT1wYXJzZUZsb2F0KHBwc1sxXSk7DQogICAgICAgIHg9eC50b3N1aXRzdmcoKTsNCiAgICAgICAgeT15LnRvc3VpdHN2ZygpOw0KICAgICAgICB2YXIgdHJzdHIgPSAndHJhbnNsYXRlKCcreCsnLCcreSsnKSc7DQogICAgfQ0KICAgIGVsc2UgaWYocHMuc3Vic3RyKDAsMikgPT0gJ21hJyl7DQogICAgICAgIHZhciBwcHMgPSBwcy5tYXRjaCgvKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVtcLCBdKFwtP1xkKyhcLlxkKyk/KVwpJC8pOw0KICAgICAgICB2YXIgbWFBcnIgPSBbcGFyc2VGbG9hdChwcHNbMV0pLHBhcnNlRmxvYXQocHBzWzNdKSxwYXJzZUZsb2F0KHBwc1s1XSkscGFyc2VGbG9hdChwcHNbN10pLHBhcnNlRmxvYXQocHBzWzldKSxwYXJzZUZsb2F0KHBwc1sxMV0pXTsNCiAgICAgICAgaWYobWFBcnJbMV0gPT0gMCl7DQogICAgICAgICAgICB2YXIgeCA9IHBhcnNlRmxvYXQoY3NbMF0pOw0KICAgICAgICAgICAgdmFyIHk9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgdmFyIHgxID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgeTE9eTEudG9zdWl0c3ZnKCk7DQogICAgICAgICAgICB2YXIgdHJzdHIgPSAgJ3RyYW5zbGF0ZSgnK3gxKycsJyt5MSsnKSc7DQogICAgICAgIH1lbHNlew0KICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKSsxNjsNCiAgICAgICAgICAgIHZhciB5ID0gcGFyc2VGbG9hdChjc1sxXSkrMTY7DQogICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgeCA9IHBhcnNlRmxvYXQoY3NbMF0pKzE2Ow0KICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgdmFyIHgyID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTIgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBmeSA9IHkxPnkyP3kxLnRvc3VpdHN2ZygpOiB5Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBvZmZ5ID0gTWF0aC5hYnMoeTEteTIpOw0KICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvZmZ5LnRvU3RyaW5nKCkpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCd0cmFuc3BhcmVudCcpOw0KICAgICAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQocG9wdXBSKTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBwb3B1cC5zZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScsdHJzdHIpOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnY29tbWVudCcsJycpOw0KICAgIHBvcHVwLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnZWQ6Y29tbWVudGlkJyxjb21tZW50c1tpXS5wYXJlbnROb2RlLmlkKTsNCiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjc3ZnLWNvbnRhaW5lciA+IHN2ZycpLmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICBjb21tZW50c1tpXS5vbm1vdXNlb3Zlcj1mdW5jdGlvbiAoKSB7DQogICAgICAgIHZhciBjb21tZW50aWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDpjb21tZW50aWQ9JyIrY29tbWVudGlkKyInXVtjb21tZW50XSIpLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICB9Ow0KICAgIGNvbW1lbnRzW2ldLm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgY29tbWVudGlkPXRoaXMucGFyZW50Tm9kZS5pZDsNCi8vICAgICAgICB3aW5kb3cuZ2V0U2VsZWN0aW9uKCkucmVtb3ZlQWxsUmFuZ2VzKCk7DQogICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6Y29tbWVudGlkPSciK2NvbW1lbnRpZCsiJ11bY29tbWVudF0iKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9DQp9DQovLy0tY29tbWVudA0KLy9ub3RlLS0NCmlmKCF1YSl7DQogICAgdmFyIG5vdGVzPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2c+Z1tlZFxcOm5vdGVdJyk7DQogICAgZnVuY3Rpb24gZ2V0d2gocyxwKSB7DQogICAgICAgIHZhciBtYWlucD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsNCiAgICAgICAgbWFpbnAuc3R5bGUuY3NzVGV4dD1zOw0KICAgICAgICBtYWlucC5zdHlsZS5kaXNwbGF5PSdpbmxpbmUtYmxvY2snOw0KCQltYWlucC5zdHlsZS5tYXhXaWR0aCA9ICc0MDBweCc7DQoJCW1haW5wLnN0eWxlLndvcmRCcmVhayA9ICdicmVhay1hbGwnOw0KICAgICAgICBtYWlucC5pbm5lckhUTUw9cDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChtYWlucCk7DQogICAgICAgIHZhciB3PW1haW5wLmNsaWVudFdpZHRoOw0KICAgICAgICB2YXIgaD1tYWlucC5jbGllbnRIZWlnaHQ7DQogICAgICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQobWFpbnApOw0KICAgICAgICByZXR1cm4gW3csaF0NCiAgICB9DQogICAgZm9yKHZhciBpPTA7aTxub3Rlcy5sZW5ndGg7aSsrKXsNCiAgICAgICAgdmFyIGE9bm90ZXNbaV0uZ2V0QXR0cmlidXRlKCdlZDpub3RlJyk7DQoJCXZhciBub3RlTG9jayA9IG5vdGVzW2ldLmdldEF0dHJpYnV0ZSgnZWQ6bm90ZWxvY2snKTsNCiAgICAgICAgaWYobm90ZUxvY2sgPT0gJ3RydWUnKXsNCiAgICAgICAgICAgIGNvbnRpbnVlOw0KICAgICAgICB9DQogICAgICAgIHZhciBtYWlucD1hLm1hdGNoKC88Ym9keVtePl0qPiguKik8XC9ib2R5Pi8pWzFdOw0KICAgICAgICB2YXIgbWFpbnM9YS5tYXRjaCgvc3R5bGU9IiguKj8pIi8pWzFdOw0KICAgICAgICB2YXIgb3V0PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdnJyk7DQogICAgICAgIHZhciBvbGluZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgICAgICB2YXIgcG9wdXA9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ2ZvcmVpZ25PYmplY3QnKTsNCiAgICAgICAgdmFyIHBvcHVwUj0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ3JlY3QnKTsNCiAgICAgICAgdmFyIGhvdmVyPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNjZGNkZmYnKTsNCiAgICAgICAgaG92ZXIuc2V0QXR0cmlidXRlKCd4JywnMCcpOw0KICAgICAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3knLCcwJyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JywnMTYnKTsNCiAgICAgICAgaG92ZXIuc2V0QXR0cmlidXRlKCd3aWR0aCcsJzE2Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbC1vcGFjaXR5JywnMC42Jyk7DQogICAgICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyxub3Rlc1tpXS5xdWVyeVNlbGVjdG9yKCd1c2UnKS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpKTsNCiAgICAgICAgaG92ZXIuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIG5vdGVzW2ldLmFwcGVuZENoaWxkKGhvdmVyKTsNCiAgICAgICAgcG9wdXAuc3R5bGUuY3NzVGV4dD1tYWluczsNCiAgICAgICAgcG9wdXAuaW5uZXJIVE1MPW1haW5wOw0KICAgICAgICB2YXIgd2g9Z2V0d2gobWFpbnMsbWFpbnApOw0KICAgICAgICBwb3B1cC5zZXRBdHRyaWJ1dGUoJ3dpZHRoJyx3aFswXSk7DQogICAgICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnaGVpZ2h0Jyx3aFsxXSk7DQogICAgICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJywndHJhbnNsYXRlKDgsNCknKTsNCgkJcG9wdXAuc3R5bGUud29yZEJyZWFrID0gJ2JyZWFrLWFsbCc7DQogICAgICAgIHBvcHVwLnN0eWxlLnRleHRBbGlnbj0nbGVmdCc7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgneCcsJzAnKTsNCiAgICAgICAgb2xpbmUuc2V0QXR0cmlidXRlKCd5JywnMCcpOw0KICAgICAgICBvbGluZS5zZXRBdHRyaWJ1dGUoJ3dpZHRoJyx3aFswXSsxNik7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnaGVpZ2h0Jyx3aFsxXSs4KTsNCiAgICAgICAgb2xpbmUuc2V0QXR0cmlidXRlKCdzdHJva2UnLCcjYTI3YTAwJyk7DQogICAgICAgIG9saW5lLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNmZmU3OWQnKTsNCiAgICAgICAgb3V0LmFwcGVuZENoaWxkKG9saW5lKTsNCiAgICAgICAgb3V0LmFwcGVuZENoaWxkKHBvcHVwKTsNCiAgICAgICAgb3V0LnNldEF0dHJpYnV0ZSgnbm90ZScsJycpOw0KICAgICAgICBvdXQuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIG91dC5zZXRBdHRyaWJ1dGUoJ2VkOm5vdGVpZCcsbm90ZXNbaV0ucGFyZW50Tm9kZS5pZCk7DQogICAgICAgIG91dC5vbm1vdXNlb3Zlcj1mdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICAgICAgfTsNCiAgICAgICAgb3V0Lm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KLy8gICAgICAgIHdpbmRvdy5nZXRTZWxlY3Rpb24gPyB3aW5kb3cuZ2V0U2VsZWN0aW9uKCkucmVtb3ZlUmFuZ2Uod2luZG93LmdldFNlbGVjdGlvbigpLnJlKTpkb2N1bWVudC5zZWxlY3Rpb24uZW1wdHkoKTsNCg0KICAgICAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICAgICAgfTsNCiAgICAgICAgdmFyIGNzPW5vdGVzW2ldLnF1ZXJ5U2VsZWN0b3IoJ3VzZScpLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJykubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgdmFyIHBzPW5vdGVzW2ldLnBhcmVudE5vZGUuZ2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nKTsNCiAgICAgICAgaWYocHMuc3Vic3RyKDAsMikgPT0gJ3RyJyl7DQogICAgICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goL1woKFxTKnxcUypcc1xTKilcKS8pWzFdLnNwbGl0KC8gfCwvKTsNCiAgICAgICAgICAgIHZhciB4PXBhcnNlRmxvYXQoY3NbMF0pK3BhcnNlRmxvYXQocHBzWzBdKTsNCiAgICAgICAgICAgIHZhciB5PXBhcnNlRmxvYXQocHBzWzFdKTsNCiAgICAgICAgICAgIHg9eC50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHk9eS50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciB0cnN0ciA9ICd0cmFuc2xhdGUoJyt4KycsJyt5KycpJzsNCiAgICAgICAgfWVsc2UgaWYocHMuc3Vic3RyKDAsMikgPT0gJ21hJyl7DQogICAgICAgICAgICB2YXIgcHBzID0gcHMubWF0Y2goLyhcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylbXCwgXShcLT9cZCsoXC5cZCspPylcKSQvKTsNCiAgICAgICAgICAgIHZhciBtYUFyciA9IFtwYXJzZUZsb2F0KHBwc1sxXSkscGFyc2VGbG9hdChwcHNbM10pLHBhcnNlRmxvYXQocHBzWzVdKSxwYXJzZUZsb2F0KHBwc1s3XSkscGFyc2VGbG9hdChwcHNbOV0pLHBhcnNlRmxvYXQocHBzWzExXSldOw0KICAgICAgICAgICAgaWYobWFBcnJbMV0gPT0gMCl7DQogICAgICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKTsNCiAgICAgICAgICAgICAgICB2YXIgeSA9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgICAgIHZhciB4MSA9IHggKiBtYUFyclswXSArIHkgKiBtYUFyclsyXSArIG1hQXJyWzRdOw0KICAgICAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgICAgIHkxPXkxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgICAgIHZhciB0cnN0ciA9ICAndHJhbnNsYXRlKCcreDErJywnK3kxKycpJzsNCiAgICAgICAgICAgIH1lbHNlew0KICAgICAgICAgICAgICAgIHZhciB4ID0gcGFyc2VGbG9hdChjc1swXSkrMTY7DQogICAgICAgICAgICAgICAgdmFyIHkgPSBwYXJzZUZsb2F0KGNzWzFdKSsxNjsNCiAgICAgICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgICAgICB4ID0gcGFyc2VGbG9hdChjc1swXSkrMTY7DQogICAgICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgICAgIHZhciB4MiA9IHggKiBtYUFyclswXSArIHkgKiBtYUFyclsyXSArIG1hQXJyWzRdOw0KICAgICAgICAgICAgICAgIHZhciB5MiA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgICAgICB2YXIgZnkgPSB5MT55Mj95MS50b3N1aXRzdmcoKTogeTIudG9zdWl0c3ZnKCk7DQoJCQkJdmFyIG9mZnkgPSBNYXRoLmFicyh5MS15Mik7CQkJCQkJCQkJCSAgDQogICAgICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2hlaWdodCcsb2ZmeS50b1N0cmluZygpKTsNCiAgICAgICAgICAgICAgICBwb3B1cFIuc2V0QXR0cmlidXRlKCd3aWR0aCcsJzE2Jyk7DQogICAgICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgICAgICBwb3B1cFIuc2V0QXR0cmlidXRlKCdmaWxsJywndHJhbnNwYXJlbnQnKTsNCiAgICAgICAgICAgICAgICBwb3B1cC5hcHBlbmRDaGlsZChwb3B1cFIpOw0KICAgICAgICAgICAgfQ0KICAgICAgICB9DQogICAgICAgIG91dC5zZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScsdHJzdHIpOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcjc3ZnLWNvbnRhaW5lciA+IHN2ZycpLmFwcGVuZENoaWxkKG91dCk7DQogICAgICAgIG5vdGVzW2ldLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHZhciBub3RlaWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICAgICAgdGhpcy5xdWVyeVNlbGVjdG9yKCdyZWN0Jykuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOm5vdGVpZD0nIitub3RlaWQrIiddW25vdGVdIikuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICB9Ow0KICAgICAgICBub3Rlc1tpXS5vbm1vdXNlb3V0PWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHZhciBub3RlaWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KLy8gICAgICAgIHdpbmRvdy5nZXRTZWxlY3Rpb24oKS5yZW1vdmVBbGxSYW5nZXMoKTsNCiAgICAgICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOm5vdGVpZD0nIitub3RlaWQrIiddW25vdGVdIikuc3R5bGUuZGlzcGxheT0nbm9uZSc7DQogICAgICAgIH0NCiAgICB9DQp9ZWxzZXsNCiAgICBjb25zb2xlLmxvZygn5oqx5q2J77yMSUXmtY/op4jlmajkuI3mlK/mjIFub3Rl6Kej5p6Q77yM6K+35L2/55So5YW25LuW5YaF5qC45rWP6KeI5Zmo44CC6LCi6LCi77yBJykNCn0NCi8vLS1ub3RlDQovL2h5cGVybGluay0tDQp2YXIgbGlua3M9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnZz5nW2VkXFw6aHlwZXJsaW5rXScpOw0KZnVuY3Rpb24gZ2V0bWF4bGVuKGFycixicnIpIHsNCiAgICB2YXIgbD0wOw0KICAgIHZhciBsbD0wOw0KICAgIGZvcih2YXIgaj0wO2o8YXJyLmxlbmd0aDtqKyspew0KICAgICAgICB2YXIgZT1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywndGV4dCcpOw0KICAgICAgICBpZighaXNOYU4obGlua2FycltqXSkpew0KICAgICAgICAgICAgZS50ZXh0Q29udGVudD0nUGFnZS0nK2FycltqXTsNCiAgICAgICAgfWVsc2V7DQogICAgICAgICAgICBlLnRleHRDb250ZW50PWFycltqXTsNCiAgICAgICAgfQ0KICAgICAgICBlLnN0eWxlLmZvbnRTaXplPScxMnB4JzsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0uYXBwZW5kQ2hpbGQoZSk7DQogICAgICAgIHZhciBldz1lLmdldEJCb3goKS53aWR0aDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0ucmVtb3ZlQ2hpbGQoZSk7DQogICAgICAgIHZhciBoPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIGgudGV4dENvbnRlbnQ9YnJyW2pdOw0KICAgICAgICBoLnN0eWxlLmZvbnRTaXplPScxMnB4JzsNCiAgICAgICAgaC5zdHlsZS5mb250V2VpZ2h0PSdib2xkJzsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0uYXBwZW5kQ2hpbGQoaCk7DQogICAgICAgIHZhciBodz1oLmdldEJCb3goKS53aWR0aDsNCiAgICAgICAgZG9jdW1lbnQuYm9keS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc3ZnJylbMF0ucmVtb3ZlQ2hpbGQoaCk7DQogICAgICAgIGw9ZXc+aHc/ZXc6aHc7DQogICAgICAgIGxsPWw+bGw/bDpsbDsNCiAgICB9DQogICAgcmV0dXJuIGxsOw0KfQ0KZm9yKHZhciBpPTA7aTxsaW5rcy5sZW5ndGg7aSsrKXsNCiAgICB2YXIgcG9wdXA9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudE5TKCdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycsJ2cnKTsNCiAgICB2YXIgcG9wdXBSPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgIHZhciBob3Zlcj1kb2N1bWVudC5jcmVhdGVFbGVtZW50TlMoJ2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJywncmVjdCcpOw0KICAgIHZhciBkZXNjYXJyPVtdOw0KICAgIHZhciBsaW5rYXJyPVtdOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnZmlsbCcsJyNjZGNkZmYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3gnLCcwJyk7DQogICAgaG92ZXIuc2V0QXR0cmlidXRlKCd5JywnMCcpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JywnMTYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ3dpZHRoJywnMTYnKTsNCiAgICBob3Zlci5zZXRBdHRyaWJ1dGUoJ2ZpbGwtb3BhY2l0eScsJzAuNicpOw0KICAgIGhvdmVyLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyxsaW5rc1tpXS5xdWVyeVNlbGVjdG9yKCd1c2UnKS5nZXRBdHRyaWJ1dGUoJ3RyYW5zZm9ybScpKTsNCiAgICBob3Zlci5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICBsaW5rc1tpXS5hcHBlbmRDaGlsZChob3Zlcik7DQogICAgLy8gY29uc29sZS5sb2cobGlua3NbaV0uZ2V0QXR0cmlidXRlKCdlZDpoeXBlcmxpbmsnKSk7DQogICAgdmFyIGE9SlNPTi5wYXJzZShsaW5rc1tpXS5nZXRBdHRyaWJ1dGUoJ2VkOmh5cGVybGluaycpKTsNCiAgICB2YXIgY3M9bGlua3NbaV0ucXVlcnlTZWxlY3RvcigndXNlJykuZ2V0QXR0cmlidXRlKCd0cmFuc2Zvcm0nKS5tYXRjaCgvXCgoXFMqfFxTKlxzXFMqKVwpLylbMV0uc3BsaXQoLyB8LC8pOw0KICAgIHZhciBwcz1saW5rc1tpXS5wYXJlbnROb2RlLmdldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyk7DQogICAgaWYocHMuc3Vic3RyKDAsMikgPT0gJ3RyJyl7DQogICAgICAgIHZhciBwcHMgPSBwcy5tYXRjaCgvXCgoXFMqfFxTKlxzXFMqKVwpLylbMV0uc3BsaXQoLyB8LC8pOw0KICAgICAgICB2YXIgeD1wYXJzZUZsb2F0KGNzWzBdKStwYXJzZUZsb2F0KHBwc1swXSk7DQogICAgICAgIHZhciB5PXBhcnNlRmxvYXQocHBzWzFdKTsNCiAgICAgICAgeD14LnRvc3VpdHN2ZygpOw0KICAgICAgICB5PXkudG9zdWl0c3ZnKCk7DQogICAgICAgIHZhciB0cnN0ciA9ICd0cmFuc2xhdGUoJyt4KycsJyt5KycpJzsNCiAgICB9ZWxzZSBpZihwcy5zdWJzdHIoMCwyKSA9PSAnbWEnKXsNCiAgICAgICAgdmFyIHBwcyA9IHBzLm1hdGNoKC8oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pW1wsIF0oXC0/XGQrKFwuXGQrKT8pXCkkLyk7DQogICAgICAgIHZhciBtYUFyciA9IFtwYXJzZUZsb2F0KHBwc1sxXSkscGFyc2VGbG9hdChwcHNbM10pLHBhcnNlRmxvYXQocHBzWzVdKSxwYXJzZUZsb2F0KHBwc1s3XSkscGFyc2VGbG9hdChwcHNbOV0pLHBhcnNlRmxvYXQocHBzWzExXSldOw0KICAgICAgICBpZihtYUFyclsxXSA9PSAwKXsNCiAgICAgICAgICAgIHZhciB4ID0gcGFyc2VGbG9hdChjc1swXSk7DQogICAgICAgICAgICB2YXIgeSA9IHBhcnNlRmxvYXQoY3NbMV0pKzE2Ow0KICAgICAgICAgICAgdmFyIHgxID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTEgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHgxPXgxLnRvc3VpdHN2ZygpOw0KICAgICAgICAgICAgeTE9eTEudG9zdWl0c3ZnKCk7DQogICAgICAgICAgICB2YXIgdHJzdHIgPSAgJ3RyYW5zbGF0ZSgnK3gxKycsJyt5MSsnKSc7DQogICAgICAgIH1lbHNlew0KICAgICAgICAgICAgdmFyIHggPSBwYXJzZUZsb2F0KGNzWzBdKSsxNjsNCiAgICAgICAgICAgIHZhciB5ID0gcGFyc2VGbG9hdChjc1sxXSkrMTY7DQogICAgICAgICAgICB2YXIgeDEgPSB4ICogbWFBcnJbMF0gKyB5ICogbWFBcnJbMl0gKyBtYUFycls0XTsNCiAgICAgICAgICAgIHZhciB5MSA9IHggKiBtYUFyclsxXSArIHkgKiBtYUFyclszXSArIG1hQXJyWzVdOw0KICAgICAgICAgICAgeCA9IHBhcnNlRmxvYXQoY3NbMF0pKzE2Ow0KICAgICAgICAgICAgeSA9IHBhcnNlRmxvYXQoY3NbMV0pOw0KICAgICAgICAgICAgdmFyIHgyID0geCAqIG1hQXJyWzBdICsgeSAqIG1hQXJyWzJdICsgbWFBcnJbNF07DQogICAgICAgICAgICB2YXIgeTIgPSB4ICogbWFBcnJbMV0gKyB5ICogbWFBcnJbM10gKyBtYUFycls1XTsNCiAgICAgICAgICAgIHZhciBmeCA9IHgxPHgyP3gxLnRvc3VpdHN2ZygpOiB4Mi50b3N1aXRzdmcoKTsNCiAgICAgICAgICAgIHZhciBmeSA9IHkxPnkyP3kxLnRvc3VpdHN2ZygpOiB5Mi50b3N1aXRzdmcoKTsNCgkJCXZhciBvZmZ5ID0gTWF0aC5hYnMoeTEteTIpOwkJCQkJCQkJCQkgIA0KICAgICAgICAgICAgdmFyIHRyc3RyID0gICd0cmFuc2xhdGUoJytmeCsnLCcrZnkrJyknOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnaGVpZ2h0JyxvZmZ5LnRvU3RyaW5nKCkpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgnd2lkdGgnLCcxNicpOw0KICAgICAgICAgICAgcG9wdXBSLnNldEF0dHJpYnV0ZSgneScsKC1vZmZ5KS50b1N0cmluZygpKTsNCiAgICAgICAgICAgIHBvcHVwUi5zZXRBdHRyaWJ1dGUoJ2ZpbGwnLCd0cmFuc3BhcmVudCcpOw0KICAgICAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQocG9wdXBSKTsNCiAgICAgICAgfQ0KICAgIH0NCiAgICB2YXIgYWw9YS5sZW5ndGg7DQogICAgZm9yKHZhciBqPTA7ajxhbDtqKyspew0KICAgICAgICBsaW5rYXJyLnB1c2goYVtqXS5saW5rKTsNCiAgICAgICAgZGVzY2Fyci5wdXNoKGFbal0uZGVzYyk7DQogICAgfQ0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgndHJhbnNmb3JtJyx0cnN0cik7DQogICAgdmFyIG1heD1nZXRtYXhsZW4obGlua2FycixkZXNjYXJyKTsNCiAgICBmb3IodmFyIGs9MDtrPGFsO2srKyl7DQogICAgICAgIHZhciBjPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdhJyk7DQogICAgICAgIHZhciBkPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCdyZWN0Jyk7DQogICAgICAgIHZhciBlPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIHZhciBmPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnROUygnaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnLCd0ZXh0Jyk7DQogICAgICAgIGlmKGlzTmFOKGxpbmthcnJba10pKXsNCiAgICAgICAgICAgIGMuc2V0QXR0cmlidXRlTlMoImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiwgInhsaW5rIiwgImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiKTsNCiAgICAgICAgICAgIGMuc2V0QXR0cmlidXRlTlMoImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiLCAiaHJlZiIsIGxpbmthcnJba10pOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGUoJ3RhcmdldCcsJ19ibGFuaycpOw0KICAgICAgICAgICAgZS50ZXh0Q29udGVudD1saW5rYXJyW2tdOw0KICAgICAgICB9ZWxzZXsNCiAgICAgICAgICAgIGUudGV4dENvbnRlbnQ9J1BhZ2UtJytsaW5rYXJyW2tdOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGVOUygiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLCAieGxpbmsiLCAiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIpOw0KICAgICAgICAgICAgYy5zZXRBdHRyaWJ1dGVOUygiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIsICJocmVmIiwgIiMiK2xpbmthcnJba10pOw0KICAgICAgICB9DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCd3aWR0aCcsbWF4KzEwKTsNCiAgICAgICAgZC5zZXRBdHRyaWJ1dGUoJ2hlaWdodCcsJzMzJyk7DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCdzdHJva2UnLCcjOTk5OTk5Jyk7DQogICAgICAgIGQuc2V0QXR0cmlidXRlKCdmaWxsJywnd2hpdGUnKTsNCiAgICAgICAgZC5zZXRBdHRyaWJ1dGUoJ3knLDMzKmspOw0KICAgICAgICBmLnRleHRDb250ZW50PWRlc2NhcnJba107DQogICAgICAgIGYuc3R5bGUuZm9udFNpemU9JzEycHgnOw0KICAgICAgICBmLnN0eWxlLmZvbnRXZWlnaHQ9J2JvbGQnOw0KICAgICAgICBmLnNldEF0dHJpYnV0ZSgneCcsNSk7DQogICAgICAgIGYuc2V0QXR0cmlidXRlKCd5JywzMyprKzEyKTsNCiAgICAgICAgZS5zdHlsZS5mb250U2l6ZT0nMTJweCc7DQogICAgICAgIGUuc2V0QXR0cmlidXRlKCd5JywzMyprKzI4KTsNCiAgICAgICAgZS5zZXRBdHRyaWJ1dGUoJ3gnLDUpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGQpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGYpOw0KICAgICAgICBjLmFwcGVuZENoaWxkKGUpOw0KICAgICAgICBjLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgICAgIHRoaXMucXVlcnlTZWxlY3RvcigncmVjdCcpLnN0eWxlLmZpbGw9JyNlMWUxZmYnDQogICAgICAgIH07DQogICAgICAgIGMub25tb3VzZW91dD1mdW5jdGlvbiAoKSB7DQogICAgICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5maWxsPSd3aGl0ZScNCiAgICAgICAgfTsNCiAgICAgICAgcG9wdXAuYXBwZW5kQ2hpbGQoYyk7DQogICAgfQ0KICAgIHBvcHVwLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIHBvcHVwLnNldEF0dHJpYnV0ZSgnaHlwZXJsaW5rJywnJyk7DQogICAgcG9wdXAuc2V0QXR0cmlidXRlKCdlZDpsaW5raWQnLGxpbmtzW2ldLnBhcmVudE5vZGUuaWQpOw0KICAgIHBvcHVwLm9ubW91c2VvdmVyPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdibG9jayc7DQogICAgfTsNCiAgICBwb3B1cC5vbmNsaWNrPWZ1bmN0aW9uICgpIHsNCiAgICAgICAgdGhpcy5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9Ow0KICAgIHBvcHVwLm9ubW91c2VvdXQ9ZnVuY3Rpb24gKCkgew0KICAgICAgICB0aGlzLnN0eWxlLmRpc3BsYXk9J25vbmUnOw0KICAgIH07DQogICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcignI3N2Zy1jb250YWluZXIgPiBzdmcnKS5hcHBlbmRDaGlsZChwb3B1cCk7DQogICAgbGlua3NbaV0ub25tb3VzZW92ZXI9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgbGlua2lkPXRoaXMucGFyZW50Tm9kZS5pZDsNCiAgICAgICAgdGhpcy5xdWVyeVNlbGVjdG9yKCdyZWN0Jykuc3R5bGUuZGlzcGxheT0nYmxvY2snOw0KICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6bGlua2lkPSciK2xpbmtpZCsiJ11baHlwZXJsaW5rXSIpLnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsNCiAgICB9DQogICAgbGlua3NbaV0ub25tb3VzZW91dD1mdW5jdGlvbiAoKSB7DQogICAgICAgIHZhciBsaW5raWQ9dGhpcy5wYXJlbnROb2RlLmlkOw0KICAgICAgICB0aGlzLnF1ZXJ5U2VsZWN0b3IoJ3JlY3QnKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOmxpbmtpZD0nIitsaW5raWQrIiddW2h5cGVybGlua10iKS5zdHlsZS5kaXNwbGF5PSdub25lJzsNCiAgICB9DQp9DQovLy0taHlwZXJsaW5rDQovL2luaXRpYWxpemUtLQ0KdmFyIHNoYXBlPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2dbZWRcXDp0b2d0b3BpY2lkXScpOw0KdmFyIG1JZD1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCdnW2VkXFw6dG9waWN0eXBlXScpOw0KdmFyIGRhdGFUcmVlPXt9Ow0KdmFyIGV4dHJhUmVsYT17fTsNCnZhciBjaGVja0lEPScnOw0KZm9yKHZhciBpPTA7aTxtSWQubGVuZ3RoO2krKyl7DQogICAgdmFyIHR5cGU9bUlkW2ldLmdldEF0dHJpYnV0ZSgnZWQ6dG9waWN0eXBlJyk7DQogICAgdmFyIHNpZD1tSWRbaV0uaWQ7DQogICAgaWYodHlwZSE9PSdjYWxsb3V0Jyl7DQogICAgICAgIGluaXQoc2lkLGRhdGFUcmVlKQ0KICAgIH0NCn0NCmZ1bmN0aW9uIGluaXQoaWQsIG9iaikgew0KICAgIHZhciBjaGlsZHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6cGFyZW50aWQ9JyIgKyBpZCArICInXTpub3QoW2VkXFw6dG9waWN0eXBlXSkiKTsNCiAgICB2YXIgY2FsbHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6cGFyZW50aWQ9JyIgKyBpZCArICInXVtlZFxcOnRvcGljdHlwZV0iKTsNCiAgICB2YXIgc3VtbWFyeSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoInBhdGhbZWRcXDpwYXJlbnRpZCo9JyIgKyBpZCArICInXVtlZFxcOnR5cGU9J3N1bW1hcnknXSIpOw0KICAgIHZhciBib3VuZGFyeT0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgicGF0aFtlZFxcOnBhcmVudGlkKj0nIiArIGlkICsgIiddW2VkXFw6dHlwZT0nYm91bmRhcnknXSIpOw0KICAgIHZhciByZWxhZnJvbT1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJnW2VkXFw6ZnJvbWlkKj0nIiArIGlkICsgIiddW2VkXFw6dHlwZT0ncmVsYXRpb24nXSIpOw0KICAgIHZhciByZWxhdG89ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgiZ1tlZFxcOnRvaWQqPSciICsgaWQgKyAiJ11bZWRcXDp0eXBlPSdyZWxhdGlvbiddIik7DQogICAgb2JqWyJtIiArIGlkXSA9IHt9Ow0KICAgIHZhciB0eXBlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLmdldEF0dHJpYnV0ZSgnZWQ6dG9waWN0eXBlJyk7DQogICAgdmFyIGl3PWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOndpZHRoJyk7DQogICAgdmFyIGloPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOmhlaWdodCcpOw0KICAgIGlmICh0eXBlKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0udHlwZSA9IHR5cGU7DQogICAgfQ0KICAgIGlmKGl3JiZpaCl7DQogICAgICAgIG9ialsibSIgKyBpZF0ud2lkdGggPWl3Ow0KICAgICAgICBvYmpbIm0iICsgaWRdLmhlaWdodCA9aWg7DQogICAgfQ0KICAgIGlmIChyZWxhZnJvbS5sZW5ndGggIT09IDApIHsNCiAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhZnJvbSA9IHt9Ow0KICAgICAgICBmb3IgKHZhciBpID0gMDsgaSA8IHJlbGFmcm9tLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgaW5kZXhpZCA9IHJlbGFmcm9tW2ldLmlkOw0KICAgICAgICAgICAgdmFyIHRvaWQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpbmRleGlkKS5nZXRBdHRyaWJ1dGUoJ2VkOnRvaWQnKTsNCiAgICAgICAgICAgIGlmIChleHRyYVJlbGFbaW5kZXhpZF0gPT09IHVuZGVmaW5lZCkgew0KICAgICAgICAgICAgICAgIGV4dHJhUmVsYVtpbmRleGlkXSA9IHsNCiAgICAgICAgICAgICAgICAgICAgaWQ6IGluZGV4aWQsDQogICAgICAgICAgICAgICAgICAgIGZyb21pZDogaWQsDQogICAgICAgICAgICAgICAgICAgIHRvaWQ6IHRvaWQsDQogICAgICAgICAgICAgICAgICAgIGlzQzogZmFsc2UNCiAgICAgICAgICAgICAgICB9Ow0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhZnJvbVtpbmRleGlkXT17fTsNCiAgICAgICAgICAgIG9ialsibSIgKyBpZF0ucmVsYWZyb20uZGlzcGxheT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSAhPT0gJ25vbmUnPydibG9jayc6J25vbmUnOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChyZWxhdG8ubGVuZ3RoICE9PSAwKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0ucmVsYXRvID0ge307DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgcmVsYXRvLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgaW5kZXhpZD1yZWxhdG9baV0uaWQ7DQogICAgICAgICAgICB2YXIgZnJvbWlkPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGluZGV4aWQpLmdldEF0dHJpYnV0ZSgnZWQ6ZnJvbWlkJyk7DQogICAgICAgICAgICBpZihleHRyYVJlbGFbaW5kZXhpZF0gPT09IHVuZGVmaW5lZCl7DQogICAgICAgICAgICAgICAgZXh0cmFSZWxhW2luZGV4aWRdPXsNCiAgICAgICAgICAgICAgICAgICAgaWQ6aW5kZXhpZCwNCiAgICAgICAgICAgICAgICAgICAgZnJvbWlkOmZyb21pZCwNCiAgICAgICAgICAgICAgICAgICAgdG9pZDppZCwNCiAgICAgICAgICAgICAgICAgICAgaXNDOmZhbHNlDQogICAgICAgICAgICAgICAgfTsNCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIG9ialsibSIgKyBpZF0ucmVsYXRvW2luZGV4aWRdPXt9Ow0KICAgICAgICAgICAgb2JqWyJtIiArIGlkXS5yZWxhdG8uZGlzcGxheT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSAhPT0gJ25vbmUnPydibG9jayc6J25vbmUnOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChjaGlsZHMubGVuZ3RoICE9PSAwKSB7DQogICAgICAgIG9ialsibSIgKyBpZF0uY2hpbGQgPSB7fTsNCiAgICAgICAgaWYgKGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciICsgaWQgKyAiJ10iKSkgew0KICAgICAgICAgICAgLy8gY29uc29sZS5sb2coZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOnRvZ3RvcGljaWQ9JyIgKyBpZCArICInXSIpLmNoaWxkTm9kZXNbMF0uZ2V0QXR0cmlidXRlKCd4bGluazpocmVmJykpOw0KICAgICAgICAgICAgdmFyIHRvZyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciICsgaWQgKyAiJ10iKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgndXNlJylbMF0uZ2V0QXR0cmlidXRlKCd4bGluazpocmVmJykuc2xpY2UoMSk7DQogICAgICAgICAgICBvYmpbIm0iICsgaWRdLnRvZ3R5cGUgPSB0b2c7DQogICAgICAgIH0NCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjaGlsZHMubGVuZ3RoOyBpKyspIHsNCiAgICAgICAgICAgIHZhciBjaWQgPSBjaGlsZHNbaV0uaWQ7DQogICAgICAgICAgICBpbml0KGNpZCwgb2JqWyJtIiArIGlkXS5jaGlsZCk7DQogICAgICAgIH0NCiAgICB9DQogICAgaWYgKGNhbGxzLmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLmNhbGwgPSB7fTsNCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjYWxscy5sZW5ndGg7IGkrKykgew0KICAgICAgICAgICAgdmFyIGNpZCA9IGNhbGxzW2ldLmlkOw0KICAgICAgICAgICAgaW5pdChjaWQsIG9ialsibSIgKyBpZF0uY2FsbCk7DQogICAgICAgIH0NCiAgICB9DQogICAgaWYgKGJvdW5kYXJ5Lmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLmJvdW5kYXJ5ID0ge307DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgYm91bmRhcnkubGVuZ3RoOyBpKyspIHsNCiAgICAgICAgICAgIHZhciBjaWQgPWJvdW5kYXJ5W2ldLmlkOw0KICAgICAgICAgICAgaW5pdChjaWQsIG9ialsibSIgKyBpZF0uYm91bmRhcnkpOw0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChzdW1tYXJ5Lmxlbmd0aCAhPT0gMCkgew0KICAgICAgICBvYmpbIm0iICsgaWRdLnN1bW1hcnkgPSB7fTsNCiAgICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBzdW1tYXJ5Lmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgY2lkID0gc3VtbWFyeVtpXS5pZDsNCiAgICAgICAgICAgIGluaXQoY2lkLCBvYmpbIm0iICsgaWRdLnN1bW1hcnkpOw0KICAgICAgICB9DQogICAgfQ0KfQ0KLy8tLWluaXRpYWxpemUNCi8vdG9nZ2xlZGlzcGxheS0tDQp2YXIgY2hhaW5BcnI9W107DQpmdW5jdGlvbiBnZXRjaGFpbihpZCl7DQogICAgY2hhaW5BcnIudW5zaGlmdCgnbScraWQpOw0KICAgIHZhciBwYXJlbnQ9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaWQpLmdldEF0dHJpYnV0ZSgnZWQ6cGFyZW50aWQnKTsNCiAgICBpZighcGFyZW50KXsNCiAgICAgICAgcmV0dXJuOw0KICAgIH0NCglpZihwYXJlbnQubWF0Y2goL1wsLykpew0KICAgICAgICBwYXJlbnQgPSBwYXJlbnQubWF0Y2goL1xkKyg/PVwsKS8pWzBdDQogICAgfQ0KICAgIGdldGNoYWluKHBhcmVudCk7DQp9DQpmdW5jdGlvbiBnZXRvYmooaWQpIHsNCiAgICBjaGFpbkFycj1bXTsNCiAgICBnZXRjaGFpbihpZCk7DQogICAgdmFyIG1haW49Y2hhaW5BcnJbMF07DQogICAgaWYoY2hhaW5BcnIubGVuZ3RoPjEpew0KICAgICAgICB2YXIgb2JqPWRhdGFUcmVlW21haW5dOw0KICAgICAgICAvLyBjb25zb2xlLmxvZyhjaGFpbkFycik7DQogICAgICAgIGZvcih2YXIgaT0xO2k8Y2hhaW5BcnIubGVuZ3RoO2krKykgew0KICAgICAgICAgICAgdmFyIGEgPSBjaGFpbkFycltpXTsNCiAgICAgICAgICAgIGZvcih2YXIgaj0wO2o8T2JqZWN0LmtleXMob2JqKS5sZW5ndGg7aisrKXsNCiAgICAgICAgICAgICAgICB2YXIgY29iaj0gb2JqW09iamVjdC5rZXlzKG9iailbal1dW2FdOw0KICAgICAgICAgICAgICAgIGlmKGNvYmopew0KICAgICAgICAgICAgICAgICAgICBvYmo9Y29iajsNCiAgICAgICAgICAgICAgICAgICAgY29udGludWUNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICAgICAgcmV0dXJuIG9iag0KICAgIH1lbHNlew0KICAgICAgICB2YXIgb2JqPWRhdGFUcmVlW21haW5dOw0KICAgICAgICByZXR1cm4gb2JqDQogICAgfQ0KDQp9DQpmb3IodmFyIGk9MDtpPHNoYXBlLmxlbmd0aDtpKyspew0KICAgIHNoYXBlW2ldLm9uY2xpY2s9ZnVuY3Rpb24gKCkgew0KICAgICAgICB2YXIgaWQ9TnVtYmVyKHRoaXMuZ2V0QXR0cmlidXRlKCdlZDp0b2d0b3BpY2lkJykpOw0KICAgICAgICB2YXIgb2JqPWdldG9iaihpZCk7DQoNCiAgICAgICAgdmFyIHR5cGU9b2JqLnRvZ3R5cGU9PT0nbWludXMnPydwbHVzJzonbWludXMnOw0KICAgICAgICB2YXIgZGlzcGxheT1vYmoudG9ndHlwZT09PSdtaW51cyc/J25vbmUnOidibG9jayc7DQogICAgICAgIHRoaXMuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ3VzZScpWzBdLnNldEF0dHJpYnV0ZSgneGxpbms6aHJlZicsJyMnK3R5cGUpOw0KICAgICAgICBvYmoudG9ndHlwZT10eXBlOw0KICAgICAgICBjaGVja0lEPW9iajsNCg0KICAgICAgICB1dGQob2JqLGlkLGRpc3BsYXkpOw0KICAgICAgICBleHRyYVJlbGFGaW4oKTsNCiAgICB9DQp9DQpmdW5jdGlvbiB1dGQob2JqLGlkLHNob3csb2MpIHsNCg0KICAgIHZhciBwc2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCkuc3R5bGUuZGlzcGxheSE9PSAnbm9uZSc/J2Jsb2NrJzonbm9uZSc7DQogICAgaWYgKG9iai5yZWxhZnJvbSl7DQogICAgICAgIGlmKG9iai5yZWxhZnJvbS5kaXNwbGF5IT09IHBzaG93KXsNCiAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMob2JqLnJlbGFmcm9tKTsNCiAgICAgICAgICAgIHJlbGFmcm9tcy5zcGxpY2UocmVsYWZyb21zLmluZGV4T2YoJ2Rpc3BsYXknKSwxKTsNCiAgICAgICAgICAgIGZvcih2YXIgaz0wO2s8cmVsYWZyb21zLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgICAgIHZhciBkPXJlbGFmcm9tc1trXTsNCiAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBvYmoucmVsYWZyb20uZGlzcGxheSA9IHBzaG93Ow0KICAgICAgICB9DQogICAgfQ0KICAgIGlmIChvYmoucmVsYXRvKXsNCiAgICAgICAgaWYob2JqLnJlbGF0by5kaXNwbGF5IT09IHBzaG93KXsNCiAgICAgICAgICAgIHZhciByZWxhdG9zPU9iamVjdC5rZXlzKG9iai5yZWxhdG8pOw0KICAgICAgICAgICAgcmVsYXRvcy5zcGxpY2UocmVsYXRvcy5pbmRleE9mKCdkaXNwbGF5JyksMSk7DQogICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGF0b3MubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgdmFyIGQ9cmVsYXRvc1trXTsNCiAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICB9DQogICAgICAgICAgICBvYmoucmVsYXRvLmRpc3BsYXkgPSBwc2hvdzsNCiAgICAgICAgfQ0KICAgIH0NCiAgICBpZihvYmouY2FsbCl7DQogICAgICAgIHZhciBjYWxscz1PYmplY3Qua2V5cyhvYmouY2FsbCk7DQogICAgICAgIGlmKGNoZWNrSUQhPT1vYmopew0KICAgICAgICAgICAgZm9yKHZhciBpPTA7aSA8IGNhbGxzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPWNhbGxzW2ldLnNsaWNlKDEpOw0KICAgICAgICAgICAgICAgIHZhciBiPW9iai5jYWxsW2NhbGxzW2ldXTsNCiAgICAgICAgICAgICAgICB2YXIgYz1iLnRvZ3R5cGU7DQogICAgICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoYSkuc3R5bGUuZGlzcGxheT1zaG93Ow0KICAgICAgICAgICAgICAgIGlmIChiLnJlbGFmcm9tJiYhYyl7DQogICAgICAgICAgICAgICAgICAgIGlmKGIucmVsYWZyb20uZGlzcGxheSE9PSBzaG93KXsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMoYi5yZWxhZnJvbSk7DQogICAgICAgICAgICAgICAgICAgICAgICByZWxhZnJvbXMuc3BsaWNlKHJlbGFmcm9tcy5pbmRleE9mKCdkaXNwbGF5JyksMSk7DQogICAgICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGFmcm9tcy5sZW5ndGg7aysrKXsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhZnJvbXNba107DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgYi5yZWxhZnJvbS5kaXNwbGF5ID0gc2hvdzsNCiAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBpZiAoYi5yZWxhdG8mJiFjKXsNCiAgICAgICAgICAgICAgICAgICAgaWYoYi5yZWxhdG8uZGlzcGxheSE9PSBzaG93KXsNCiAgICAgICAgICAgICAgICAgICAgICAgIHZhciByZWxhdG9zPU9iamVjdC5rZXlzKGIucmVsYXRvKTsNCiAgICAgICAgICAgICAgICAgICAgICAgIHJlbGF0b3Muc3BsaWNlKHJlbGF0b3MuaW5kZXhPZignZGlzcGxheScpLDEpOw0KICAgICAgICAgICAgICAgICAgICAgICAgZm9yKHZhciBrPTA7azxyZWxhdG9zLmxlbmd0aDtrKyspew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhciBkPXJlbGF0b3Nba107DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgICAgYi5yZWxhdG8uZGlzcGxheSA9IHNob3c7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoYyl7DQogICAgICAgICAgICAgICAgICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImdbZWRcXDp0b2d0b3BpY2lkPSciK2ErIiddIikuc3R5bGUuZGlzcGxheT1zaG93Ow0KICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQogICAgICAgICAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgaWYgKChiLmNhbGx8fGIuYm91bmRhcnl8fGIuc3VtbWFyeSkmJmM9PT0ncGx1cycpIHsNCiAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdyx0cnVlKQ0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCiAgICAgICAgICAgICAgICAgICAgdXRkKGIsYSxzaG93LHRydWUpDQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIGlmIChiLnN1bW1hcnkmJiFjKSB7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYgKGIuYm91bmRhcnkmJiFjKSB7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQoNCiAgICAgICAgICAgIH0NCiAgICAgICAgfQ0KICAgIH0NCiAgICBpZihvYmouc3VtbWFyeSl7DQogICAgICAgIHZhciBzdW1tYXJ5cz1PYmplY3Qua2V5cyhvYmouc3VtbWFyeSk7DQogICAgICAgIGlmKChjaGVja0lEIT09b2JqJiYob2JqLnRvZ3R5cGU9PT0nbWludXMnfHwhb2JqLnRvZ3R5cGUpKXx8Y2hlY2tJRD09PW9iail7DQogICAgICAgICAgICBmb3IodmFyIGk9MDtpPHN1bW1hcnlzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPXN1bW1hcnlzW2ldLnNsaWNlKDEpOw0KCQkJCXZhciBvc3AgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5nZXRBdHRyaWJ1dGUoJ2VkOnBhcmVudGlkJyk7DQogICAgICAgICAgICAgICAgaWYob3NwLm1hdGNoKC9cLC8pKXsNCiAgICAgICAgICAgICAgICAgICAgdmFyIG9zcGEgPSBvc3Auc3BsaXQoJywnKTsNCiAgICAgICAgICAgICAgICAgICAgdmFyIG9zcEw9MDsNCg0KICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGo9MDtqPG9zcGEubGVuZ3RoO2orKyl7DQogICAgICAgICAgICAgICAgICAgICAgICBpZihzaG93ID09ICdub25lJyl7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQob3NwYVtqXSkuc3R5bGUuZGlzcGxheSAhPSAnbm9uZScpew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9ZWxzZXsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3NwTCsrOw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIH1lbHNlew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZihkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5ICE9ICdub25lJyl7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfWVsc2V7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvc3BMKys7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgIGlmKG9zcEwgIT09IG9zcGEubGVuZ3RoKXsNCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlOw0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgIHZhciBiPW9iai5zdW1tYXJ5W3N1bW1hcnlzW2ldXTsNCiAgICAgICAgICAgICAgICAvLyBjb25zb2xlLmxvZyhhKTsNCiAgICAgICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5PXNob3c7DQovLyAgICAgICAgICAgICAgICBpZihjKXsNCi8vICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6dG9ndG9waWNpZD0nIithKyInXSIpLnN0eWxlLmRpc3BsYXk9c2hvdzsNCi8vICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQovLyAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLHNob3cpDQovLyAgICAgICAgICAgICAgICAgICAgfQ0KLy8gICAgICAgICAgICAgICAgICAgIGlmIChiLmNhbGwmJmM9PT0ncGx1cycpIHsNCi8vICAgICAgICAgICAgICAgICAgICAgICAgdXRkKGIsc2hvdyx0cnVlKQ0KLy8gICAgICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCi8vICAgICAgICAgICAgICAgICAgICB1dGQoYixzaG93LHRydWUpDQovLyAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoT2JqZWN0LmtleXMoYikubGVuZ3RoIT09MCl7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYob2JqLmJvdW5kYXJ5KXsNCiAgICAgICAgdmFyIGJvdW5kYXJ5cz1PYmplY3Qua2V5cyhvYmouYm91bmRhcnkpOw0KICAgICAgICBpZihjaGVja0lEIT09b2JqKXsNCiAgICAgICAgICAgIGZvcih2YXIgaT0wO2k8Ym91bmRhcnlzLmxlbmd0aDtpKyspew0KICAgICAgICAgICAgICAgIHZhciBhPWJvdW5kYXJ5c1tpXS5zbGljZSgxKTsNCiAgICAgICAgICAgICAgICB2YXIgYj1vYmouYm91bmRhcnlbYm91bmRhcnlzW2ldXTsNCiAgICAgICAgICAgICAgICAvLyBjb25zb2xlLmxvZyhhKTsNCiAgICAgICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChhKS5zdHlsZS5kaXNwbGF5PXNob3c7DQovLyAgICAgICAgICAgICAgICBpZihjKXsNCi8vICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6dG9ndG9waWNpZD0nIithKyInXSIpLnN0eWxlLmRpc3BsYXk9c2hvdzsNCi8vICAgICAgICAgICAgICAgICAgICBpZihjPT09J21pbnVzJyl7DQovLyAgICAgICAgICAgICAgICAgICAgICAgIHV0ZChiLHNob3cpDQovLyAgICAgICAgICAgICAgICAgICAgfQ0KLy8gICAgICAgICAgICAgICAgICAgIGlmIChiLmNhbGwmJmM9PT0ncGx1cycpIHsNCi8vICAgICAgICAgICAgICAgICAgICAgICAgdXRkKGIsc2hvdyx0cnVlKQ0KLy8gICAgICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIH0NCi8vICAgICAgICAgICAgICAgIGlmKGIuY2FsbCYmIWMpIHsNCi8vICAgICAgICAgICAgICAgICAgICB1dGQoYixzaG93LHRydWUpDQovLyAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgaWYoT2JqZWN0LmtleXMoYikubGVuZ3RoIT09MCl7DQogICAgICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdykNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQogICAgaWYoIW9jJiZvYmouY2hpbGQpIHsNCiAgICAgICAgdmFyIGNoaWxkcyA9IE9iamVjdC5rZXlzKG9iai5jaGlsZCk7DQogICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgY2hpbGRzLmxlbmd0aDsgaSsrKSB7DQogICAgICAgICAgICB2YXIgYSA9IGNoaWxkc1tpXS5zbGljZSgxKTsNCiAgICAgICAgICAgIHZhciBiID0gb2JqLmNoaWxkW2NoaWxkc1tpXV07DQogICAgICAgICAgICB2YXIgYyA9IGIudG9ndHlwZTsNCiAgICAgICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGEpLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KCQkJdmFyIHRTUGF0aCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInBhdGhbZWRcXDp0b3N1cGVyaWQ9JyIrYSsiJ10iKTsNCiAgICAgICAgICAgIGlmKHRTUGF0aCl7DQogICAgICAgICAgICAgICAgdFNQYXRoLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgfQ0KCQkJdmFyIG5vdGVUaXAgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCJnW2VkXFw6bm90ZXRvPSciK2ErIiddIik7DQogICAgICAgICAgICBpZihub3RlVGlwKXsNCiAgICAgICAgICAgICAgICBub3RlVGlwLnN0eWxlLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgaWYgKGIucmVsYWZyb20mJiFjKXsNCiAgICAgICAgICAgICAgICBpZihiLnJlbGFmcm9tLmRpc3BsYXkhPT0gc2hvdyl7DQogICAgICAgICAgICAgICAgICAgIHZhciByZWxhZnJvbXM9T2JqZWN0LmtleXMoYi5yZWxhZnJvbSk7DQogICAgICAgICAgICAgICAgICAgIHJlbGFmcm9tcy5zcGxpY2UocmVsYWZyb21zLmluZGV4T2YoJ2Rpc3BsYXknKSwxKTsNCiAgICAgICAgICAgICAgICAgICAgZm9yKHZhciBrPTA7azxyZWxhZnJvbXMubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhZnJvbXNba107DQogICAgICAgICAgICAgICAgICAgICAgICBleHRyYVJlbGFbZF0uaXNDPXRydWU7DQogICAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICAgICAgYi5yZWxhZnJvbS5kaXNwbGF5ID0gc2hvdzsNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5yZWxhdG8mJiFjKXsNCiAgICAgICAgICAgICAgICBpZihiLnJlbGF0by5kaXNwbGF5IT09IHNob3cpew0KICAgICAgICAgICAgICAgICAgICB2YXIgcmVsYXRvcz1PYmplY3Qua2V5cyhiLnJlbGF0byk7DQogICAgICAgICAgICAgICAgICAgIHJlbGF0b3Muc3BsaWNlKHJlbGF0b3MuaW5kZXhPZignZGlzcGxheScpLDEpOw0KICAgICAgICAgICAgICAgICAgICBmb3IodmFyIGs9MDtrPHJlbGF0b3MubGVuZ3RoO2srKyl7DQogICAgICAgICAgICAgICAgICAgICAgICB2YXIgZD1yZWxhdG9zW2tdOw0KICAgICAgICAgICAgICAgICAgICAgICAgZXh0cmFSZWxhW2RdLmlzQz10cnVlOw0KICAgICAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgICAgIGIucmVsYXRvLmRpc3BsYXkgPSBzaG93Ow0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIGlmIChjKSB7DQogICAgICAgICAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiZ1tlZFxcOnRvZ3RvcGljaWQ9JyIgKyBhICsgIiddIikuc3R5bGUuZGlzcGxheSA9IHNob3c7DQogICAgICAgICAgICAgICAgaWYgKGMgPT09ICdtaW51cycpIHsNCiAgICAgICAgICAgICAgICAgICAgdXRkKGIsYSxzaG93KQ0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgICBpZiAoKGIuY2FsbHx8Yi5ib3VuZGFyeXx8Yi5zdW1tYXJ5KSYmYz09PSdwbHVzJykgew0KICAgICAgICAgICAgICAgICAgICB1dGQoYixhLHNob3csdHJ1ZSkNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5jYWxsJiYhYykgew0KICAgICAgICAgICAgICAgIHV0ZChiLGEsc2hvdyx0cnVlKQ0KICAgICAgICAgICAgfQ0KICAgICAgICAgICAgaWYgKGIuc3VtbWFyeSYmIWMpIHsNCiAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICB9DQogICAgICAgICAgICBpZiAoYi5ib3VuZGFyeSYmIWMpIHsNCiAgICAgICAgICAgICAgICB1dGQoYixhLHNob3cpDQogICAgICAgICAgICB9DQogICAgICAgIH0NCiAgICB9DQp9DQoNCmZ1bmN0aW9uIGV4dHJhUmVsYUZpbigpIHsNCiAgICB2YXIgZXh0cmFrZXlzPU9iamVjdC5rZXlzKGV4dHJhUmVsYSk7DQogICAgZm9yKHZhciBpPTA7aTxleHRyYWtleXMubGVuZ3RoO2krKyl7DQogICAgICAgIHZhciBleHRyYU9iaj1leHRyYVJlbGFbZXh0cmFrZXlzW2ldXTsNCiAgICAgICAgaWYoZXh0cmFPYmouaXNDID09PSB0cnVlKXsNCiAgICAgICAgICAgIHZhciBmc2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai5mcm9taWQpLnN0eWxlLmRpc3BsYXkgIT09J25vbmUnPyB0cnVlOiBmYWxzZTsNCiAgICAgICAgICAgIHZhciB0c2hvdz1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai50b2lkKS5zdHlsZS5kaXNwbGF5ICE9PSdub25lJz8gdHJ1ZTogZmFsc2U7DQogICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChleHRyYU9iai5pZCkuc3R5bGUuZGlzcGxheT1mc2hvdyAmJiB0c2hvdz8gJ2Jsb2NrJzogJ25vbmUnOw0KICAgICAgICAgICAgZXh0cmFSZWxhW2V4dHJha2V5c1tpXV0uaXNDID0gZmFsc2U7DQogICAgICAgIH0NCiAgICB9DQp9'))</script>
+  </body>
+</html>
